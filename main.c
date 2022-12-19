@@ -1,6 +1,6 @@
 #include <MenuGraphique.h>
 
 int main(){
-    test();
+    fenetreMenu();
     return 0;
 }

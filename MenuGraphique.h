@@ -5,8 +5,7 @@
 #include "raylib.h"
 
 
-int test();
-
+int fenetreMenu();
 
 
 

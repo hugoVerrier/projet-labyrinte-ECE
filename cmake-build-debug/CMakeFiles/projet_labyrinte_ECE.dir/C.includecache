@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../MenuGraphique.h
-stdio.h
-../stdio.h
-raylib.h
-../raylib.h
-
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c
 MenuGraphique.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
@@ -21,10 +15,6 @@ stdio.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdio.h
 raylib.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib.h
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c
-MenuGraphique.h
--
 
 /opt/homebrew/Cellar/raylib/4.2.0/include/raylib.h
 stdarg.h
