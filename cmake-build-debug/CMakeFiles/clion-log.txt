@@ -1,0 +1,5 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE
+LIBRARIES = /opt/homebrew/Cellar/raylib/4.2.0/lib/libraylib.4.2.0.dylib;/opt/homebrew/Cellar/raylib/4.2.0/lib/libraylib.420.dylib;/opt/homebrew/Cellar/raylib/4.2.0/lib/libraylib.dylib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug
