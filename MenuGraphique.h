@@ -3,10 +3,11 @@
 
 #include "stdio.h"
 #include "raylib.h"
+#include "unistd.h"
 
 
 int fenetreMenu();
-
+int credits();
 
 
 #endif
