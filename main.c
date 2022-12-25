@@ -1,7 +1,7 @@
 #include <MenuGraphique.h>
 
 int main(){
-    //fenetreMenu();
-    credits();
+    fenetreMenu();
+    //credits();
     return 0;
 }

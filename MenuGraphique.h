@@ -5,9 +5,9 @@
 #include "raylib.h"
 #include "unistd.h"
 
-
-int fenetreMenu();
-int credits();
+typedef enum Fenetre{MENU,NOUVELLE_PARTIE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER,RETOUR}
+Fenetre;
+void fenetreMenu();
 
 
 #endif
