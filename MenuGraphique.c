@@ -2,7 +2,7 @@
 
 
 
-void fenetreMenu(){
+void fenetreMenu(int* menu){
 
     // initialisation de la fenetre
     InitWindow(GetScreenWidth(),GetScreenHeight(),"Menu");
@@ -16,9 +16,11 @@ void fenetreMenu(){
     Image fondImage = LoadImage("../ImagesMenu/fond.png");
     ImageResize(&fondImage,GetScreenWidth(),GetScreenHeight());
     Texture2D fond = LoadTextureFromImage(fondImage);
+
     Image boutonImage = LoadImage("../ImagesMenu/parcheminhorizontal.png");
     ImageResize(&boutonImage,GetScreenWidth()/4,GetScreenHeight()/12);
-    Texture2D bouton = LoadTextureFromImage(boutonImage);
+    Texture2D bouton = LoadTextureFromImage(boutonImage)
+            ;
     Image quitterImage = LoadImage("../ImagesMenu/boutonQuitter.png");
     ImageResize(&quitterImage,GetScreenWidth()/22,GetScreenHeight()/18);
     Texture2D quitter = LoadTextureFromImage(quitterImage);
@@ -78,17 +80,19 @@ void fenetreMenu(){
                 DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+GetScreenWidth()/8},0.0f,1.25f,WHITE);
                 DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+2*GetScreenWidth()/8},0.0f,1.25f,WHITE);
                 DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+3*GetScreenWidth()/8},0.0f,1.25f,WHITE);
+                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/6.5,0+GetScreenHeight()/40},0.0f,1.5f,WHITE);
+                DrawTextEx(font,"KNOSSOS",(Vector2){GetScreenWidth()/2-GetScreenWidth()/30,0+GetScreenHeight()/20},60,0,BLACK);
                 DrawTextEx(font,"Nouvelle partie",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+GetScreenHeight()/32},40,0,BLACK);
                 DrawTextEx(font,"Charger partie",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
                 DrawTextEx(font,"Afficher regle",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+2*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
                 DrawTextEx(font,"Credits",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/50),GetScreenHeight()/8+3*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
-
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = QUITTER;
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8) && (positionSouris.y <= GetScreenHeight()/8+boutonImage.height) ){
                     FenetreActuelle = NOUVELLE_PARTIE;
+
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = CHARGER_PARTIE;
@@ -102,11 +106,57 @@ void fenetreMenu(){
             }break;
             case QUITTER:{
                 fin = 1;
-                // tout unload
+                UnloadFont(font);
+                UnloadTexture(fond);
+                UnloadTexture(quitter);
+                UnloadTexture(retourMenu);
+                UnloadTexture(bouton);
+                UnloadTexture(boutonCredits);
+                UnloadTexture(Eliot);
+                UnloadTexture(Hugo);
+                UnloadTexture(Henin);
+                UnloadTexture(Xavier);
             }break;
             case NOUVELLE_PARTIE:{
                 DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
+                DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
+                DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
+                DrawRectangle(GetScreenWidth()/6+GetScreenWidth()/4-GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40,GetScreenHeight()/10,GetScreenHeight()/20,BROWN);
+                DrawRectangle(GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40,GetScreenHeight()/10,GetScreenHeight()/20,BROWN);
+                DrawTextEx(font,"Regle enfant :\t\t\t\t\t\t\t\tOui\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tNon",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
+                DrawTextEx(font,"Nombre de Joueurs (2, 3 ou 4 Joueurs)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+6*GetScreenHeight()/40},30,2,BLACK);
+                
                 // a faire
+                if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
+                {
+                    FenetreActuelle = MENU;
+                }
+                else if ((positionSouris.x >=GetScreenWidth()/6+GetScreenWidth()/4-GetScreenWidth()/40) && (positionSouris.x <=GetScreenWidth()/6+GetScreenWidth()/4-GetScreenWidth()/40+GetScreenHeight()/10) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/40) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/40+GetScreenHeight()/20) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                    FenetreActuelle = NOUVELLE_PARTIE_ENFANT_OUI;
+                }
+                else if ((positionSouris.x >=GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/40) && (positionSouris.x <=GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/40+GetScreenHeight()/10) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/40) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/40+GetScreenHeight()/20) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                    FenetreActuelle = NOUVELLE_PARTIE_ENFANT_NON;
+                }
+            }break;
+            case NOUVELLE_PARTIE_ENFANT_OUI:{
+                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
+                DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
+                DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
+                DrawRectangle(GetScreenWidth()/6+GetScreenWidth()/4-GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40,GetScreenHeight()/10,GetScreenHeight()/20,GREEN);
+                DrawRectangle(GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40,GetScreenHeight()/10,GetScreenHeight()/20,RED);
+                DrawTextEx(font,"Regle enfant :\t\t\t\t\t\t\t\tOui\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tNon",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
+                if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
+                {
+                    FenetreActuelle = MENU;
+                }
+            }break;
+            case NOUVELLE_PARTIE_ENFANT_NON:{
+                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
+                DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
+                DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
+                DrawRectangle(GetScreenWidth()/6+GetScreenWidth()/4-GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40,GetScreenHeight()/10,GetScreenHeight()/20,RED);
+                DrawRectangle(GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40,GetScreenHeight()/10,GetScreenHeight()/20,GREEN);
+                DrawTextEx(font,"Regle enfant :\t\t\t\t\t\t\t\tOui\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tNon",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = MENU;
