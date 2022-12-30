@@ -1,4 +1,28 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE
+-- Performing Test COMPILER_HAS_THOSE_TOGGLES
+-- Performing Test COMPILER_HAS_THOSE_TOGGLES - Success
+-- Testing if -Werror=pointer-arith can be used -- compiles
+-- Testing if -Werror=implicit-function-declaration can be used -- compiles
+-- Testing if -fno-strict-aliasing can be used -- compiles
+-- Using raylib's GLFW
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Including Cocoa support
+CMake Warning (dev) at raylib/cmake/LibraryConfigurations.cmake:22 (MESSAGE):
+  OpenGL is deprecated starting with macOS 10.14 (Mojave)!
+Call Stack (most recent call first):
+  raylib/src/CMakeLists.txt:48 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Audio Backend: miniaudio
+-- Building raylib static library
+-- Generated build type: Debug
+-- Compiling with the flags:
+--   PLATFORM=PLATFORM_DESKTOP
+--   GRAPHICS=GRAPHICS_API_OPENGL_33
 LIBRARIES = /opt/homebrew/Cellar/raylib/4.2.0/lib/libraylib.4.2.0.dylib;/opt/homebrew/Cellar/raylib/4.2.0/lib/libraylib.420.dylib;/opt/homebrew/Cellar/raylib/4.2.0/lib/libraylib.dylib
 -- Configuring done
 -- Generating done

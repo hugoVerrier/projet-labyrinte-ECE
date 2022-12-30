@@ -6,21 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c
-MenuGraphique.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
-stdio.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdio.h
-raylib.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib.h
-unistd.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/unistd.h
-
-/opt/homebrew/Cellar/raylib/4.2.0/include/raylib.h
-stdarg.h
--
-stdbool.h
--
-

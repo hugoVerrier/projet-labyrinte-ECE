@@ -534,3 +534,60 @@ Parsed CXX implicit link information from above output:
   implicit fwks: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks]
 
 
+Performing C SOURCE FILE Test COMPILER_HAS_THOSE_TOGGLES succeeded with the following output:
+Change Dir: /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ba4c5/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_ba4c5.dir/build.make CMakeFiles/cmTC_ba4c5.dir/build
+Building C object CMakeFiles/cmTC_ba4c5.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DCOMPILER_HAS_THOSE_TOGGLES  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1   -Werror=pointer-arith -MD -MT CMakeFiles/cmTC_ba4c5.dir/src.c.o -MF CMakeFiles/cmTC_ba4c5.dir/src.c.o.d -o CMakeFiles/cmTC_ba4c5.dir/src.c.o -c /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ba4c5
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba4c5.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_ba4c5.dir/src.c.o -o cmTC_ba4c5 
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4052a/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_4052a.dir/build.make CMakeFiles/cmTC_4052a.dir/build
+Building C object CMakeFiles/cmTC_4052a.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1 -std=gnu99 -MD -MT CMakeFiles/cmTC_4052a.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_4052a.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_4052a.dir/CheckIncludeFile.c.o -c /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_4052a
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4052a.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_4052a.dir/CheckIncludeFile.c.o -o cmTC_4052a 
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_43839/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_43839.dir/build.make CMakeFiles/cmTC_43839.dir/build
+Building C object CMakeFiles/cmTC_43839.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1 -MD -MT CMakeFiles/cmTC_43839.dir/src.c.o -MF CMakeFiles/cmTC_43839.dir/src.c.o.d -o CMakeFiles/cmTC_43839.dir/src.c.o -c /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_43839
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43839.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_43839.dir/src.c.o -o cmTC_43839 
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
