@@ -107,7 +107,6 @@
 					<Add option="-DPLATFORM_DESKTOP"/>
 					<Add option="-DGRAPHICS_API_OPENGL_33"/>
 					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/."/>
-					<Add directory="/opt/homebrew/Cellar/raylib/4.2.0/include"/>
 					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src"/>
 					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
@@ -134,7 +133,6 @@
 					<Add option="-DPLATFORM_DESKTOP"/>
 					<Add option="-DGRAPHICS_API_OPENGL_33"/>
 					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/."/>
-					<Add directory="/opt/homebrew/Cellar/raylib/4.2.0/include"/>
 					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src"/>
 					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>

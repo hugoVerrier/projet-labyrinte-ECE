@@ -11,11 +11,6 @@ target_link_libraries(projet_labyrinte_ECE raylib)
 
 
 
-INCLUDE_DIRECTORIES(/opt/homebrew/Cellar/raylib/4.2.0/include)
-LINK_DIRECTORIES(/opt/homebrew/Cellar/raylib/4.2.0/lib)
-file(GLOB LIBRARIES "/opt/homebrew/Cellar/raylib/4.2.0/lib/*.dylib")
-message("LIBRARIES = ${LIBRARIES}")
-TARGET_LINK_LIBRARIES(projet_labyrinte_ECE ${LIBRARIES})
 
 
 
