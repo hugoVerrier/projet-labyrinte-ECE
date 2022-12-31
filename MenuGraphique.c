@@ -12,9 +12,18 @@ void fenetreMenu(int* menu){
     int compteurLettrePremierParam=0;
     int compteurLettreDeuxiemeParam=0;
     int compteurLettreTroisiemeParam=0;
+    int compteurLettreZT1 = 0;
+    int compteurLettreZT2 = 0;
+    int compteurLettreZT3 = 0;
+    int compteurLettreZT4 = 0;
     char premierParam[CHAR_OUI_NON + 1] = "\0";
     char deuxiemeParam[CHAR_CHOIXNBJOUEURS + 1] = "\0";
     char troisiemeParam[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
+    char zt1[CHAR_PSEUDO + 1] = "\0";
+    char zt2[CHAR_PSEUDO + 1] = "\0";
+    char zt3[CHAR_PSEUDO + 1] = "\0";
+    char zt4[CHAR_PSEUDO + 1] = "\0";
+
 
 
     // chargement et redimension des textures MENU
@@ -29,6 +38,10 @@ void fenetreMenu(int* menu){
     Image quitterImage = LoadImage("../ImagesMenu/boutonQuitter.png");
     ImageResize(&quitterImage,GetScreenWidth()/22,GetScreenHeight()/18);
     Texture2D quitter = LoadTextureFromImage(quitterImage);
+
+    Image suivantImage = LoadImage("../ImagesMenu/boutonSuivant.png");
+    ImageResize(&suivantImage,GetScreenWidth()/22,GetScreenHeight()/18);
+    Texture2D suivant = LoadTextureFromImage(suivantImage);
 
     Font font = LoadFont("../Font/Terserah.ttf");
 
@@ -79,10 +92,17 @@ void fenetreMenu(int* menu){
         Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
         Rectangle TexteBoutonNJ = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+10*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
         Rectangle TexteBoutonCC = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
+        Rectangle ZoneTexte1 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle ZoneTexte2 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle ZoneTexte3 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle ZoneTexte4 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
         bool sourisSurTexteRE = false;
         bool sourisSurTexteNJ = false;
         bool sourisSurTexteCC = false;
-
+        bool sourisSurZT1 = false;
+        bool sourisSurZT2 = false;
+        bool sourisSurZT3 = false;
+        bool sourisSurZT4 = false;
 
         if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonRE)) sourisSurTexteRE = true;
         else sourisSurTexteRE = false;
@@ -90,6 +110,14 @@ void fenetreMenu(int* menu){
         else sourisSurTexteNJ = false;
         if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonCC)) sourisSurTexteCC = true;
         else sourisSurTexteCC = false;
+        if (CheckCollisionPointRec(GetMousePosition(), ZoneTexte1)) sourisSurZT1 = true;
+        else sourisSurZT1 = false;
+        if (CheckCollisionPointRec(GetMousePosition(), ZoneTexte2)) sourisSurZT2 = true;
+        else sourisSurZT2 = false;
+        if (CheckCollisionPointRec(GetMousePosition(), ZoneTexte3)) sourisSurZT3 = true;
+        else sourisSurZT3 = false;
+        if (CheckCollisionPointRec(GetMousePosition(), ZoneTexte4)) sourisSurZT4 = true;
+        else sourisSurZT4 = false;
 
         if (sourisSurTexteRE)
         {
@@ -175,6 +203,113 @@ void fenetreMenu(int* menu){
         if (sourisSurTexteCC) compteurFPS++;
         else compteurFPS = 0;
 
+
+        if (sourisSurZT1)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreZT1 < CHAR_PSEUDO))
+                {
+                    zt1[compteurLettreZT1] = (char)key;
+                    zt1[compteurLettreZT1+1] = '\0';
+                    compteurLettreZT1++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreZT1--;
+                if (compteurLettreZT1 < 0) compteurLettreZT1 = 0;
+                zt1[compteurLettreZT1] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurZT1) compteurFPS++;
+        else compteurFPS = 0;
+
+
+        if (sourisSurZT2)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreZT2 < CHAR_PSEUDO))
+                {
+                    zt2[compteurLettreZT2] = (char)key;
+                    zt2[compteurLettreZT2+1] = '\0';
+                    compteurLettreZT2++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreZT2--;
+                if (compteurLettreZT2 < 0) compteurLettreZT2 = 0;
+                zt2[compteurLettreZT2] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurZT2) compteurFPS++;
+        else compteurFPS = 0;
+
+
+        if (sourisSurZT3)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreZT3 < CHAR_PSEUDO))
+                {
+                    zt3[compteurLettreZT3] = (char)key;
+                    zt3[compteurLettreZT3+1] = '\0';
+                    compteurLettreZT3++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreZT3--;
+                if (compteurLettreZT3 < 0) compteurLettreZT3 = 0;
+                zt3[compteurLettreZT3] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurZT3) compteurFPS++;
+        else compteurFPS = 0;
+
+
+        if (sourisSurZT4)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreZT4 < CHAR_PSEUDO))
+                {
+                    zt4[compteurLettreZT4] = (char)key;
+                    zt4[compteurLettreZT4+1] = '\0';
+                    compteurLettreZT4++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreZT4--;
+                if (compteurLettreZT4 < 0) compteurLettreZT4 = 0;
+                zt4[compteurLettreZT4] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurZT4) compteurFPS++;
+        else compteurFPS = 0;
+
+
+
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
@@ -248,12 +383,47 @@ void fenetreMenu(int* menu){
                 DrawTextEx(font,"Regle enfant : (Oui ou Non)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
                 DrawTextEx(font,"Nombre de Joueurs (2, 3 ou 4 Joueurs)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+8*GetScreenHeight()/40},30,2,BLACK);
                 DrawTextEx(font,"Choisir la couleur de votre pion (Jaune,Bleu,Rouge,Vert)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+16*GetScreenHeight()/40},30,2,BLACK);
-                // a faire
+                DrawTextureEx(suivant,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/12},0.0f,1.0f,WHITE);
+                DrawRectangle(GetScreenWidth()-1.375*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8,GetScreenWidth()/12,GetScreenHeight()/32,BEIGE);
+                DrawTextEx(font,"Suivant",(Vector2){GetScreenWidth()-1.25*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8},30,2,BLACK);
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = MENU;
                 }
+                if ((positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()-GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()-GetScreenHeight()/12 +suivantImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
+                {
+                    FenetreActuelle = NOUVELLE_PARTIE_SUITE;
+                }
 
+            }break;
+            case NOUVELLE_PARTIE_SUITE:{
+                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
+                DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
+                DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
+                if (sourisSurZT1){
+                    DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,WHITE);
+                }
+                else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN);
+                DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
+                if (sourisSurZT2){
+                    DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE);
+                }
+                else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN);
+                DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
+                if (sourisSurZT3){
+                    DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE);
+                }
+                else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN);
+                DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON);
+                if (sourisSurZT4){
+                    DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,WHITE);
+                }
+                else DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,BROWN);
+                DrawText(zt4, (int)ZoneTexte4.x + 5, (int)ZoneTexte4.y + 8, 40, MAROON);
+                if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
+                {
+                    FenetreActuelle = NOUVELLE_PARTIE;
+                }
             }break;
             case CHARGER_PARTIE:{
                 DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
