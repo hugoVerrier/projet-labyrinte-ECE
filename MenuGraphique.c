@@ -11,14 +11,20 @@ void fenetreMenu(int* menu){
     int compteurFPS=0;
     int compteurLettrePremierParam=0;
     int compteurLettreDeuxiemeParam=0;
-    int compteurLettreTroisiemeParam=0;
+    int compteurLettrePremiereCouleur=0;
+    int compteurLettreDeuxiemeCouleur=0;
+    int compteurLettreTroisiemeCouleur=0;
+    int compteurLettreQuatriemeCouleur=0;
     int compteurLettreZT1 = 0;
     int compteurLettreZT2 = 0;
     int compteurLettreZT3 = 0;
     int compteurLettreZT4 = 0;
     char premierParam[CHAR_OUI_NON + 1] = "\0";
     char deuxiemeParam[CHAR_CHOIXNBJOUEURS + 1] = "\0";
-    char troisiemeParam[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
+    char premiereCouleur[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
+    char deuxiemeCouleur[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
+    char troisiemeCouleur[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
+    char quatriemeCouleur[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
     char zt1[CHAR_PSEUDO + 1] = "\0";
     char zt2[CHAR_PSEUDO + 1] = "\0";
     char zt3[CHAR_PSEUDO + 1] = "\0";
@@ -91,25 +97,57 @@ void fenetreMenu(int* menu){
         positionSouris = GetMousePosition();
         Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
         Rectangle TexteBoutonNJ = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+10*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
-        Rectangle TexteBoutonCC = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
-        Rectangle ZoneTexte1 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
-        Rectangle ZoneTexte2 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
-        Rectangle ZoneTexte3 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
-        Rectangle ZoneTexte4 = {GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle TexteBoutonCC1 = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
+        Rectangle TexteBoutonCC2 = { GetScreenWidth()/6+GetScreenWidth()/40+GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
+        Rectangle TexteBoutonCC3 = { GetScreenWidth()/6+GetScreenWidth()/40+2*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
+        Rectangle TexteBoutonCC4 = { GetScreenWidth()/6+GetScreenWidth()/40+3*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
+        Rectangle ZoneTexte1 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle ZoneTexte2 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle ZoneTexte3 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        Rectangle ZoneTexte4 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
         bool sourisSurTexteRE = false;
         bool sourisSurTexteNJ = false;
-        bool sourisSurTexteCC = false;
+        bool sourisSurTexteCC1 = false;
+        bool sourisSurTexteCC2 = false;
+        bool sourisSurTexteCC3 = false;
+        bool sourisSurTexteCC4 = false;
         bool sourisSurZT1 = false;
         bool sourisSurZT2 = false;
         bool sourisSurZT3 = false;
         bool sourisSurZT4 = false;
+        bool regleEnfant = false;
+        int* nombreJoueur = NULL;
+        bool* jaune1 = false;
+        bool* bleu1 = false;
+        bool* rouge1 = false;
+        bool* vert1 = false;
+        bool* jaune2 = false;
+        bool* bleu2 = false;
+        bool* rouge2 = false;
+        bool* vert2 = false;
+        bool* jaune3 = false;
+        bool* bleu3 = false;
+        bool* rouge3 = false;
+        bool* vert3 = false;
+        bool* jaune4 = false;
+        bool* bleu4 = false;
+        bool* rouge4 = false;
+        bool* vert4 = false;
+
+
 
         if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonRE)) sourisSurTexteRE = true;
         else sourisSurTexteRE = false;
         if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonNJ)) sourisSurTexteNJ = true;
         else sourisSurTexteNJ = false;
-        if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonCC)) sourisSurTexteCC = true;
-        else sourisSurTexteCC = false;
+        if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonCC1)) sourisSurTexteCC1 = true;
+        else sourisSurTexteCC1 = false;
+        if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonCC2)) sourisSurTexteCC2 = true;
+        else sourisSurTexteCC2 = false;
+        if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonCC3)) sourisSurTexteCC3 = true;
+        else sourisSurTexteCC3 = false;
+        if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonCC4)) sourisSurTexteCC4 = true;
+        else sourisSurTexteCC4 = false;
         if (CheckCollisionPointRec(GetMousePosition(), ZoneTexte1)) sourisSurZT1 = true;
         else sourisSurZT1 = false;
         if (CheckCollisionPointRec(GetMousePosition(), ZoneTexte2)) sourisSurZT2 = true;
@@ -143,7 +181,12 @@ void fenetreMenu(int* menu){
 
         if (sourisSurTexteRE) compteurFPS++;
         else compteurFPS = 0;
-
+        if (strcmp(premierParam,"oui") == 0){
+            regleEnfant = true;
+        }else regleEnfant = false;
+        if (regleEnfant == true){
+            //regleEnfant();
+        }
 
 
 
@@ -172,36 +215,190 @@ void fenetreMenu(int* menu){
 
         if (sourisSurTexteNJ) compteurFPS++;
         else compteurFPS = 0;
+        if (strcmp(deuxiemeParam,"1") == 0){
+            //*nombreJoueur = 1;
+            //nbJoueur(nombreJoueur);
+        }else if (strcmp(deuxiemeParam,"2") == 0){
+            //*nombreJoueur = 2;
+            //nbJoueur(nombreJoueur);
+        }else if (strcmp(deuxiemeParam,"3") == 0){
+            //*nombreJoueur = 3;
+            //nbJoueur(nombreJoueur);
+        }else if (strcmp(deuxiemeParam,"4") == 0){
+            //*nombreJoueur = 4;
+            //nbJoueur(nombreJoueur);
+        }
 
 
 
 
 
-
-        if (sourisSurTexteCC)
+        if (sourisSurTexteCC1)
         {
             SetMouseCursor(MOUSE_CURSOR_IBEAM);
             int key = GetCharPressed();
             while (key > 0){
-                if ((key >= 32) && (key <= 125) && (compteurLettreTroisiemeParam < CHAR_CHOIX_COULEUR_PION))
+                if ((key >= 32) && (key <= 125) && (compteurLettrePremiereCouleur < CHAR_CHOIX_COULEUR_PION))
                 {
-                    troisiemeParam[compteurLettreTroisiemeParam] = (char)key;
-                    troisiemeParam[compteurLettreTroisiemeParam+1] = '\0';
-                    compteurLettreTroisiemeParam++;
+                    premiereCouleur[compteurLettrePremiereCouleur] = (char)key;
+                    premiereCouleur[compteurLettrePremiereCouleur+1] = '\0';
+                    compteurLettrePremiereCouleur++;
                 }
                 key = GetCharPressed();
             }
             if (IsKeyPressed(KEY_BACKSPACE))
             {
-                compteurLettreTroisiemeParam--;
-                if (compteurLettreTroisiemeParam < 0) compteurLettreTroisiemeParam = 0;
-                troisiemeParam[compteurLettreTroisiemeParam] = '\0';
+                compteurLettrePremiereCouleur--;
+                if (compteurLettrePremiereCouleur < 0) compteurLettrePremiereCouleur = 0;
+                premiereCouleur[compteurLettrePremiereCouleur] = '\0';
             }
         }
         else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 
-        if (sourisSurTexteCC) compteurFPS++;
+        if (sourisSurTexteCC1) compteurFPS++;
         else compteurFPS = 0;
+        if (strcmp(premiereCouleur,"jaune") == 0){
+            //*jaune1 = true;
+            //couleurPion1(jaune1);
+        }
+        if (strcmp(premiereCouleur,"bleu") == 0){
+            //*bleu1 = true;
+            //couleurPion1(bleu1);
+        }
+        if (strcmp(premiereCouleur,"rouge") == 0){
+            //*rouge1 = true;
+            //couleurPion1(rouge1);
+        }
+        if (strcmp(premiereCouleur,"vert") == 0){
+            //*vert1 = true;
+            //couleurPion1(vert1);
+        }
+        ///DEUXIEME
+        if (sourisSurTexteCC2)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreDeuxiemeCouleur < CHAR_CHOIX_COULEUR_PION))
+                {
+                    deuxiemeCouleur[compteurLettreDeuxiemeCouleur] = (char)key;
+                    deuxiemeCouleur[compteurLettreDeuxiemeCouleur+1] = '\0';
+                    compteurLettreDeuxiemeCouleur++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreDeuxiemeCouleur--;
+                if (compteurLettreDeuxiemeCouleur < 0) compteurLettreDeuxiemeCouleur = 0;
+                deuxiemeCouleur[compteurLettreDeuxiemeCouleur] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurTexteCC2) compteurFPS++;
+        else compteurFPS = 0;
+        if (strcmp(deuxiemeCouleur,"jaune") == 0){
+            //*jaune2 = true;
+            //couleurPion2(jaune2);
+        }
+        if (strcmp(deuxiemeCouleur,"bleu") == 0){
+            //*bleu2 = true;
+            //couleurPion2(bleu2);
+        }
+        if (strcmp(deuxiemeCouleur,"rouge") == 0){
+            //*rouge2 = true;
+            //couleurPion2(rouge2);
+        }
+        if (strcmp(deuxiemeCouleur,"vert") == 0){
+            //*vert2 = true;
+            //couleurPion2(vert2);
+        }
+        ///TROISIEME
+        if (sourisSurTexteCC3)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreTroisiemeCouleur < CHAR_CHOIX_COULEUR_PION))
+                {
+                    troisiemeCouleur[compteurLettreTroisiemeCouleur] = (char)key;
+                    troisiemeCouleur[compteurLettreTroisiemeCouleur+1] = '\0';
+                    compteurLettreTroisiemeCouleur++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreTroisiemeCouleur--;
+                if (compteurLettreTroisiemeCouleur < 0) compteurLettreTroisiemeCouleur = 0;
+                troisiemeCouleur[compteurLettreTroisiemeCouleur] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurTexteCC3) compteurFPS++;
+        else compteurFPS = 0;
+        if (strcmp(troisiemeCouleur,"jaune") == 0){
+            //*jaune3 = true;
+            //couleurPion3(jaune3);
+        }
+        if (strcmp(troisiemeCouleur,"bleu") == 0){
+            //*bleu3 = true;
+            //couleurPion3(bleu3);
+        }
+        if (strcmp(troisiemeCouleur,"rouge") == 0){
+            //*rouge3 = true;
+            //couleurPion3(rouge3);
+        }
+        if (strcmp(troisiemeCouleur,"vert") == 0){
+            //*vert3 = true;
+            //couleurPion3(vert3);
+        }
+        ///QUATRIEME
+        if (sourisSurTexteCC4)
+        {
+            SetMouseCursor(MOUSE_CURSOR_IBEAM);
+            int key = GetCharPressed();
+            while (key > 0){
+                if ((key >= 32) && (key <= 125) && (compteurLettreQuatriemeCouleur < CHAR_CHOIX_COULEUR_PION))
+                {
+                    quatriemeCouleur[compteurLettreQuatriemeCouleur] = (char)key;
+                    quatriemeCouleur[compteurLettreQuatriemeCouleur+1] = '\0';
+                    compteurLettreQuatriemeCouleur++;
+                }
+                key = GetCharPressed();
+            }
+            if (IsKeyPressed(KEY_BACKSPACE))
+            {
+                compteurLettreQuatriemeCouleur--;
+                if (compteurLettreQuatriemeCouleur < 0) compteurLettreQuatriemeCouleur = 0;
+                quatriemeCouleur[compteurLettreQuatriemeCouleur] = '\0';
+            }
+        }
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+
+        if (sourisSurTexteCC4) compteurFPS++;
+        else compteurFPS = 0;
+        if (strcmp(quatriemeCouleur,"jaune") == 0){
+            //*jaune4 = true;
+            //couleurPion4(jaune4);
+        }
+        if (strcmp(quatriemeCouleur,"bleu") == 0){
+            //*bleu4 = true;
+            //couleurPion4(bleu4);
+        }
+        if (strcmp(quatriemeCouleur,"rouge") == 0){
+            //*rouge4 = true;
+            //couleurPion4(rouge4);
+        }
+        if (strcmp(quatriemeCouleur,"vert") == 0){
+            //*vert4 = true;
+            //couleurPion4(vert4);
+        }
+
+
+
 
 
         if (sourisSurZT1)
@@ -375,11 +572,26 @@ void fenetreMenu(int* menu){
                 else DrawRectangle(TexteBoutonNJ.x,TexteBoutonNJ.y,TexteBoutonNJ.width,TexteBoutonNJ.height,BROWN);
                 DrawText(deuxiemeParam, (int)TexteBoutonNJ.x + 5, (int)TexteBoutonNJ.y + 8, 40, MAROON);
 
-                if (sourisSurTexteCC){
-                    DrawRectangle(TexteBoutonCC.x,TexteBoutonCC.y,TexteBoutonCC.width,TexteBoutonCC.height,WHITE);
+                if (sourisSurTexteCC1){
+                    DrawRectangle(TexteBoutonCC1.x,TexteBoutonCC1.y,TexteBoutonCC1.width,TexteBoutonCC1.height,WHITE);
                 }
-                else DrawRectangle(TexteBoutonCC.x,TexteBoutonCC.y,TexteBoutonCC.width,TexteBoutonCC.height,BROWN);
-                DrawText(troisiemeParam, (int)TexteBoutonCC.x + 5, (int)TexteBoutonCC.y + 8, 40, MAROON);
+                else DrawRectangle(TexteBoutonCC1.x,TexteBoutonCC1.y,TexteBoutonCC1.width,TexteBoutonCC1.height,BROWN);
+                if (sourisSurTexteCC2){
+                    DrawRectangle(TexteBoutonCC2.x,TexteBoutonCC2.y,TexteBoutonCC2.width,TexteBoutonCC2.height,WHITE);
+                }
+                else DrawRectangle(TexteBoutonCC2.x,TexteBoutonCC2.y,TexteBoutonCC2.width,TexteBoutonCC2.height,BROWN);
+                if (sourisSurTexteCC3){
+                    DrawRectangle(TexteBoutonCC3.x,TexteBoutonCC3.y,TexteBoutonCC3.width,TexteBoutonCC3.height,WHITE);
+                }
+                else DrawRectangle(TexteBoutonCC3.x,TexteBoutonCC3.y,TexteBoutonCC3.width,TexteBoutonCC3.height,BROWN);
+                if (sourisSurTexteCC4){
+                    DrawRectangle(TexteBoutonCC4.x,TexteBoutonCC4.y,TexteBoutonCC4.width,TexteBoutonCC4.height,WHITE);
+                }
+                else DrawRectangle(TexteBoutonCC4.x,TexteBoutonCC4.y,TexteBoutonCC4.width,TexteBoutonCC4.height,BROWN);
+                DrawText(premiereCouleur, (int)TexteBoutonCC1.x + 5, (int)TexteBoutonCC1.y + 8, 40, MAROON);
+                DrawText(deuxiemeCouleur, (int)TexteBoutonCC2.x + 5, (int)TexteBoutonCC2.y + 8, 40, MAROON);
+                DrawText(troisiemeCouleur, (int)TexteBoutonCC3.x + 5, (int)TexteBoutonCC3.y + 8, 40, MAROON);
+                DrawText(quatriemeCouleur, (int)TexteBoutonCC4.x + 5, (int)TexteBoutonCC4.y + 8, 40, MAROON);
                 DrawTextEx(font,"Regle enfant : (Oui ou Non)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
                 DrawTextEx(font,"Nombre de Joueurs (2, 3 ou 4 Joueurs)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+8*GetScreenHeight()/40},30,2,BLACK);
                 DrawTextEx(font,"Choisir la couleur de votre pion (Jaune,Bleu,Rouge,Vert)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+16*GetScreenHeight()/40},30,2,BLACK);
@@ -420,6 +632,10 @@ void fenetreMenu(int* menu){
                 }
                 else DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,BROWN);
                 DrawText(zt4, (int)ZoneTexte4.x + 5, (int)ZoneTexte4.y + 8, 40, MAROON);
+                DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);
+                DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);
+                DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK);
+                DrawTextEx(font,"Pseudo 4",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40},40,2,BLACK);
                 DrawTextureEx(suivant,(Vector2){GetScreenWidth()-1.75*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/12},0.0f,1.0f,WHITE);
                 DrawRectangle(GetScreenWidth()-2.5*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8,GetScreenWidth()/8,GetScreenHeight()/32,BEIGE);
                 DrawTextEx(font,"Lancer partie",(Vector2){GetScreenWidth()-2.5*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8},30,2,BLACK);

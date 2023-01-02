@@ -2,6 +2,7 @@
 #define PROJET_LABYRINTE_ECE_MENU_H
 
 #include "stdio.h"
+#include "string.h"
 #include "raylib.h"
 #include "unistd.h"
 

@@ -19,6 +19,8 @@ MenuGraphique.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
 stdio.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdio.h
+string.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/string.h
 raylib.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib.h
 unistd.h
