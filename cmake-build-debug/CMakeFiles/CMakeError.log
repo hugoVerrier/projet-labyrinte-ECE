@@ -1,44 +1,57 @@
-Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
-Build flags: 
-Id flags:  
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp
 
-The output was:
-1
-ld: library not found for -lSystem
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-
-
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
-Build flags: 
-Id flags:  
-
-The output was:
-1
-ld: library not found for -lc++
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_9181c/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_9181c.dir\build.make CMakeFiles/cmTC_9181c.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9181c.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe   -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -std=gnu99 -o CMakeFiles\cmTC_9181c.dir\CheckIncludeFile.c.obj -c C:\Users\hugov\CLionProjects\projet-labyrinte-ECE\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\hugov\CLionProjects\projet-labyrinte-ECE\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:10: fatal error: pthread.h: No such file or directory
+    1 | #include <pthread.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles\cmTC_9181c.dir\build.make:76: recipe for target 'CMakeFiles/cmTC_9181c.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_9181c.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9181c/fast' failed
+mingw32-make.exe: *** [cmTC_9181c/fast] Error 2
 
 
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
-Build flags: 
-Id flags:  
 
-The output was:
-1
-ld: library not found for -lc++
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Determining if the include file dinput.h exists failed with the following output:
+Change Dir: C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_d8d7b/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_d8d7b.dir\build.make CMakeFiles/cmTC_d8d7b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8d7b.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe   -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -std=gnu99 -o CMakeFiles\cmTC_d8d7b.dir\CheckIncludeFile.c.obj -c C:\Users\hugov\CLionProjects\projet-labyrinte-ECE\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\hugov\CLionProjects\projet-labyrinte-ECE\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:10: fatal error: dinput.h: No such file or directory
+    1 | #include <dinput.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+CMakeFiles\cmTC_d8d7b.dir\build.make:76: recipe for target 'CMakeFiles/cmTC_d8d7b.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_d8d7b.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d8d7b/fast' failed
+mingw32-make.exe: *** [cmTC_d8d7b/fast] Error 2
 
 
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
-Build flags: 
-Id flags:  
 
-The output was:
-1
-ld: library not found for -lc++
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Determining if the include file xinput.h exists failed with the following output:
+Change Dir: C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_fc86d/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_fc86d.dir\build.make CMakeFiles/cmTC_fc86d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fc86d.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe   -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith   -std=gnu99 -o CMakeFiles\cmTC_fc86d.dir\CheckIncludeFile.c.obj -c C:\Users\hugov\CLionProjects\projet-labyrinte-ECE\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\hugov\CLionProjects\projet-labyrinte-ECE\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:10: fatal error: xinput.h: No such file or directory
+    1 | #include <xinput.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+CMakeFiles\cmTC_fc86d.dir\build.make:76: recipe for target 'CMakeFiles/cmTC_fc86d.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_fc86d.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_fc86d/fast' failed
+mingw32-make.exe: *** [cmTC_fc86d/fast] Error 2
+
 
 

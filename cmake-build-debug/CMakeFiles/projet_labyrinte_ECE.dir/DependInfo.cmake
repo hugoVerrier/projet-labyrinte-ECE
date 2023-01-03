@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/MenuGraphique.c.o"
-  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/main.c.o"
+  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/MenuGraphique.c.obj"
+  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/main.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/main.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
@@ -32,8 +32,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/DependInfo.cmake"
-  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/DependInfo.cmake"
+  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

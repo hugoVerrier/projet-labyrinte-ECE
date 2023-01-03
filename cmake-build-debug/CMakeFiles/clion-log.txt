@@ -1,15 +1,18 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE
+"C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\hugov\CLionProjects\projet-labyrinte-ECE
+-- Performing Test COMPILER_HAS_THOSE_TOGGLES
+-- Performing Test COMPILER_HAS_THOSE_TOGGLES - Success
 -- Testing if -Werror=pointer-arith can be used -- compiles
 -- Testing if -Werror=implicit-function-declaration can be used -- compiles
 -- Testing if -fno-strict-aliasing can be used -- compiles
 -- Using raylib's GLFW
--- Including Cocoa support
-CMake Warning (dev) at raylib/cmake/LibraryConfigurations.cmake:22 (MESSAGE):
-  OpenGL is deprecated starting with macOS 10.14 (Mojave)!
-Call Stack (most recent call first):
-  raylib/src/CMakeLists.txt:48 (include)
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
+-- Looking for pthread.h
+-- Looking for pthread.h - not found
+-- Found Threads: TRUE  
+-- Including Win32 support
+-- Looking for dinput.h
+-- Looking for dinput.h - not found
+-- Looking for xinput.h
+-- Looking for xinput.h - not found
 -- Audio Backend: miniaudio
 -- Building raylib static library
 -- Generated build type: Debug
@@ -18,4 +21,4 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 --   GRAPHICS=GRAPHICS_API_OPENGL_33
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug
+-- Build files have been written to: C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug
