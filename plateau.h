@@ -1,0 +1,8 @@
+//
+// Created by hugov on 03/01/2023.
+//
+
+#ifndef PROJET_LABYRINTE_ECE_PLATEAU_H
+#define PROJET_LABYRINTE_ECE_PLATEAU_H
+
+#endif //PROJET_LABYRINTE_ECE_PLATEAU_H
