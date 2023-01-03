@@ -14,6 +14,7 @@
 typedef enum Fenetre{MENU,NOUVELLE_PARTIE,NOUVELLE_PARTIE_SUITE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER}
 Fenetre;
 
+
 void fenetreMenu();
 
 

@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/MenuGraphique.c.o"
   "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/main.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/CMakeFiles/projet_labyrinte_ECE.dir/plateau.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

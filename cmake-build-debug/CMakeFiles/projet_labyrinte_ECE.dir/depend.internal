@@ -9,3 +9,6 @@ CMakeFiles/projet_labyrinte_ECE.dir/main.c.o
  ../MenuGraphique.h
  ../raylib/src/raylib.h
  /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c
+CMakeFiles/projet_labyrinte_ECE.dir/plateau.c.o
+ /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.c
+ /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h

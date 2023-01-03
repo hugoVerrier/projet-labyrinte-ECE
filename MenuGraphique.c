@@ -1,7 +1,6 @@
 #include "MenuGraphique.h"
 
 
-
 void fenetreMenu(int* menu){
 
     // initialisation de la fenetre
@@ -89,6 +88,10 @@ void fenetreMenu(int* menu){
     ImageResize(&XavierImage,GetScreenWidth()/4,GetScreenHeight()/3);
     Texture2D Xavier = LoadTextureFromImage(XavierImage);
     UnloadImage(XavierImage);
+
+
+
+
 
     int fin = 0; // fin inutile juste histoire de pas fermer la fenetre
 
@@ -369,7 +372,6 @@ void fenetreMenu(int* menu){
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
-
 
         switch (FenetreActuelle) {
 

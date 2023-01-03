@@ -6,23 +6,29 @@
 
 #IncludeRegexTransform: 
 
+../MenuGraphique.h
+stdio.h
+../stdio.h
+string.h
+../string.h
+raylib.h
+../raylib.h
+unistd.h
+../unistd.h
+
 ../raylib/src/raylib.h
 stdarg.h
 -
 stdbool.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c
 MenuGraphique.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
+-
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
-stdio.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdio.h
-string.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/string.h
-raylib.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib.h
-unistd.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/unistd.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.c
+plateau.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
+
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
 

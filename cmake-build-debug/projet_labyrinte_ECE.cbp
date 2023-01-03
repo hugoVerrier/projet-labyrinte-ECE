@@ -341,6 +341,12 @@
 		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c">
 			<Option target="projet_labyrinte_ECE"/>
 		</Unit>
+		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.c">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
 		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/GenerateMappings.cmake">
 			<Option target="update_mappings"/>
 		</Unit>

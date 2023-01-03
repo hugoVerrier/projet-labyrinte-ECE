@@ -281,6 +281,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet_labyrinte_ECE.dir/build.make CMakeFiles/projet_labyrinte_ECE.dir/main.c.s
 .PHONY : main.c.s
 
+plateau.o: plateau.c.o
+.PHONY : plateau.o
+
+# target to build an object file
+plateau.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet_labyrinte_ECE.dir/build.make CMakeFiles/projet_labyrinte_ECE.dir/plateau.c.o
+.PHONY : plateau.c.o
+
+plateau.i: plateau.c.i
+.PHONY : plateau.i
+
+# target to preprocess a source file
+plateau.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet_labyrinte_ECE.dir/build.make CMakeFiles/projet_labyrinte_ECE.dir/plateau.c.i
+.PHONY : plateau.c.i
+
+plateau.s: plateau.c.s
+.PHONY : plateau.s
+
+# target to generate assembly for a file
+plateau.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet_labyrinte_ECE.dir/build.make CMakeFiles/projet_labyrinte_ECE.dir/plateau.c.s
+.PHONY : plateau.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -305,6 +329,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... plateau.o"
+	@echo "... plateau.i"
+	@echo "... plateau.s"
 .PHONY : help
 
 
