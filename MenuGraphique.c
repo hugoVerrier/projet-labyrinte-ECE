@@ -89,8 +89,12 @@ void fenetreMenu(int* menu){
     Texture2D Xavier = LoadTextureFromImage(XavierImage);
     UnloadImage(XavierImage);
 
+    InitAudioDevice();
+    Music music = LoadMusicStream("../SonMenu/son menu.mp3");
+    //float jouerMusique = 0.0f;
+    //bool pause = false;
 
-
+    Sound sonBoutton = LoadSound("../SonMenu/CliqueBoutton.wav");
 
 
     int fin = 0; // fin inutile juste histoire de pas fermer la fenetre
@@ -98,6 +102,7 @@ void fenetreMenu(int* menu){
 
     SetTargetFPS(60);
     while (!fin ){
+        UpdateMusicStream(music);
         Vector2 positionSouris;
         positionSouris = GetMousePosition();
         Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
@@ -368,7 +373,9 @@ void fenetreMenu(int* menu){
         }
 
 
-
+        if (FenetreActuelle == MENU){
+            PlayMusicStream(music);
+        }
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -390,20 +397,24 @@ void fenetreMenu(int* menu){
                 DrawTextEx(font,"Credits",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/50),GetScreenHeight()/8+3*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
+                    PlaySound(sonBoutton);
                     FenetreActuelle = QUITTER;
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8) && (positionSouris.y <= GetScreenHeight()/8+boutonImage.height) ){
                     FenetreActuelle = NOUVELLE_PARTIE;
-
+                    PlaySound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = CHARGER_PARTIE;
+                    PlaySound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+2*GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+2*GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = REGLES;
+                    PlaySound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+3*GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+3*GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = CREDITS;
+                    PlaySound(sonBoutton);
                 }
             }break;
             case QUITTER:{
@@ -1083,6 +1094,7 @@ void fenetreMenu(int* menu){
         }
         EndDrawing();
     }
+    CloseAudioDevice();
     CloseWindow();
 }
 
