@@ -1,8 +1,8 @@
-# Install script for directory: /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src
+# Install script for directory: C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/projet_labyrinte_ECE")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,40 +34,36 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "C:/MinGW/bin/objdump.exe")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/libraylib.a")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraylib.a" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraylib.a")
-    execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libraylib.a")
-  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/libraylib.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/raylib.h"
-    "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/rlgl.h"
-    "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/raymath.h"
+    "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/raylib.h"
+    "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rlgl.h"
+    "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/raymath.h"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/raylib.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/raylib.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/raylib-config-version.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/raylib-config-version.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/../cmake/raylib-config.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/../cmake/raylib-config.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/cmake_install.cmake")
+  include("C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/cmake_install.cmake")
 
 endif()
 

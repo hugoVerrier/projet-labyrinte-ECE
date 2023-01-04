@@ -8,244 +8,252 @@
 		<Option virtualFolders="CMake Files\;CMake Files\raylib\;CMake Files\raylib\src\;CMake Files\raylib\src\external\;CMake Files\raylib\src\external\glfw\;CMake Files\raylib\src\external\glfw\CMake\;CMake Files\raylib\src\external\glfw\src\;CMake Files\raylib\cmake\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="glfw">
-				<Option output="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
+				<Option output="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add option="-D_GLFW_COCOA"/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/."/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include"/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src"/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add option="-D_GLFW_WIN32"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DWINVER=0x0501"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/."/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/deps/mingw"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 glfw"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 glfw"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="glfw/fast">
-				<Option output="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
+				<Option output="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add option="-D_GLFW_COCOA"/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/."/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include"/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src"/>
-					<Add directory="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add option="-D_GLFW_WIN32"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DWINVER=0x0501"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/."/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/deps/mingw"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="update_mappings">
-				<Option working_dir="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 update_mappings"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 update_mappings"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/GenerateMappings.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/GenerateMappings.cmake">
 			<Option target="update_mappings"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3native.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3native.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_init.m">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/context.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/egl_context.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.m">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/init.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_monitor.m">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/input.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_platform.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.h">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_window.m">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/context.c">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/egl_context.c">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/init.c">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/input.c">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h">
-			<Option target="glfw"/>
-		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h.in">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h.in">
 			<Option target="update_mappings"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/monitor.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/monitor.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/nsgl_context.m">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_init.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_init.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_monitor.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_monitor.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_platform.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_platform.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_window.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_window.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/osmesa_context.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/osmesa_context.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/vulkan.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_module.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/wgl_context.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_init.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.h">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/vulkan.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/window.c">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_module.c">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/CMakeLists.txt">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_monitor.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_platform.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_window.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/window.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/CMakeLists.txt">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\raylib\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/CMakeOptions.txt">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/CMakeOptions.txt">
 			<Option virtualFolder="CMake Files\raylib\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/raylib.pc.in">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/raylib.pc.in">
 			<Option virtualFolder="CMake Files\raylib\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/CMakeLists.txt">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\raylib\src\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMakeLists.txt">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\raylib\src\external\glfw\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/glfw3.pc.in">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/glfw3.pc.in">
 			<Option virtualFolder="CMake Files\raylib\src\external\glfw\CMake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/glfw3Config.cmake.in">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/CMake/glfw3Config.cmake.in">
 			<Option virtualFolder="CMake Files\raylib\src\external\glfw\CMake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/CMakeLists.txt">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\raylib\src\external\glfw\src\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/AddIfFlagCompiles.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/AddIfFlagCompiles.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/BuildOptions.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/BuildOptions.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/CompileDefinitions.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/CompileDefinitions.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/CompilerFlags.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/CompilerFlags.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/EnumOption.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/EnumOption.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/GlfwImport.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/GlfwImport.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/InstallConfigurations.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/InstallConfigurations.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/JoinPaths.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/JoinPaths.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/LibraryConfigurations.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/LibraryConfigurations.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/LibraryPathToLinkerFlags.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/LibraryPathToLinkerFlags.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/PackConfigurations.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/PackConfigurations.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/PopulateConfigVariablesLocally.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/PopulateConfigVariablesLocally.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/cmake/raylib-config-version.cmake">
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/cmake/raylib-config-version.cmake">
 			<Option virtualFolder="CMake Files\raylib\cmake\"/>
 		</Unit>
 	</Project>

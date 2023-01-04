@@ -3,8 +3,8 @@
 
 #include "stdio.h"
 #include "string.h"
-#include "raylib.h"
 #include "unistd.h"
+#include "raylib.h"
 
 #define CHAR_OUI_NON 3
 #define CHAR_CHOIXNBJOUEURS 1

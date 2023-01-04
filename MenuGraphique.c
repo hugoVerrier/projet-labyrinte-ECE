@@ -1,5 +1,5 @@
-#include "MenuGraphique.h"
 
+#include "MenuGraphique.h"
 
 void fenetreMenu(int* menu){
 

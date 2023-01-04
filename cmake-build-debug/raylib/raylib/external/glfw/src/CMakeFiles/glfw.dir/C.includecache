@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3.h
+../raylib/src/external/glfw/deps/mingw/_mingw_dxhelper.h
+
+../raylib/src/external/glfw/deps/mingw/dinput.h
+objbase.h
+-
+_mingw_dxhelper.h
+-
+
+../raylib/src/external/glfw/deps/mingw/xinput.h
+windef.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3.h
 stddef.h
 -
 stdint.h
@@ -52,15 +64,7 @@ GL/gl.h
 GL/glext.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_init.m
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-sys/param.h
--
-crt_externs.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.h
 IOKit/IOKitLib.h
 -
 IOKit/IOCFPlugIn.h
@@ -68,39 +72,7 @@ IOKit/IOCFPlugIn.h
 IOKit/hid/IOHIDKeys.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.m
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-unistd.h
--
-ctype.h
--
-string.h
--
-mach/mach.h
--
-mach/mach_error.h
--
-CoreFoundation/CoreFoundation.h
--
-Kernel/IOKit/hidsystem/IOHIDUsageTables.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_monitor.m
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-stdlib.h
--
-limits.h
--
-math.h
--
-IOKit/graphics/IOGraphicsLib.h
--
-ApplicationServices/ApplicationServices.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_platform.h
 stdint.h
 -
 Carbon/Carbon.h
@@ -110,25 +82,11 @@ IOKit/hid/IOHIDLib.h
 Cocoa/Cocoa.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.c
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-mach/mach_time.h
--
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.h
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_window.m
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/context.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-float.h
--
-string.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/context.c
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 assert.h
 -
 stdio.h
@@ -140,9 +98,9 @@ limits.h
 stdio.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/egl_context.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/egl_context.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 stdio.h
 -
 string.h
@@ -152,9 +110,9 @@ stdlib.h
 assert.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/init.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/init.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 string.h
 -
 stdlib.h
@@ -166,11 +124,11 @@ stdarg.h
 assert.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/input.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/input.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 mappings.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h
 assert.h
 -
 float.h
@@ -182,15 +140,15 @@ stdlib.h
 string.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 glfw_config.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/glfw_config.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/glfw_config.h
 ../include/GLFW/glfw3.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/include/GLFW/glfw3.h
 platform.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/linux_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/linux_joystick.h
 linux/input.h
 -
 linux/limits.h
@@ -198,11 +156,11 @@ linux/limits.h
 regex.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/mappings.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/monitor.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/monitor.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 assert.h
 -
 math.h
@@ -216,29 +174,21 @@ stdlib.h
 limits.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/nsgl_context.m
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_init.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-unistd.h
--
-math.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_init.c
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 stdlib.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_monitor.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_monitor.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 stdlib.h
 -
 string.h
@@ -246,15 +196,15 @@ string.h
 math.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_platform.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_window.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_window.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 stdlib.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/osmesa_context.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/osmesa_context.c
 stdlib.h
 -
 string.h
@@ -262,73 +212,59 @@ string.h
 assert.h
 -
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/platform.h
 null_platform.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_platform.h
 win32_platform.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_platform.h
 cocoa_platform.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_platform.h
 wl_platform.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/wl_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/wl_platform.h
 x11_platform.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/x11_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/x11_platform.h
 null_joystick.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/null_joystick.h
 win32_joystick.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.h
 cocoa_joystick.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_joystick.h
 linux_joystick.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/linux_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/linux_joystick.h
 win32_thread.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.h
 posix_thread.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.h
 win32_time.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.h
 cocoa_time.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/cocoa_time.h
 posix_time.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_time.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_time.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_module.c
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-dlfcn.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_poll.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_poll.h
 poll.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.c
-internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
-assert.h
--
-string.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_thread.h
 pthread.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_time.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_time.h
 stdint.h
 -
 time.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/vulkan.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/vulkan.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 assert.h
 -
 string.h
@@ -336,9 +272,47 @@ string.h
 stdlib.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/wgl_context.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+stdlib.h
+-
+assert.h
+-
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_init.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+stdlib.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+stdio.h
+-
+math.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_joystick.h
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_module.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_monitor.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+wchar.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_platform.h
 wctype.h
 -
 windows.h
@@ -352,17 +326,41 @@ dbt.h
 dwmapi.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.h
-windows.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.h
-windows.h
--
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/window.c
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.c
 internal.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+assert.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_thread.h
+windows.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_time.h
+windows.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/win32_window.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
+limits.h
+-
+stdlib.h
+-
+string.h
+-
+windowsx.h
+-
+shellapi.h
+-
+
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/window.c
+internal.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/internal.h
 assert.h
 -
 string.h
@@ -372,7 +370,7 @@ stdlib.h
 float.h
 -
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/wl_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/wl_platform.h
 wayland-client-core.h
 -
 xkbcommon/xkbcommon.h
@@ -380,11 +378,11 @@ xkbcommon/xkbcommon.h
 xkbcommon/xkbcommon-compose.h
 -
 xkb_unicode.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/xkb_unicode.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/xkb_unicode.h
 posix_poll.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_poll.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_poll.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/x11_platform.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/x11_platform.h
 unistd.h
 -
 signal.h
@@ -412,9 +410,9 @@ X11/extensions/XInput2.h
 X11/extensions/shape.h
 -
 xkb_unicode.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/xkb_unicode.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/xkb_unicode.h
 posix_poll.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_poll.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/posix_poll.h
 
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/xkb_unicode.h
+C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/external/glfw/src/xkb_unicode.h
 
