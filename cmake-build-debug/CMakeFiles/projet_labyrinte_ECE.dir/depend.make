@@ -9,6 +9,3 @@ CMakeFiles/projet_labyrinte_ECE.dir/main.c.o: \
  ../MenuGraphique.h \
  ../raylib/src/raylib.h \
  ../main.c
-CMakeFiles/projet_labyrinte_ECE.dir/plateau.c.o: \
- ../plateau.c \
- ../plateau.h
