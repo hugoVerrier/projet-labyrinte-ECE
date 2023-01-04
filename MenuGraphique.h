@@ -6,7 +6,7 @@
 #include "unistd.h"
 #include "raylib.h"
 #include "plateau.h"
-
+#include "math.h"
 
 #define CHAR_OUI_NON 3
 #define CHAR_CHOIXNBJOUEURS 1
@@ -18,6 +18,6 @@ Fenetre;
 
 
 void fenetreMenu();
-
+void sleepf(float seconds);
 
 #endif
