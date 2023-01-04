@@ -5,6 +5,8 @@
 #include "string.h"
 #include "unistd.h"
 #include "raylib.h"
+#include "plateau.h"
+
 
 #define CHAR_OUI_NON 3
 #define CHAR_CHOIXNBJOUEURS 1

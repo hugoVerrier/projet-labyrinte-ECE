@@ -15,6 +15,8 @@ unistd.h
 ../unistd.h
 raylib.h
 ../raylib.h
+plateau.h
+../plateau.h
 
 ../raylib/src/raylib.h
 stdarg.h
@@ -22,7 +24,35 @@ stdarg.h
 stdbool.h
 -
 
-C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/main.c
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c
+MenuGraphique.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
+
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h
+stdio.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdio.h
+string.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/string.h
+unistd.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/unistd.h
+raylib.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib.h
+plateau.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
+
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c
 MenuGraphique.h
 -
+plateau.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
+
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
+raylib.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib.h
+stdio.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdio.h
+stdlib.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/stdlib.h
+time.h
+/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/time.h
 
