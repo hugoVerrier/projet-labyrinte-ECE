@@ -12,7 +12,7 @@
 #define CHAR_CHOIXNBJOUEURS 1 // pour le choix du nombre de joueur (passage du char en int avec strcmp)
 #define CHAR_CHOIX_COULEUR_PION 5 // choix de la couleur du pion
 #define CHAR_PSEUDO 9 // taille acceptee pour le pseudo
-
+#define JAUNE YELLOW
 typedef enum Fenetre{MENU,NOUVELLE_PARTIE,NOUVELLE_PARTIE_SUITE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER,PLATEAU}
 Fenetre; // creation d'un enum pour actualiser la fenetre affichee
 

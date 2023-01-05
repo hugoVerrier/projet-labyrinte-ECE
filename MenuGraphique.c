@@ -880,7 +880,7 @@ void fenetreMenu(int* menu){
                                 if (sourisSurTexteCC4) compteurFPS++;
                                 else compteurFPS = 0;
                                 if (strcmp(quatriemeCouleur,"jaune") == 0){
-                                    //*jaune4 = true;
+                                    //*jaune4;
                                     //couleurPion4(jaune4);
                                 }
                                 if (strcmp(quatriemeCouleur,"bleu") == 0){
@@ -898,104 +898,105 @@ void fenetreMenu(int* menu){
                             default:break;
                         }
                         DrawTextEx(font,"Choisir la couleur de votre pion (Jaune,Bleu,Rouge,Vert)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+16*GetScreenHeight()/40},30,2,BLACK);
-                        DrawTextureEx(suivant,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/12},0.0f,1.0f,WHITE);
-                        DrawRectangle(GetScreenWidth()-1.375*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8,GetScreenWidth()/12,GetScreenHeight()/32,BEIGE);
-                        DrawTextEx(font,"Suivant",(Vector2){GetScreenWidth()-1.25*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8},30,2,BLACK);
-                        DrawText(premiereCouleur, (int)TexteBoutonCC1.x + 5, (int)TexteBoutonCC1.y + 8, 40, MAROON);
-                        DrawText(deuxiemeCouleur, (int)TexteBoutonCC2.x + 5, (int)TexteBoutonCC2.y + 8, 40, MAROON);
-                        DrawText(troisiemeCouleur, (int)TexteBoutonCC3.x + 5, (int)TexteBoutonCC3.y + 8, 40, MAROON);
-                        DrawText(quatriemeCouleur, (int)TexteBoutonCC4.x + 5, (int)TexteBoutonCC4.y + 8, 40, MAROON);
-                        if ((positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()-GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()-GetScreenHeight()/12 +suivantImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
+                        DrawTextureEx(suivant,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/12},0.0f,1.0f,WHITE); // dessine le bouton suivant
+                        DrawRectangle(GetScreenWidth()-1.375*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8,GetScreenWidth()/12,GetScreenHeight()/32,BEIGE); // dessine un rectangle pour le texte
+                        DrawTextEx(font,"Suivant",(Vector2){GetScreenWidth()-1.25*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8},30,2,BLACK); // dessine le texte "suivant"
+                        DrawText(premiereCouleur, (int)TexteBoutonCC1.x + 5, (int)TexteBoutonCC1.y + 8, 40, MAROON);  // dessine l'input du clavier
+                        DrawText(deuxiemeCouleur, (int)TexteBoutonCC2.x + 5, (int)TexteBoutonCC2.y + 8, 40, MAROON);  // dessine l'input du clavier
+                        DrawText(troisiemeCouleur, (int)TexteBoutonCC3.x + 5, (int)TexteBoutonCC3.y + 8, 40, MAROON); // dessine l'input du clavier
+                        DrawText(quatriemeCouleur, (int)TexteBoutonCC4.x + 5, (int)TexteBoutonCC4.y + 8, 40, MAROON); // dessine l'input du clavier
+                        if ((positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()-GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()-GetScreenHeight()/12 +suivantImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))) // hitbox pour le boutton retour menu
                         {
-                            FenetreActuelle = NOUVELLE_PARTIE_SUITE;
+                            FenetreActuelle = NOUVELLE_PARTIE_SUITE; // affichage fenetre nouvelle partie suite
+                            PlaySound(sonBoutton); // son bouton
                         }
                     }
                     default:break;
                 }
 
-                if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
+                if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))) // hitbox pour le boutton retour menu
                 {
-                    FenetreActuelle = MENU;
-                    PlaySound(sonBoutton);
+                    FenetreActuelle = MENU; // affichage fenetre menu
+                    PlaySound(sonBoutton); // son bouton
                 }
             }break;
-            case NOUVELLE_PARTIE_SUITE:{
-                switch (nbJ) {
-                    case 1:{
-                        Joueur j1;
-                        Joueur j2;
-                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
-                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
-                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
-                        if (sourisSurZT1){
-                            DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,WHITE);
-                        }
-                        else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN);
-                        DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
-                        strcpy(j1.pseudo,zt1);
-                        if (sourisSurZT2){
-                            DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE);
-                        }
-                        else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN);
-                        DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
-                        strcpy(j2.pseudo,zt2);
-                        DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);
-                        DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);
-                    }break;
-                    case 2:{
-                        Joueur j1;
-                        Joueur j2;
-                        Joueur j3;
-                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
-                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
-                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
-                        if (sourisSurZT1){
-                            DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,WHITE);
-                        }
-                        else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN);
-                        DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
-                        strcpy(j1.pseudo,zt1);
-                        if (sourisSurZT2){
-                            DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE);
-                        }
-                        else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN);
-                        DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
-                        strcpy(j2.pseudo,zt2);
-                        if (sourisSurZT3){
-                            DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE);
-                        }
-                        else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN);
-                        DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON);
-                        strcpy(j3.pseudo,zt3);
-                        DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);
-                        DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);
-                        DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK);
-                    }break;
-                    case 3:{
-                        Joueur j1;
-                        Joueur j2;
-                        Joueur j3;
-                        Joueur j4;
-                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
-                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
-                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
+            case NOUVELLE_PARTIE_SUITE:{ // affichage fenetre nouvelle partie suite
+                switch (nbJ) { // switch en fonction du nombre de joueur
+                    case 1:{ // cas ou il y a 2 joueurs
+                        Joueur j1; // creation de deux structures pour 2 joueurs
+                        Joueur j2; // creation de deux structures pour 2 joueurs
+                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE); // dessine le fond
+                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE); // dessine le bouton retour menu
+                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE); // dessine un rectangle par dessus le fond
                         if (sourisSurZT1){
                             DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,WHITE); // rectangle blanc si pas sur zone de texte
                         }
                         else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN); // rectangle marron si pas sur zone de texte
-                        DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
+                        DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON); // dessine l'input du clavier
                         strcpy(j1.pseudo,zt1); // passage de la donnee en console
                         if (sourisSurZT2){
                             DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE); // rectangle blanc si pas sur zone de texte
                         }
                         else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN); // rectangle marron si pas sur zone de texte
-                        DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
+                        DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON); // dessine l'input du clavier
+                        strcpy(j2.pseudo,zt2); // passage de la donnee en console
+                        DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK); // affichage pseudo "x"
+                        DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK); // affichage pseudo "x"
+                    }break;
+                    case 2:{ // cas ou il y a 3 joueurs
+                        Joueur j1; // creation de 3 structures pour 3 joueurs
+                        Joueur j2; // creation de 3 structures pour 3 joueurs
+                        Joueur j3; // creation de 3 structures pour 3 joueurs
+                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE); // dessin du fond
+                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE); // dessin du bouton retour menu
+                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE); // dessin du rectangle par dessus le fond
+                        if (sourisSurZT1){
+                            DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,WHITE); // rectangle blanc si pas sur zone de texte
+                        }
+                        else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN); // rectangle marron si pas sur zone de texte
+                        DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON); // dessine l'input du clavier
+                        strcpy(j1.pseudo,zt1); // passage de la donnee en console
+                        if (sourisSurZT2){
+                            DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE); // rectangle blanc si pas sur zone de texte
+                        }
+                        else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN); // rectangle marron si pas sur zone de texte
+                        DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON); // dessine l'input du clavier
                         strcpy(j2.pseudo,zt2); // passage de la donnee en console
                         if (sourisSurZT3){
                             DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE); // rectangle blanc si pas sur zone de texte
                         }
                         else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN); // rectangle marron si pas sur zone de texte
-                        DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON);
+                        DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON); // dessine l'input du clavier
+                        strcpy(j3.pseudo,zt3); // passage de la donnee en console
+                        DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);  // affichage pseudo "x"
+                        DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);  // affichage pseudo "x"
+                        DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK); // affichage pseudo "x"
+                    }break;
+                    case 3:{ // cas ou il y a 4 joueurs
+                        Joueur j1; //creation de 4 structures pour les 4 joueurs
+                        Joueur j2; //creation de 4 structures pour les 4 joueurs
+                        Joueur j3; //creation de 4 structures pour les 4 joueurs
+                        Joueur j4; //creation de 4 structures pour les 4 joueurs
+                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE); // dessin du fond
+                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE); // dessin du bouton retour
+                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE); // dessin du rectangle par dessus le fond
+                        if (sourisSurZT1){
+                            DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,WHITE); // rectangle blanc si pas sur zone de texte
+                        }
+                        else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN); // rectangle marron si pas sur zone de texte
+                        DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON); // dessine l'input du clavier
+                        strcpy(j1.pseudo,zt1); // passage de la donnee en console
+                        if (sourisSurZT2){
+                            DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE); // rectangle blanc si pas sur zone de texte
+                        }
+                        else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN); // rectangle marron si pas sur zone de texte
+                        DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON); // dessine l'input du clavier
+                        strcpy(j2.pseudo,zt2); // passage de la donnee en console
+                        if (sourisSurZT3){
+                            DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE); // rectangle blanc si pas sur zone de texte
+                        }
+                        else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN); // rectangle marron si pas sur zone de texte
+                        DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON); // dessine l'input du clavier
                         strcpy(j3.pseudo,zt3); // passage de la donnee en console
                         if (sourisSurZT4){
                             DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,WHITE); // rectangle blanc si pas sur zone de texte
@@ -1008,7 +1009,7 @@ void fenetreMenu(int* menu){
                         DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK); // affichage pseudo "x"
                         DrawTextEx(font,"Pseudo 4",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40},40,2,BLACK); // affichage pseudo "x"
                     }break;
-                    default:break;
+                    default:break; // fin du switch
                 }
                 DrawTextureEx(suivant,(Vector2){GetScreenWidth()-1.75*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/12},0.0f,1.0f,WHITE); // dessin bouton suivant
                 DrawRectangle(GetScreenWidth()-2.5*GetScreenWidth()/16,GetScreenHeight()-GetScreenHeight()/8,GetScreenWidth()/8,GetScreenHeight()/32,BEIGE); // dessin pour afficher texte bas droite ecran
