@@ -9,6 +9,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
+#include "MenuGraphique.h"
 
 
 #define COLONNE 7
@@ -26,6 +27,6 @@ typedef struct {
 }Cases;
 
 
-void affichagePrincipal();
+void affichageConsol();
 
 #endif //PROJET_LABYRINTE_ECE_PLATEAU_H
