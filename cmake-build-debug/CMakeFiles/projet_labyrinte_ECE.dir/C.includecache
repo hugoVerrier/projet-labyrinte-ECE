@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../MenuGraphique.h
-stdio.h
-../stdio.h
-string.h
-../string.h
-unistd.h
-../unistd.h
-raylib.h
-../raylib.h
-plateau.h
-../plateau.h
-math.h
-../math.h
-
 ../raylib/src/raylib.h
 stdarg.h
 -
@@ -43,12 +29,6 @@ plateau.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
 math.h
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/math.h
-
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/main.c
-MenuGraphique.h
--
-plateau.h
-/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
 
 /Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/plateau.h
 raylib.h
