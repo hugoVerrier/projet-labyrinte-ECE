@@ -984,25 +984,25 @@ void fenetreMenu(int* menu){
                         }
                         else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN); // rectangle marron si pas sur zone de texte
                         DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
-                        strcpy(j1.pseudo,zt1);
+                        strcpy(j1.pseudo,zt1); // passage de la donnee en console
                         if (sourisSurZT2){
                             DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE); // rectangle blanc si pas sur zone de texte
                         }
                         else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN); // rectangle marron si pas sur zone de texte
                         DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
-                        strcpy(j2.pseudo,zt2);
+                        strcpy(j2.pseudo,zt2); // passage de la donnee en console
                         if (sourisSurZT3){
                             DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE); // rectangle blanc si pas sur zone de texte
                         }
                         else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN); // rectangle marron si pas sur zone de texte
                         DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON);
-                        strcpy(j3.pseudo,zt3);
+                        strcpy(j3.pseudo,zt3); // passage de la donnee en console
                         if (sourisSurZT4){
                             DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,WHITE); // rectangle blanc si pas sur zone de texte
                         }
                         else DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,BROWN); // rectangle marron si pas sur zone de texte
                         DrawText(zt4, (int)ZoneTexte4.x + 5, (int)ZoneTexte4.y + 8, 40, MAROON); // dessine l'input du clavier
-                        strcpy(j4.pseudo,zt4);
+                        strcpy(j4.pseudo,zt4); // passage de la donnee en console
                         DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);  // affichage pseudo "x"
                         DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);  // affichage pseudo "x"
                         DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK); // affichage pseudo "x"
