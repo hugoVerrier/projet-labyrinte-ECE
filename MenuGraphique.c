@@ -1020,11 +1020,10 @@ void fenetreMenu(int* menu){
                 }
                 if ((positionSouris.x >= GetScreenWidth()-1.75*GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-1.75*GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()-GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()-GetScreenHeight()/12 +suivantImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
-                    FenetreActuelle = MENU;
+                    FenetreActuelle = PLATEAU;
                     PlaySound(sonBoutton);
                     sleepf(0.316);
                     StopSound(sonBoutton);
-                    /// TEMPORAIRE  METTRE LA FUTUR FONCTION PLATEAU
                 }
             }break;
             case CHARGER_PARTIE:{
