@@ -18,6 +18,6 @@ Fenetre;
 
 
 void fenetreMenu();
-void sleepf(float seconds);
+void sleepf(float seconds); // creation d'un sleep floatant pour
 
 #endif

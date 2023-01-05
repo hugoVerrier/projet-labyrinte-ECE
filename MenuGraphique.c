@@ -1022,6 +1022,8 @@ void fenetreMenu(int* menu){
                 {
                     FenetreActuelle = MENU;
                     PlaySound(sonBoutton);
+                    sleepf(0.316);
+                    StopSound(sonBoutton);
                     /// TEMPORAIRE  METTRE LA FUTUR FONCTION PLATEAU
                 }
             }break;
