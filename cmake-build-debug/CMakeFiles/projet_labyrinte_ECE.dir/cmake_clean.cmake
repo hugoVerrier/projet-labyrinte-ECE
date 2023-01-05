@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/projet_labyrinte_ECE.dir/MenuGraphique.c.obj"
-  "CMakeFiles/projet_labyrinte_ECE.dir/main.c.obj"
-  "libprojet_labyrinte_ECE.dll.a"
-  "projet_labyrinte_ECE.exe"
-  "projet_labyrinte_ECE.exe.manifest"
+  "CMakeFiles/projet_labyrinte_ECE.dir/MenuGraphique.c.o"
+  "CMakeFiles/projet_labyrinte_ECE.dir/main.c.o"
+  "projet_labyrinte_ECE"
   "projet_labyrinte_ECE.pdb"
 )
 

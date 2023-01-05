@@ -8,21 +8,21 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/raudio.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.obj"
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rcore.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.obj"
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rmodels.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.obj"
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rshapes.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.obj"
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rtext.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.obj"
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rtextures.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.obj"
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/utils.c" "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/utils.c.obj"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/raudio.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/rcore.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/rmodels.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/rshapes.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/rtext.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/rtextures.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/raylib/src/utils.c" "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
+  "GL_SILENCE_DEPRECATION"
   "GRAPHICS_API_OPENGL_33"
   "PLATFORM_DESKTOP"
-  "_CRT_SECURE_NO_WARNINGS"
   )
 
 # The include file search paths:
@@ -38,7 +38,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/Users/eliotrineau/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

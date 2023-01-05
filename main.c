@@ -3,6 +3,5 @@
 
 int main(){
     fenetreMenu();
-    //credits();
     return 0;
 }

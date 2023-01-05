@@ -5,6 +5,8 @@
 #include "string.h"
 #include "unistd.h"
 #include "raylib.h"
+#include "plateau.h"
+#include "math.h"
 
 #define CHAR_OUI_NON 3
 #define CHAR_CHOIXNBJOUEURS 1
@@ -14,7 +16,8 @@
 typedef enum Fenetre{MENU,NOUVELLE_PARTIE,NOUVELLE_PARTIE_SUITE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER,PLATEAU}
 Fenetre;
 
-void fenetreMenu();
 
+void fenetreMenu();
+void sleepf(float seconds);
 
 #endif

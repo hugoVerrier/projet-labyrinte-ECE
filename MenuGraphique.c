@@ -1,7 +1,6 @@
 
 #include "MenuGraphique.h"
 
-
 void fenetreMenu(int* menu){
 
     // initialisation de la fenetre
@@ -90,8 +89,12 @@ void fenetreMenu(int* menu){
     Texture2D Xavier = LoadTextureFromImage(XavierImage);
     UnloadImage(XavierImage);
 
+    InitAudioDevice();
+    Music music = LoadMusicStream("../SonMenu/son menu.mp3");
+    //float jouerMusique = 0.0f;
+    //bool pause = false;
 
-
+    Sound sonBoutton = LoadSound("../SonMenu/CliqueBoutton.wav");
 
 
     int fin = 0; // fin inutile juste histoire de pas fermer la fenetre
@@ -99,6 +102,7 @@ void fenetreMenu(int* menu){
 
     SetTargetFPS(60);
     while (!fin ){
+        UpdateMusicStream(music);
         Vector2 positionSouris;
         positionSouris = GetMousePosition();
         Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
@@ -369,7 +373,9 @@ void fenetreMenu(int* menu){
         }
 
 
-
+        if (FenetreActuelle == MENU){
+            PlayMusicStream(music);
+        }
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -392,19 +398,27 @@ void fenetreMenu(int* menu){
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = QUITTER;
+                    PlaySound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8) && (positionSouris.y <= GetScreenHeight()/8+boutonImage.height) ){
                     FenetreActuelle = NOUVELLE_PARTIE;
-
+                    PlaySound(sonBoutton);
+                    sleepf(0.216);
+                    StopSound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = CHARGER_PARTIE;
+                    PlaySound(sonBoutton);
+                    sleepf(0.216);
+                    StopSound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+2*GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+2*GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = REGLES;
+                    PlaySound(sonBoutton);
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+3*GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+3*GetScreenWidth()/8+boutonImage.height) ){
                     FenetreActuelle = CREDITS;
+                    PlaySound(sonBoutton);
                 }
             }break;
             case QUITTER:{
@@ -419,6 +433,7 @@ void fenetreMenu(int* menu){
                 UnloadTexture(Hugo);
                 UnloadTexture(Henin);
                 UnloadTexture(Xavier);
+                StopMusicStream(music);
             }break;
             case NOUVELLE_PARTIE:{
                 switch (re) {
@@ -441,35 +456,6 @@ void fenetreMenu(int* menu){
                         }
                         else DrawRectangle(TexteBoutonRE.x,TexteBoutonRE.y,TexteBoutonRE.width,TexteBoutonRE.height,BROWN);
                         DrawTextEx(font,"Regle enfant : (Oui ou Non)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
-
-
-
-                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
-                        if (sourisSurTexteRE){
-                            DrawRectangle(TexteBoutonRE.x,TexteBoutonRE.y,TexteBoutonRE.width,TexteBoutonRE.height,WHITE);
-                        }
-                        else DrawRectangle(TexteBoutonRE.x,TexteBoutonRE.y,TexteBoutonRE.width,TexteBoutonRE.height,BROWN);
-                        DrawText(premierParam, (int)TexteBoutonRE.x + 5, (int)TexteBoutonRE.y + 8, 40, MAROON);
-                        if (sourisSurTexteNJ){
-                            DrawRectangle(TexteBoutonNJ.x,TexteBoutonNJ.y,TexteBoutonNJ.width,TexteBoutonNJ.height,WHITE);
-                        }
-                        else DrawRectangle(TexteBoutonNJ.x,TexteBoutonNJ.y,TexteBoutonNJ.width,TexteBoutonNJ.height,BROWN);
-                        DrawText(deuxiemeParam, (int)TexteBoutonNJ.x + 5, (int)TexteBoutonNJ.y + 8, 40, MAROON);
-                        DrawTextEx(font,"Nombre de Joueurs (2, 3 ou 4 Joueurs)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+8*GetScreenHeight()/40},30,2,BLACK);
-                    }
-                    case 3:{
-                        DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
-                        DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
-                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
-                        if (sourisSurTexteRE){
-                            DrawRectangle(TexteBoutonRE.x,TexteBoutonRE.y,TexteBoutonRE.width,TexteBoutonRE.height,WHITE);
-                        }
-                        else DrawRectangle(TexteBoutonRE.x,TexteBoutonRE.y,TexteBoutonRE.width,TexteBoutonRE.height,BROWN);
-                        DrawTextEx(font,"Regle enfant : (Oui ou Non)",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/40},30,2,BLACK);
-
-
-
-                        DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
                         if (sourisSurTexteRE){
                             DrawRectangle(TexteBoutonRE.x,TexteBoutonRE.y,TexteBoutonRE.width,TexteBoutonRE.height,WHITE);
                         }
@@ -930,11 +916,14 @@ void fenetreMenu(int* menu){
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = MENU;
+                    PlaySound(sonBoutton);
                 }
             }break;
             case NOUVELLE_PARTIE_SUITE:{
                 switch (nbJ) {
                     case 1:{
+                        Joueur j1;
+                        Joueur j2;
                         DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
                         DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
                         DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
@@ -943,15 +932,20 @@ void fenetreMenu(int* menu){
                         }
                         else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN);
                         DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
+                        strcpy(j1.pseudo,zt1);
                         if (sourisSurZT2){
                             DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE);
                         }
                         else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN);
                         DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
+                        strcpy(j2.pseudo,zt2);
                         DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);
                         DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);
                     }break;
                     case 2:{
+                        Joueur j1;
+                        Joueur j2;
+                        Joueur j3;
                         DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
                         DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
                         DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
@@ -960,21 +954,28 @@ void fenetreMenu(int* menu){
                         }
                         else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN);
                         DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
+                        strcpy(j1.pseudo,zt1);
                         if (sourisSurZT2){
                             DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE);
                         }
                         else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN);
                         DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
+                        strcpy(j2.pseudo,zt2);
                         if (sourisSurZT3){
                             DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE);
                         }
                         else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN);
                         DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON);
+                        strcpy(j3.pseudo,zt3);
                         DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);
                         DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);
                         DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK);
                     }break;
                     case 3:{
+                        Joueur j1;
+                        Joueur j2;
+                        Joueur j3;
+                        Joueur j4;
                         DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
                         DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
                         DrawRectangle(GetScreenWidth()/6,GetScreenHeight()/6,GetScreenWidth()-2*GetScreenWidth()/6,GetScreenHeight()-2*GetScreenHeight()/6,BEIGE);
@@ -983,21 +984,25 @@ void fenetreMenu(int* menu){
                         }
                         else DrawRectangle(ZoneTexte1.x,ZoneTexte1.y,ZoneTexte1.width,ZoneTexte1.height,BROWN);
                         DrawText(zt1, (int)ZoneTexte1.x + 5, (int)ZoneTexte1.y + 8, 40, MAROON);
+                        strcpy(j1.pseudo,zt1);
                         if (sourisSurZT2){
                             DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,WHITE);
                         }
                         else DrawRectangle(ZoneTexte2.x,ZoneTexte2.y,ZoneTexte2.width,ZoneTexte2.height,BROWN);
                         DrawText(zt2, (int)ZoneTexte2.x + 5, (int)ZoneTexte2.y + 8, 40, MAROON);
+                        strcpy(j2.pseudo,zt2);
                         if (sourisSurZT3){
                             DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,WHITE);
                         }
                         else DrawRectangle(ZoneTexte3.x,ZoneTexte3.y,ZoneTexte3.width,ZoneTexte3.height,BROWN);
                         DrawText(zt3, (int)ZoneTexte3.x + 5, (int)ZoneTexte3.y + 8, 40, MAROON);
+                        strcpy(j3.pseudo,zt3);
                         if (sourisSurZT4){
                             DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,WHITE);
                         }
                         else DrawRectangle(ZoneTexte4.x,ZoneTexte4.y,ZoneTexte4.width,ZoneTexte4.height,BROWN);
                         DrawText(zt4, (int)ZoneTexte4.x + 5, (int)ZoneTexte4.y + 8, 40, MAROON);
+                        strcpy(j4.pseudo,zt4);
                         DrawTextEx(font,"Pseudo 1",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40},40,2,BLACK);
                         DrawTextEx(font,"Pseudo 2",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40},40,2,BLACK);
                         DrawTextEx(font,"Pseudo 3",(Vector2){GetScreenWidth()/6+GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40},40,2,BLACK);
@@ -1011,10 +1016,13 @@ void fenetreMenu(int* menu){
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = NOUVELLE_PARTIE;
+                    PlaySound(sonBoutton);
                 }
                 if ((positionSouris.x >= GetScreenWidth()-1.75*GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-1.75*GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()-GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()-GetScreenHeight()/12 +suivantImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
-                    FenetreActuelle = MENU; /// TEMPORAIRE  efzQREFZQRGBFEFZQRDBEDEFQVFDEFQSDQEDFQSVDEFSQVDQDZEFDSVFS
+                    FenetreActuelle = MENU;
+                    PlaySound(sonBoutton);
+                    /// TEMPORAIRE  METTRE LA FUTUR FONCTION PLATEAU
                 }
             }break;
             case CHARGER_PARTIE:{
@@ -1026,6 +1034,7 @@ void fenetreMenu(int* menu){
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = MENU;
+                    PlaySound(sonBoutton);
                 }
             }break;
             case REGLES:{
@@ -1035,6 +1044,7 @@ void fenetreMenu(int* menu){
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = MENU;
+                    PlaySound(sonBoutton);
                 }
             }break;
             case CREDITS:{
@@ -1060,13 +1070,21 @@ void fenetreMenu(int* menu){
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
                     FenetreActuelle = MENU;
+                    PlaySound(sonBoutton);
                 }
             }break;
             default:break;
         }
         EndDrawing();
     }
+    CloseAudioDevice();
     CloseWindow();
 }
 
 
+void sleepf(float seconds)
+{
+    int secs = floor(seconds);
+    int usecs = round((seconds - secs) * 1000000);
+    usleep(secs * 1000000 + usecs);
+}
