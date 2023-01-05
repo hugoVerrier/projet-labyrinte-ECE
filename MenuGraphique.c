@@ -1074,19 +1074,19 @@ void fenetreMenu(int* menu){
                     PlaySound(sonBoutton);
                 }
             }break;
-            default:break;
+            default:break; // fin du switch
         }
-        EndDrawing();
+        EndDrawing(); // terminer le dessin
     }
-    CloseAudioDevice();
-    CloseWindow();
+    CloseAudioDevice(); // fermer les peripheriques audio
+    CloseWindow(); // fermer la fenetre
 }
 
 
 void sleepf(float seconds)
 {
-    int secs = floor(seconds);
-    int usecs = round((seconds - secs) * 1000000);
-    usleep(secs * 1000000 + usecs);
+    int secs = floor(seconds);    // secondes
+    int usecs = round((seconds - secs) * 1000000); // microsecondes
+    usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
 }
 
