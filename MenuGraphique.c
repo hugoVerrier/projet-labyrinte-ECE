@@ -1093,3 +1093,105 @@ void sleepf(float seconds)
     usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
 }
 
+//int* creerSauvegarde(int taille){
+//    int *tableau = (int *)malloc(sizeof(int) * taille);
+//    for (int i = 0; i < taille; i++) {
+//        tableau[i] = i * i;
+//    }
+//    return tableau;
+//}
+
+//void sauvegarderTableau(int taille, char *fichierNom) {
+//    int *tableau = creerSauvegarde(taille);
+//    FILE *fichier = fopen(fichierNom, "wb");
+//    if (fichier == NULL) {
+//        printf("erreur\n");
+//        exit(1);
+//    }
+//    fwrite(tableau, sizeof(int), taille, fichier);
+//    fclose(fichier);
+//    free(tableau);
+//}
+
+
+void sauvegardeStructJoueur(char* sauvegarde, Joueur* j){
+    FILE * fichier = fopen(sauvegarde,"w");
+    if (fichier == NULL){
+        printf("erreur\n");
+        exit(1);
+    }
+    if (fichier!=NULL){
+        fprintf(fichier,"%d\n %d\n %d\n %d\n %s\n", j->x,j->y,j->TresorDeck,j->TresorRecup,j->pseudo);
+        fclose(fichier);
+    }
+}
+
+void sauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p){
+    fopen(sauvegarde,"w");
+    int i,j;
+    char tuiles, sauvegardefinie;
+    if (fichier == NULL){
+        printf("erreur\n");
+        exit(1);
+    }
+    if (fichier!=NULL){
+        do {
+            if (j < 7){
+                tuiles = p[i][j];
+                fputc(' ',fichier);
+                fputc(tuiles,fichier);
+                j++;
+            }
+            else{
+                if (i < 7-1){
+                    fprintf(fichier,"\n");
+                    j=0;
+                    i++;
+                } else sauvegardefinie = 1;
+            }
+        } while (sauvegardefinie != 1);
+        fclose(fichier);
+    }
+}
+
+void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j){
+    fichier = fopen(sauvegarde,"r");
+    if (fichier == NULL){
+        printf("erreur\n");
+        exit(1);
+    }
+    if (fichier != NULL){
+        do {
+            fread(sauvegarde,j->x,1,fichier);
+            fread(sauvegarde,j->y,1,fichier);
+            fread(sauvegarde,*j->TresorRecup,1,fichier);
+            fread(sauvegarde,*j->TresorDeck,1,fichier);
+            fread(sauvegarde,*j->pseudo,1,fichier);
+        } while (fichier != EOF);
+        fclose(fichier);
+    }
+}
+
+void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p){
+    int i=0,j=0;
+    char tuiles;
+    fichier = fopen(sauvegarde,"r");
+    if (fichier == NULL){
+        printf("erreur\n");
+        exit(1);
+    }
+    if (fichier != NULL){
+        do  {
+            if(j < 7) {
+                tuiles = fgetc(fichier);
+                tuiles = fgetc(fichier);
+                p[i][j] = tuiles;
+                j++;
+            }else
+                tuiles = fgetc(fichier);
+                j = 0;
+                i++;
+            }while (tuiles != EOF);
+        fclose(fichier);
+    }
+}
