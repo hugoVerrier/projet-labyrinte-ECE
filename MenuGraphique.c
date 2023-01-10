@@ -1121,7 +1121,7 @@ void sauvegardeStructJoueur(char* sauvegarde, Joueur* j){
         exit(1);
     }
     if (fichier!=NULL){
-        fprintf(fichier,"%d\n %d\n %d\n %d\n %s\n", j->x,j->y,j->TresorDeck,j->TresorRecup,j->pseudo);
+        fprintf(fichier,"%d\n %d\n %d\n %d\n %s\n", j->x,j->y,*j->TresorDeck,*j->TresorRecup,j->pseudo);
         fclose(fichier);
     }
 }
