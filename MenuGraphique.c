@@ -34,60 +34,60 @@ void fenetreMenu(int* menu){
 
 
     // chargement et redimension des textures MENU
-    Image fondImage = LoadImage("../ImagesMenu/fond.png");
-    ImageResize(&fondImage,GetScreenWidth(),GetScreenHeight());
-    Texture2D fond = LoadTextureFromImage(fondImage);
+    Image fondImage = LoadImage("../ImagesMenu/fond.png");// Chargement image de fond
+    ImageResize(&fondImage,GetScreenWidth(),GetScreenHeight());//Redimension image
+    Texture2D fond = LoadTextureFromImage(fondImage);// Passage en texture
 
-    Image boutonImage = LoadImage("../ImagesMenu/parcheminhorizontal.png");
-    ImageResize(&boutonImage,GetScreenWidth()/4,GetScreenHeight()/12);
-    Texture2D bouton = LoadTextureFromImage(boutonImage);
+    Image boutonImage = LoadImage("../ImagesMenu/parcheminhorizontal.png");//Chargement image bouton
+    ImageResize(&boutonImage,GetScreenWidth()/4,GetScreenHeight()/12);//Redimension image bouton
+    Texture2D bouton = LoadTextureFromImage(boutonImage);//Passage en texture image bouton
 
-    Image quitterImage = LoadImage("../ImagesMenu/boutonQuitter.png");
-    ImageResize(&quitterImage,GetScreenWidth()/22,GetScreenHeight()/18);
-    Texture2D quitter = LoadTextureFromImage(quitterImage);
+    Image quitterImage = LoadImage("../ImagesMenu/boutonQuitter.png");//Chargement image bouton quitter
+    ImageResize(&quitterImage,GetScreenWidth()/22,GetScreenHeight()/18);//Redimension image bouton quitter
+    Texture2D quitter = LoadTextureFromImage(quitterImage);;//Passage en texture image bouton quitter
 
-    Image suivantImage = LoadImage("../ImagesMenu/boutonSuivant.png");
-    ImageResize(&suivantImage,GetScreenWidth()/22,GetScreenHeight()/18);
-    Texture2D suivant = LoadTextureFromImage(suivantImage);
+    Image suivantImage = LoadImage("../ImagesMenu/boutonSuivant.png");//Chargement image bouton suivant
+    ImageResize(&suivantImage,GetScreenWidth()/22,GetScreenHeight()/18);;//Redimension image bouton suivant
+    Texture2D suivant = LoadTextureFromImage(suivantImage);;//Passage en texture image suivant
 
-    Font font = LoadFont("../Font/Terserah.ttf");
+    Font font = LoadFont("../Font/Terserah.ttf");// Chargement police de carac
 
 
     // chargement et redimension des textures REGLES
-    Image reglesImage = LoadImage("../ImagesRegles/regles.png");
-    ImageResize(&reglesImage,GetScreenWidth()*0.8,GetScreenWidth()*0.6);
-    Texture2D regles = LoadTextureFromImage(reglesImage);
-    UnloadImage(reglesImage);
+    Image reglesImage = LoadImage("../ImagesRegles/regles.png");;//Chargement image regle
+    ImageResize(&reglesImage,GetScreenWidth()*0.8,GetScreenWidth()*0.6);//Redimension image regle
+    Texture2D regles = LoadTextureFromImage(reglesImage);;//passage en texture image regle
+    UnloadImage(reglesImage);//suppression image regle
 
     // chargement et redimension des textures CREDITS
-    Image boutonCreditsImage = LoadImage("../ImagesMenu/parcheminhorizontal.png");
-    ImageResize(&boutonCreditsImage,GetScreenWidth()/2.5,GetScreenHeight()/11);
-    Texture2D boutonCredits = LoadTextureFromImage(boutonCreditsImage);
-    UnloadImage(boutonCreditsImage);
+    Image boutonCreditsImage = LoadImage("../ImagesMenu/parcheminhorizontal.png");;//chargement image bouton credits
+    ImageResize(&boutonCreditsImage,GetScreenWidth()/2.5,GetScreenHeight()/11);;//Redimension image bouton credits
+    Texture2D boutonCredits = LoadTextureFromImage(boutonCreditsImage);;//passage en texture image bouton credits
+    UnloadImage(boutonCreditsImage);;//Redimension image bouton quitter
 
-    Image retourMenuImage = LoadImage("../ImagesMenu/boutonQuitter.png");
-    ImageResize(&retourMenuImage,GetScreenWidth()/22,GetScreenHeight()/18);
-    Texture2D retourMenu = LoadTextureFromImage(retourMenuImage);
+    Image retourMenuImage = LoadImage("../ImagesMenu/boutonQuitter.png");//Redimension image bouton retour menu
+    ImageResize(&retourMenuImage,GetScreenWidth()/22,GetScreenHeight()/18);//Redimension image bouton retour menu
+    Texture2D retourMenu = LoadTextureFromImage(retourMenuImage);//Redimension image bouton retour menu
 
-    Image EliotImage = LoadImage("../ImagesCredits/Eliot.png");
-    ImageResize(&EliotImage,GetScreenWidth()/4,GetScreenHeight()/3);
-    Texture2D Eliot = LoadTextureFromImage(EliotImage);
-    UnloadImage(EliotImage);
+    Image EliotImage = LoadImage("../ImagesCredits/Eliot.png");//chargement image credit
+    ImageResize(&EliotImage,GetScreenWidth()/4,GetScreenHeight()/3);//redimension image credit
+    Texture2D Eliot = LoadTextureFromImage(EliotImage);//passage en texture image credit
+    UnloadImage(EliotImage);//suppression image crédit
 
-    Image HugoImage = LoadImage("../ImagesCredits/Hugo.png");
-    ImageResize(&HugoImage,GetScreenWidth()/4,GetScreenHeight()/3);
-    Texture2D Hugo = LoadTextureFromImage(HugoImage);
-    UnloadImage(HugoImage);
+    Image HugoImage = LoadImage("../ImagesCredits/Hugo.png");//chargement image credit
+    ImageResize(&HugoImage,GetScreenWidth()/4,GetScreenHeight()/3);//redimension image credit
+    Texture2D Hugo = LoadTextureFromImage(HugoImage);//passage en texture image credit
+    UnloadImage(HugoImage);//suppression image crédit
 
-    Image HeninImage = LoadImage("../ImagesCredits/Henin.png");
-    ImageResize(&HeninImage,GetScreenWidth()/4,GetScreenHeight()/3);
-    Texture2D Henin = LoadTextureFromImage(HeninImage);
-    UnloadImage(HeninImage);
+    Image HeninImage = LoadImage("../ImagesCredits/Henin.png");//chargement image credit
+    ImageResize(&HeninImage,GetScreenWidth()/4,GetScreenHeight()/3);//redimension image credit
+    Texture2D Henin = LoadTextureFromImage(HeninImage);//passage en texture image credit
+    UnloadImage(HeninImage);//suppression image crédit
 
-    Image XavierImage = LoadImage("../ImagesCredits/Xavier.png");
-    ImageResize(&XavierImage,GetScreenWidth()/4,GetScreenHeight()/3);
-    Texture2D Xavier = LoadTextureFromImage(XavierImage);
-    UnloadImage(XavierImage);
+    Image XavierImage = LoadImage("../ImagesCredits/Xavier.png");//chargement image credit
+    ImageResize(&XavierImage,GetScreenWidth()/4,GetScreenHeight()/3);//redimension image credit
+    Texture2D Xavier = LoadTextureFromImage(XavierImage);//passage en texture image credit
+    UnloadImage(XavierImage);//suppression image crédit
 
     InitAudioDevice();
     Music music = LoadMusicStream("../SonMenu/son menu.mp3");
@@ -102,13 +102,13 @@ void fenetreMenu(int* menu){
 
     SetTargetFPS(60);
     while (!fin ){
-        UpdateMusicStream(music);
-        Vector2 positionSouris;
-        positionSouris = GetMousePosition();
-        Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
-        Rectangle TexteBoutonNJ = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+10*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };
-        Rectangle TexteBoutonCC1 = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
-        Rectangle TexteBoutonCC2 = { GetScreenWidth()/6+GetScreenWidth()/40+GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
+        UpdateMusicStream(music);//mettre a jour la musique
+        Vector2 positionSouris;// vecteur(x,y) position souris
+        positionSouris = GetMousePosition();//renomme la fonction
+        Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };//dimension zone bouton
+        Rectangle TexteBoutonNJ = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+10*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };//dimension zone bouton
+        Rectangle TexteBoutonCC1 = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };//dimension zone bouton
+        Rectangle TexteBoutonCC2 = { GetScreenWidth()/6+GetScreenWidth()/40+GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };//dimension zone zone texte bouton
         Rectangle TexteBoutonCC3 = { GetScreenWidth()/6+GetScreenWidth()/40+2*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
         Rectangle TexteBoutonCC4 = { GetScreenWidth()/6+GetScreenWidth()/40+3*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
         Rectangle ZoneTexte1 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
