@@ -10,6 +10,7 @@ void fenetreMenu(int* menu){
     int compteurFPS=0;
     int nbJ = 0;
     int re = 0;
+    int nbS = 0;
     int compteurLettrePremierParam=0;
     int compteurLettreDeuxiemeParam=0;
     int compteurLettrePremiereCouleur=0;
@@ -95,7 +96,7 @@ void fenetreMenu(int* menu){
     //bool pause = false;
 
     Sound sonBoutton = LoadSound("../SonMenu/CliqueBoutton.wav");
-
+    Sound sonPoseTuile = LoadSound("../SonMenu/sonPoseTuiles.wav");
 
     int fin = 0; // fin inutile juste histoire de pas fermer la fenetre
 
@@ -1040,6 +1041,305 @@ void fenetreMenu(int* menu){
                     FenetreActuelle = MENU; // retour au menu
                     PlaySound(sonBoutton); // son boutton
                 }
+                nbS = 7;
+                switch (nbS) {
+                    case 1:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                    }break;
+                    case 2:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        FILE* fichier2 = NULL;
+                        char* sauvegarde2 = NULL;
+                        Joueur* j2 = NULL;
+                        char** p2 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                    }break;
+                    case 3:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        FILE* fichier2 = NULL;
+                        char* sauvegarde2 = NULL;
+                        Joueur* j2 = NULL;
+                        char** p2 = NULL;
+                        FILE* fichier3 = NULL;
+                        char* sauvegarde3 = NULL;
+                        Joueur* j3 = NULL;
+                        char** p3 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
+                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                        }
+                    }break;
+                    case 4:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        FILE* fichier2 = NULL;
+                        char* sauvegarde2 = NULL;
+                        Joueur* j2 = NULL;
+                        char** p2 = NULL;
+                        FILE* fichier3 = NULL;
+                        char* sauvegarde3 = NULL;
+                        Joueur* j3 = NULL;
+                        char** p3 = NULL;
+                        FILE* fichier4 = NULL;
+                        char* sauvegarde4 = NULL;
+                        Joueur* j4 = NULL;
+                        char** p4 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+3*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                    }break;
+                    case 5:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        FILE* fichier2 = NULL;
+                        char* sauvegarde2 = NULL;
+                        Joueur* j2 = NULL;
+                        char** p2 = NULL;
+                        FILE* fichier3 = NULL;
+                        char* sauvegarde3 = NULL;
+                        Joueur* j3 = NULL;
+                        char** p3 = NULL;
+                        FILE* fichier4 = NULL;
+                        char* sauvegarde4 = NULL;
+                        Joueur* j4 = NULL;
+                        char** p4 = NULL;
+                        FILE* fichier5 = NULL;
+                        char* sauvegarde5 = NULL;
+                        Joueur* j5 = NULL;
+                        char** p5 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+3*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+4*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
+                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier4,sauvegarde4,j4);
+                            lireSauvegardeStructPlateau(fichier4,sauvegarde4,p4);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier5,sauvegarde5,j5);
+                            lireSauvegardeStructPlateau(fichier5,sauvegarde5,p5);
+                        }
+                    }break;
+                    case 6:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        FILE* fichier2 = NULL;
+                        char* sauvegarde2 = NULL;
+                        Joueur* j2 = NULL;
+                        char** p2 = NULL;
+                        FILE* fichier3 = NULL;
+                        char* sauvegarde3 = NULL;
+                        Joueur* j3 = NULL;
+                        char** p3 = NULL;
+                        FILE* fichier4 = NULL;
+                        char* sauvegarde4 = NULL;
+                        Joueur* j4 = NULL;
+                        char** p4 = NULL;
+                        FILE* fichier5 = NULL;
+                        char* sauvegarde5 = NULL;
+                        Joueur* j5 = NULL;
+                        char** p5 = NULL;
+                        FILE* fichier6 = NULL;
+                        char* sauvegarde6 = NULL;
+                        Joueur* j6 = NULL;
+                        char** p6 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+3*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+4*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+5*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
+                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier4,sauvegarde4,j4);
+                            lireSauvegardeStructPlateau(fichier4,sauvegarde4,p4);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier5,sauvegarde5,j5);
+                            lireSauvegardeStructPlateau(fichier5,sauvegarde5,p5);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier6,sauvegarde6,j6);
+                            lireSauvegardeStructPlateau(fichier6,sauvegarde6,p6);
+                        }
+                    }break;
+                    case 7:{
+                        FILE* fichier1 = NULL;
+                        char* sauvegarde1 = NULL;
+                        Joueur* j1 = NULL;
+                        char** p1 = NULL;
+                        FILE* fichier2 = NULL;
+                        char* sauvegarde2 = NULL;
+                        Joueur* j2 = NULL;
+                        char** p2 = NULL;
+                        FILE* fichier3 = NULL;
+                        char* sauvegarde3 = NULL;
+                        Joueur* j3 = NULL;
+                        char** p3 = NULL;
+                        FILE* fichier4 = NULL;
+                        char* sauvegarde4 = NULL;
+                        Joueur* j4 = NULL;
+                        char** p4 = NULL;
+                        FILE* fichier5 = NULL;
+                        char* sauvegarde5 = NULL;
+                        Joueur* j5 = NULL;
+                        char** p5 = NULL;
+                        FILE* fichier6 = NULL;
+                        char* sauvegarde6 = NULL;
+                        Joueur* j6 = NULL;
+                        char** p6 = NULL;
+                        FILE* fichier7 = NULL;
+                        char* sauvegarde7 = NULL;
+                        Joueur* j7 = NULL;
+                        char** p7 = NULL;
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+3*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+4*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+5*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+6*GetScreenHeight()/12},30.0,2.0,BLACK);
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
+                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
+                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
+                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier4,sauvegarde4,j4);
+                            lireSauvegardeStructPlateau(fichier4,sauvegarde4,p4);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier5,sauvegarde5,j5);
+                            lireSauvegardeStructPlateau(fichier5,sauvegarde5,p5);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier6,sauvegarde6,j6);
+                            lireSauvegardeStructPlateau(fichier6,sauvegarde6,p6);
+                        }
+                        if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+7*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
+                            lireSauvegardeStructJoueur(fichier7,sauvegarde7,j7);
+                            lireSauvegardeStructPlateau(fichier7,sauvegarde7,p7);
+                        }
+                    }break;
+                    default:break;
+
+                }
+
             }break;
             case REGLES:{ // affichage fenetre regles
                 DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE); // dessin fond
@@ -1114,7 +1414,7 @@ void sleepf(float seconds)
 //}
 
 
-void sauvegardeStructJoueur(char* sauvegarde, Joueur* j){
+void creerSauvegardeStructJoueur(char* sauvegarde, Joueur* j){
     FILE * fichier = fopen(sauvegarde,"w");
     if (fichier == NULL){
         printf("erreur\n");
@@ -1126,7 +1426,7 @@ void sauvegardeStructJoueur(char* sauvegarde, Joueur* j){
     }
 }
 
-void sauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p){
+void creerSauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p){
     fopen(sauvegarde,"w");
     int i,j;
     char tuiles, sauvegardefinie;
@@ -1189,9 +1489,17 @@ void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p){
                 j++;
             }else
                 tuiles = fgetc(fichier);
-                j = 0;
-                i++;
-            }while (tuiles != EOF);
+            j = 0;
+            i++;
+        }while (tuiles != EOF);
         fclose(fichier);
     }
 }
+
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
+
 #ifndef PROJET_LABYRINTE_ECE_MENU_H
 #define PROJET_LABYRINTE_ECE_MENU_H
 
@@ -14,10 +15,16 @@
 #define CHAR_PSEUDO 9 // taille acceptee pour le pseudo
 #define JAUNE YELLOW
 typedef enum Fenetre{MENU,NOUVELLE_PARTIE,NOUVELLE_PARTIE_SUITE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER,PLATEAU}
-Fenetre; // creation d'un enum pour actualiser la fenetre affichee
+        Fenetre; // creation d'un enum pour actualiser la fenetre affichee
 
 
 void fenetreMenu(); // creation de la fonction menu regroupant toutes les fenetres
 void sleepf(float seconds); // creation d'un sleep floatant pour corriger un bug de son
+void creerSauvegardeStructJoueur(char* sauvegarde, Joueur* j);
+void creerSauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p);
+void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j);
+void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p);
+
 
 #endif
+
