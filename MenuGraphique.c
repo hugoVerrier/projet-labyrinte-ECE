@@ -7,8 +7,8 @@ void fenetreMenu(int* menu){
     InitWindow(GetScreenWidth(),GetScreenHeight(),"Menu");
     ToggleFullscreen();
     Fenetre FenetreActuelle = MENU;
+    Joueur j;
     int compteurFPS=0;
-    int nbJ = 0;
     int re = 0;
     int nbS = 0;
     int compteurLettrePremierParam=0;
@@ -357,13 +357,13 @@ void fenetreMenu(int* menu){
         else compteurFPS = 0;
 
         if (strcmp(deuxiemeParam,"2") == 0){
-            nbJ = 1;
+            j.nbJoueur = 1;
         }
         if (strcmp(deuxiemeParam,"3") == 0){
-            nbJ = 2;
+            j.nbJoueur = 2;
         }
         if (strcmp(deuxiemeParam,"4") == 0){
-            nbJ = 3;
+            j.nbJoueur= 3;
         }
 
         if (strcmp(premierParam,"\0") == 0){
@@ -471,7 +471,7 @@ void fenetreMenu(int* menu){
 
 
 
-                        switch (nbJ) {
+                        switch (j.nbJoueur) {
                             case 1:{
                                 if (sourisSurTexteCC1){
                                     DrawRectangle(TexteBoutonCC1.x,TexteBoutonCC1.y,TexteBoutonCC1.width,TexteBoutonCC1.height,WHITE);
@@ -922,7 +922,7 @@ void fenetreMenu(int* menu){
                 }
             }break;
             case NOUVELLE_PARTIE_SUITE:{ // affichage fenetre nouvelle partie suite
-                switch (nbJ) { // switch en fonction du nombre de joueur
+                switch (j.nbJoueur) { // switch en fonction du nombre de joueur
                     case 1:{ // cas ou il y a 2 joueurs
                         Joueur j1; // creation de deux structures pour 2 joueurs
                         Joueur j2; // creation de deux structures pour 2 joueurs
@@ -1382,7 +1382,7 @@ void fenetreMenu(int* menu){
         EndDrawing(); // terminer le dessin
     }
     CloseAudioDevice(); // fermer les peripheriques audio
-    //CloseWindow(); // fermer la fenetre
+    CloseWindow(); // fermer la fenetre
 }
 
 
@@ -1391,68 +1391,6 @@ void sleepf(float seconds){
     int usecs = round((seconds - secs) * 1000000); // microsecondes
     //usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
 }
-
-//int* creerSauvegarde(int taille){
-//    int *tableau = (int *)malloc(sizeof(int) * taille);
-//    for (int i = 0; i < taille; i++) {
-//        tableau[i] = i * i;
-//    }
-//    return tableau;
-//}
-
-//void sauvegarderTableau(int taille, char *fichierNom) {
-//    int *tableau = creerSauvegarde(taille);
-//    FILE *fichier = fopen(fichierNom, "wb");
-//    if (fichier == NULL) {
-//        printf("erreur\n");
-//        exit(1);
-//    }
-//    fwrite(tableau, sizeof(int), taille, fichier);
-//    fclose(fichier);
-//    free(tableau);
-//}
-
-
-void creerSauvegardeStructJoueur(char* sauvegarde, Joueur* j){
-    FILE * fichier = fopen(sauvegarde,"w");
-    if (fichier == NULL){
-        printf("erreur\n");
-        exit(1);
-    }
-    if (fichier!=NULL){
-        fprintf(fichier,"%d\n %d\n %d\n %d\n %s\n", j->x,j->y,*j->TresorDeck,*j->TresorRecup,j->pseudo);
-        fclose(fichier);
-    }
-}
-
-void creerSauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p){
-    fopen(sauvegarde,"w");
-    int i,j;
-    char tuiles, sauvegardefinie;
-    if (fichier == NULL){
-        printf("erreur\n");
-        exit(1);
-    }
-    if (fichier!=NULL){
-        do {
-            if (j < 7){
-                tuiles = p[i][j];
-                fputc(' ',fichier);
-                fputc(tuiles,fichier);
-                j++;
-            }
-            else{
-                if (i < 7-1){
-                    fprintf(fichier,"\n");
-                    j=0;
-                    i++;
-                } else sauvegardefinie = 1;
-            }
-        } while (sauvegardefinie != 1);
-        fclose(fichier);
-    }
-}
-
 
 
 void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j){
@@ -1519,11 +1457,14 @@ void sauvegardeJoueurPlateau(Joueur* j,tableau* t){
         }
         fclose(fichierTableau);
     }
-    fprintf(fichierJoueur,"%d\n",j->x);
-    fprintf(fichierTableau,"%d\n",j->y);
-    printf(fichierTableau,"%d\n",*j->pseudo);
-    fprintf(fichierTableau,"%d\n",*j->TresorDeck);
-    fprintf(fichierTableau,"%d\n",*j->TresorRecup);
+    for (int k = 0; k < j->nbJoueur; ++k) {
+        fprintf(fichierJoueur,"%d\n",j->x);
+        fprintf(fichierTableau,"%d\n",j->y);
+        printf(fichierTableau,"%d\n",*j->pseudo);
+        fprintf(fichierTableau,"%d\n",*j->TresorDeck);
+        fprintf(fichierTableau,"%d\n",*j->TresorRecup);
+    }
+    fclose(fichierJoueur);
 }
 
 
