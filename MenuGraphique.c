@@ -8,6 +8,7 @@ void fenetreMenu(int* menu){
     ToggleFullscreen();
     Fenetre FenetreActuelle = MENU;
     Joueur j;
+    tableau t;
     int compteurFPS=0;
     int re = 0;
     int nbS = 0;
@@ -1044,52 +1045,40 @@ void fenetreMenu(int* menu){
                 nbS = 7;
                 switch (nbS) {
                     case 1:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 2:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
-                        FILE* fichier2 = NULL;
-                        char* sauvegarde2 = NULL;
-                        Joueur* j2 = NULL;
-                        char** p2 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
+                        Joueur* j2 =NULL;
+                        tableau* t2 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j2,t2);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 3:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
-                        FILE* fichier2 = NULL;
-                        char* sauvegarde2 = NULL;
-                        Joueur* j2 = NULL;
-                        char** p2 = NULL;
-                        FILE* fichier3 = NULL;
-                        char* sauvegarde3 = NULL;
-                        Joueur* j3 = NULL;
-                        char** p3 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
+                        Joueur* j2 =NULL;
+                        tableau* t2 =NULL;
+                        Joueur* j3 =NULL;
+                        tableau* t3 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1097,35 +1086,27 @@ void fenetreMenu(int* menu){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j2,t2);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
-                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                            lireSauvegarderJoueurPlateau(j3,t3);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 4:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
-                        FILE* fichier2 = NULL;
-                        char* sauvegarde2 = NULL;
-                        Joueur* j2 = NULL;
-                        char** p2 = NULL;
-                        FILE* fichier3 = NULL;
-                        char* sauvegarde3 = NULL;
-                        Joueur* j3 = NULL;
-                        char** p3 = NULL;
-                        FILE* fichier4 = NULL;
-                        char* sauvegarde4 = NULL;
-                        Joueur* j4 = NULL;
-                        char** p4 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
+                        Joueur* j2 =NULL;
+                        tableau* t2 =NULL;
+                        Joueur* j3 =NULL;
+                        tableau* t3 =NULL;
+                        Joueur* j4 =NULL;
+                        tableau* t4 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1135,43 +1116,33 @@ void fenetreMenu(int* menu){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+3*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j2,t2);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j3,t3);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j4,t4);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 5:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
-                        FILE* fichier2 = NULL;
-                        char* sauvegarde2 = NULL;
-                        Joueur* j2 = NULL;
-                        char** p2 = NULL;
-                        FILE* fichier3 = NULL;
-                        char* sauvegarde3 = NULL;
-                        Joueur* j3 = NULL;
-                        char** p3 = NULL;
-                        FILE* fichier4 = NULL;
-                        char* sauvegarde4 = NULL;
-                        Joueur* j4 = NULL;
-                        char** p4 = NULL;
-                        FILE* fichier5 = NULL;
-                        char* sauvegarde5 = NULL;
-                        Joueur* j5 = NULL;
-                        char** p5 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
+                        Joueur* j2 =NULL;
+                        tableau* t2 =NULL;
+                        Joueur* j3 =NULL;
+                        tableau* t3 =NULL;
+                        Joueur* j4 =NULL;
+                        tableau* t4 =NULL;
+                        Joueur* j5 =NULL;
+                        tableau* t5 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1183,51 +1154,39 @@ void fenetreMenu(int* menu){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+4*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j2,t2);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
-                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                            lireSauvegarderJoueurPlateau(j3,t3);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier4,sauvegarde4,j4);
-                            lireSauvegardeStructPlateau(fichier4,sauvegarde4,p4);
+                            lireSauvegarderJoueurPlateau(j4,t4);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier5,sauvegarde5,j5);
-                            lireSauvegardeStructPlateau(fichier5,sauvegarde5,p5);
+                            lireSauvegarderJoueurPlateau(j5,t5);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 6:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
-                        FILE* fichier2 = NULL;
-                        char* sauvegarde2 = NULL;
-                        Joueur* j2 = NULL;
-                        char** p2 = NULL;
-                        FILE* fichier3 = NULL;
-                        char* sauvegarde3 = NULL;
-                        Joueur* j3 = NULL;
-                        char** p3 = NULL;
-                        FILE* fichier4 = NULL;
-                        char* sauvegarde4 = NULL;
-                        Joueur* j4 = NULL;
-                        char** p4 = NULL;
-                        FILE* fichier5 = NULL;
-                        char* sauvegarde5 = NULL;
-                        Joueur* j5 = NULL;
-                        char** p5 = NULL;
-                        FILE* fichier6 = NULL;
-                        char* sauvegarde6 = NULL;
-                        Joueur* j6 = NULL;
-                        char** p6 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
+                        Joueur* j2 =NULL;
+                        tableau* t2 =NULL;
+                        Joueur* j3 =NULL;
+                        tableau* t3 =NULL;
+                        Joueur* j4 =NULL;
+                        tableau* t4 =NULL;
+                        Joueur* j5 =NULL;
+                        tableau* t5 =NULL;
+                        Joueur* j6 =NULL;
+                        tableau* t6 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1241,59 +1200,45 @@ void fenetreMenu(int* menu){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+5*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j2,t2);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
-                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                            lireSauvegarderJoueurPlateau(j3,t3);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier4,sauvegarde4,j4);
-                            lireSauvegardeStructPlateau(fichier4,sauvegarde4,p4);
+                            lireSauvegarderJoueurPlateau(j4,t4);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier5,sauvegarde5,j5);
-                            lireSauvegardeStructPlateau(fichier5,sauvegarde5,p5);
+                            lireSauvegarderJoueurPlateau(j5,t5);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier6,sauvegarde6,j6);
-                            lireSauvegardeStructPlateau(fichier6,sauvegarde6,p6);
+                            lireSauvegarderJoueurPlateau(j6,t6);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 7:{
-                        FILE* fichier1 = NULL;
-                        char* sauvegarde1 = NULL;
-                        Joueur* j1 = NULL;
-                        char** p1 = NULL;
-                        FILE* fichier2 = NULL;
-                        char* sauvegarde2 = NULL;
-                        Joueur* j2 = NULL;
-                        char** p2 = NULL;
-                        FILE* fichier3 = NULL;
-                        char* sauvegarde3 = NULL;
-                        Joueur* j3 = NULL;
-                        char** p3 = NULL;
-                        FILE* fichier4 = NULL;
-                        char* sauvegarde4 = NULL;
-                        Joueur* j4 = NULL;
-                        char** p4 = NULL;
-                        FILE* fichier5 = NULL;
-                        char* sauvegarde5 = NULL;
-                        Joueur* j5 = NULL;
-                        char** p5 = NULL;
-                        FILE* fichier6 = NULL;
-                        char* sauvegarde6 = NULL;
-                        Joueur* j6 = NULL;
-                        char** p6 = NULL;
-                        FILE* fichier7 = NULL;
-                        char* sauvegarde7 = NULL;
-                        Joueur* j7 = NULL;
-                        char** p7 = NULL;
+                        Joueur* j1 =NULL;
+                        tableau* t1 =NULL;
+                        Joueur* j2 =NULL;
+                        tableau* t2 =NULL;
+                        Joueur* j3 =NULL;
+                        tableau* t3 =NULL;
+                        Joueur* j4 =NULL;
+                        tableau* t4 =NULL;
+                        Joueur* j5 =NULL;
+                        tableau* t5 =NULL;
+                        Joueur* j6 =NULL;
+                        tableau* t6 =NULL;
+                        Joueur* j7 =NULL;
+                        tableau* t7 =NULL;
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1308,32 +1253,32 @@ void fenetreMenu(int* menu){
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+5*GetScreenHeight()/12},30.0,2.0,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+6*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier1,sauvegarde1,j1);
-                            lireSauvegardeStructPlateau(fichier1,sauvegarde1,p1);
+                            lireSauvegarderJoueurPlateau(j1,t1);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier2,sauvegarde2,j2);
-                            lireSauvegardeStructPlateau(fichier2,sauvegarde2,p2);
+                            lireSauvegarderJoueurPlateau(j2,t2);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier3,sauvegarde3,j3);
-                            lireSauvegardeStructPlateau(fichier3,sauvegarde3,p3);
+                            lireSauvegarderJoueurPlateau(j3,t3);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier4,sauvegarde4,j4);
-                            lireSauvegardeStructPlateau(fichier4,sauvegarde4,p4);
+                            lireSauvegarderJoueurPlateau(j4,t4);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier5,sauvegarde5,j5);
-                            lireSauvegardeStructPlateau(fichier5,sauvegarde5,p5);
+                            lireSauvegarderJoueurPlateau(j5,t5);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier6,sauvegarde6,j6);
-                            lireSauvegardeStructPlateau(fichier6,sauvegarde6,p6);
+                            lireSauvegarderJoueurPlateau(j6,t6);
+                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+7*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            lireSauvegardeStructJoueur(fichier7,sauvegarde7,j7);
-                            lireSauvegardeStructPlateau(fichier7,sauvegarde7,p7);
+                            lireSauvegarderJoueurPlateau(j7,t7);
+                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     default:break;
@@ -1393,65 +1338,48 @@ void sleepf(float seconds){
 }
 
 
-void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j){
-    fichier = fopen("../joueur.txt","r");
-    if (fichier == NULL){
-        printf("erreur\n");
-        exit(1);
-    }
-    if (fichier != NULL){
-        while (fread(j,sizeof(Joueur),1,fichier)){
-            fread(&j->x,sizeof(j->x),1,fichier);
-            fread(&j->y,sizeof(j->y),1,fichier);
-            fread(j->TresorRecup,sizeof(j->TresorRecup),1,fichier);
-            fread(j->TresorDeck,sizeof(j->TresorDeck),1,fichier);
-            fread(j->pseudo,sizeof(j->pseudo),1,fichier);
-        }
-        fclose(fichier);
-    }
-}
 
 
-
-
-
-void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p){
-    int i=0,j=0;
-    char tuiles;
-    fichier = fopen("../plateau.txt","r");
-    if (fichier == NULL){
-        printf("erreur\n");
-        exit(1);
-    }
-    if (fichier != NULL){
-        do  {
-            if(j < 7) {
-                tuiles = fgetc(fichier);
-                tuiles = fgetc(fichier);
-                p[i][j] = tuiles;
-                j++;
-            }else
-                tuiles = fgetc(fichier);
-            j = 0;
-            i++;
-        }while (tuiles != EOF);
-        fclose(fichier);
-    }
-}
-
-
-void sauvegardeJoueurPlateau(Joueur* j,tableau* t){
-    FILE* fichierJoueur = fopen("../Joueur.txt","w");
-    FILE* fichierTableau = fopen("../Tableau.txt","w");
-    char avanvement;
+void lireSauvegarderJoueurPlateau(Joueur* j,tableau* t){
+    FILE* fichierJoueur = fopen("../Joueur.txt","r");
+    FILE* fichierTableau = fopen("../Tableau.txt","r");
+    char avancement;
     if (fichierTableau != NULL){
         for (int i = 0; i < LIGNE; ++i) {
             for (int j = 0; j < COLONNE; ++j) {
-                avanvement = t->Matrice[LIGNE][COLONNE].rotation;
-                avanvement = t->Matrice[LIGNE][COLONNE].type;
-                avanvement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS;
-                avanvement = t->Matrice[LIGNE][COLONNE].Tab;
-                fputc(avanvement,fichierTableau);
+                avancement = t->Matrice[LIGNE][COLONNE].rotation;
+                avancement = t->Matrice[LIGNE][COLONNE].type;
+                avancement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS;
+                avancement = t->Matrice[LIGNE][COLONNE].Tab;
+                fputc(avancement,fichierTableau);
+            }
+            fputc("\n",fichierTableau);
+        }
+        fclose(fichierTableau);
+    }
+    for (int k = 0; k < j->nbJoueur; ++k) {
+        fprintf(fichierJoueur,"%d\n",j->x);
+        fprintf(fichierTableau,"%d\n",j->y);
+        printf(fichierTableau,"%d\n",*j->pseudo);
+        fprintf(fichierTableau,"%d\n",*j->TresorDeck);
+        fprintf(fichierTableau,"%d\n",*j->TresorRecup);
+    }
+    fclose(fichierJoueur);
+}
+
+
+void creerSauvegardeJoueurPlateau(Joueur* j,tableau* t){
+    FILE* fichierJoueur = fopen("../Joueur.txt","w");
+    FILE* fichierTableau = fopen("../Tableau.txt","w");
+    char avancement;
+    if (fichierTableau != NULL){
+        for (int i = 0; i < LIGNE; ++i) {
+            for (int j = 0; j < COLONNE; ++j) {
+                avancement = t->Matrice[LIGNE][COLONNE].rotation;
+                avancement = t->Matrice[LIGNE][COLONNE].type;
+                avancement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS;
+                avancement = t->Matrice[LIGNE][COLONNE].Tab;
+                fputc(avancement,fichierTableau);
             }
             fputc("\n",fichierTableau);
         }
