@@ -41,6 +41,7 @@ Cases Creation_Auto(int TypeK, int CoorX, int CoorY, Cases K){
     ID_temp = ID_Creation(1, TypeK, RotaK);
     K=Init_Case(K, ID_temp);
     K=direction_Possible(K);
+    return K;
 }
 
 Cases Creation_Case(Cases K){

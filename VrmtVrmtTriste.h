@@ -4,16 +4,12 @@
 
 #ifndef CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H
 #define CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H
-typedef struct{
-    int Tab[3][3];
-    int IRXYFJDHBGTS[12];
-    int rotation,type;
-}Cases;
 
-typedef struct{
-    Cases Matrice[7][7];
-    Cases restante;
-}tableau;
+#include "Bibliotheques.h" // include les bibliotheques utilisees
+#include "Structures.h" // inlude les structures utilisees
+#include "Macro.h" // include les macros utilisees
+#include "Enum.h" // include les enum utilisees
+
 
 Cases Menu_Case();
 Cases Creation_Case(Cases K);
@@ -28,4 +24,6 @@ void Mvt_Impossible();
 void affiche_Tableau(tableau T);
 tableau init_Tableau();
 tableau Init_Tableau_Fixe();
+
+
 #endif //CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H

@@ -5,23 +5,13 @@
 #ifndef PROJET_LABYRINTE_ECE_PLATEAU_H
 #define PROJET_LABYRINTE_ECE_PLATEAU_H
 
-#include "raylib.h"
-#include "stdio.h"
-#include "stdlib.h"
-#include "time.h"
-#include "MenuGraphique.h"
-#include "VrmtVrmtTriste.h"
 
-#define COLONNE 7
-#define LIGNE 7
-#define NBCASE 34
-#define DIMENSION 10
 
-typedef struct {
-    int x,y;
-    char pseudo[20],couleur[5];
-    int TresorDeck[8],TresorRecup[8];
-}Joueur;
+#include "Bibliotheques.h" // include les bibliotheques utilisees
+#include "Structures.h" // inlude les structures utilisees
+#include "Macro.h" // include les macros utilisees
+#include "Enum.h" // include les enum utilisees
+
 
 
 
