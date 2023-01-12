@@ -17,7 +17,7 @@ void creerSauvegardeStructJoueur(char* sauvegarde, Joueur* j);
 void creerSauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p);
 void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j);
 void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p);
-
+void sauvegardeJoueurPlateau(Joueur* j,tableau* t);
 
 #endif
 

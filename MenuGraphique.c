@@ -1502,6 +1502,29 @@ void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p){
 }
 
 
+void sauvegardeJoueurPlateau(Joueur* j,tableau* t){
+    FILE* fichierJoueur = fopen("../Joueur.txt","w");
+    FILE* fichierTableau = fopen("../Tableau.txt","w");
+    char avanvement;
+    if (fichierTableau != NULL){
+        for (int i = 0; i < LIGNE; ++i) {
+            for (int j = 0; j < COLONNE; ++j) {
+                avanvement = t->Matrice[LIGNE][COLONNE].rotation;
+                avanvement = t->Matrice[LIGNE][COLONNE].type;
+                avanvement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS;
+                avanvement = t->Matrice[LIGNE][COLONNE].Tab;
+                fputc(avanvement,fichierTableau);
+            }
+            fputc("\n",fichierTableau);
+        }
+        fclose(fichierTableau);
+    }
+    fprintf(fichierJoueur,"%d\n",j->x);
+    fprintf(fichierTableau,"%d\n",j->y);
+    printf(fichierTableau,"%d\n",*j->pseudo);
+    fprintf(fichierTableau,"%d\n",*j->TresorDeck);
+    fprintf(fichierTableau,"%d\n",*j->TresorRecup);
+}
 
 
 
