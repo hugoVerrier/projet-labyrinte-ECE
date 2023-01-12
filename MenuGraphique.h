@@ -3,10 +3,10 @@
 #define PROJET_LABYRINTE_ECE_MENU_H
 
 
-#include "Bibliotheques.h" // include les bibliotheques utilisees
-#include "Structures.h" // inlude les structures utilisees
-#include "Macro.h" // include les macros utilisees
-#include "Enum.h" // include les enum utilisees
+#include ".h de gestion /Bibliotheques.h" // include les bibliotheques utilisees
+#include ".h de gestion /Structures.h" // inlude les structures utilisees
+#include ".h de gestion /Macro.h" // include les macros utilisees
+#include ".h de gestion /Enum.h" // include les enum utilisees
 
 
 
