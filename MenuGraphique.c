@@ -1382,7 +1382,7 @@ void fenetreMenu(int* menu){
         EndDrawing(); // terminer le dessin
     }
     CloseAudioDevice(); // fermer les peripheriques audio
-    CloseWindow(); // fermer la fenetre
+    //CloseWindow(); // fermer la fenetre
 }
 
 
@@ -1390,7 +1390,7 @@ void sleepf(float seconds)
 {
     int secs = floor(seconds);    // secondes
     int usecs = round((seconds - secs) * 1000000); // microsecondes
-    usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
+    //usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
 }
 
 //int* creerSauvegarde(int taille){

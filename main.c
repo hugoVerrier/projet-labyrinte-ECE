@@ -3,6 +3,7 @@
 
 int main(){
     srand(time(NULL));
-    AffichageRaylib();
+    affichageConsol();
+
     return 0;
 }

@@ -26,10 +26,13 @@ typedef struct {
 
 
 void affichageConsol();
+void AfficchageConsolPlateau(Cases PlateauAfficher[LIGNE][COLONNE]);
 void MelangeTab(Cases* plateau);
 void RemplirTabCase(Cases* plateau);
 void RemplirPlateauLFixe(Cases PlateauAfficher[LIGNE][COLONNE]);
 void RemplirPlateauTFixe(Cases PlateauAfficher[LIGNE][COLONNE]);
+void RemplirTabCaseAfficher(Cases plateau[NBCASE],Cases PlateauAfficher[LIGNE][COLONNE]);
+
 void AffichageRaylib();
 
 #endif //PROJET_LABYRINTE_ECE_PLATEAU_H

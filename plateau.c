@@ -5,17 +5,27 @@
 #include "plateau.h"
 
 void affichageConsol(){
-    Joueur* j;
-    Cases* C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34;
     Cases plateau[NBCASE];
-    int PlateauAfficher[LIGNE][COLONNE]={0};
-    //RemplirPlateauLFixe();
+    Cases PlateauAfficher[LIGNE][COLONNE]={0};
+    RemplirPlateauLFixe(PlateauAfficher);
+    RemplirPlateauTFixe(PlateauAfficher);
     RemplirTabCase(plateau);
-    for (int i = 0; i < NBCASE; ++i) {
-        printf(" %d et %d\n",plateau[i].type,plateau[i].rotation);
+    RemplirTabCaseAfficher(plateau,PlateauAfficher);
+    AfficchageConsolPlateau(PlateauAfficher);
+}
+
+void RemplirTabCaseAfficher(Cases plateau[NBCASE],Cases PlateauAfficher[LIGNE][COLONNE]){
+    for (int i = 0; i < LIGNE; ++i) {
+        for (int j = 0; j < COLONNE; ++j) {
+            for (int k = 0; k < NBCASE; ++k) {
+                if(PlateauAfficher[i][j].type !=0){
+                    PlateauAfficher[i][j].type=plateau[k].type;
+                    PlateauAfficher[i][j].rotation=plateau[k].rotation;
+                    plateau[k].type=0;
+                }
+            }
+        }
     }
-
-
 }
 
 void RemplirTabCase(Cases* plateau){
@@ -84,6 +94,14 @@ void RemplirPlateauTFixe(Cases PlateauAfficher[LIGNE][COLONNE]){
     PlateauAfficher[4][4]=T4;
 }
 
+void AfficchageConsolPlateau(Cases PlateauAfficher[LIGNE][COLONNE]){
+    for (int i = 0; i < LIGNE; ++i) {
+        for (int j = 0; j < COLONNE; ++j) {
+            printf(" %d\t",PlateauAfficher[i][j].type);
+        }
+        printf("\n");
+    }
+}
 
 
 
