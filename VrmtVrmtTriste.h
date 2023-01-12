@@ -7,17 +7,14 @@
 typedef struct{
     int Tab[3][3];
     int IRXYFJDHBGTS[12];
+    int rotation,type;
 }Cases;
-typedef struct{
-    char pseudo[15];
-    int CoorX, CoorY, id_joueur;
-    int Tresor[6];
-}Joueur;
+
 typedef struct{
     Cases Matrice[7][7];
     Cases restante;
-    ;
 }tableau;
+
 Cases Menu_Case();
 Cases Creation_Case(Cases K);
 Cases Creation_Auto(int TypeK, int CoorX, int CoorY, Cases K);

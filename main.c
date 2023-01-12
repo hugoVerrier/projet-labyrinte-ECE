@@ -2,6 +2,7 @@
 #include "plateau.h"
 
 int main(){
-    fenetreMenu();
+    srand(time(NULL));
+    AffichageRaylib();
     return 0;
 }
