@@ -497,7 +497,7 @@ tableau init_Tableau(){
                 T.Matrice[i][j]=K_i;
             }
             Chargement=(((Chargement+1)/49)*100);
-            printf("Chargement tableau %d %", Chargement);
+            printf("Chargement tableau %d", Chargement);
         }
     }
     NBTot=(NBL+NBT+NBI);

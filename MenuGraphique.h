@@ -13,16 +13,16 @@
 #define CHAR_CHOIXNBJOUEURS 1 // pour le choix du nombre de joueur (passage du char en int avec strcmp)
 #define CHAR_CHOIX_COULEUR_PION 5 // choix de la couleur du pion
 #define CHAR_PSEUDO 9 // taille acceptee pour le pseudo
-#define JAUNE YELLOW
-typedef enum Fenetre{MENU,NOUVELLE_PARTIE,NOUVELLE_PARTIE_SUITE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER,PLATEAU}
-        Fenetre; // creation d'un enum pour actualiser la fenetre affichee
+
+typedef enum Fenetre{MENU,NOUVELLE_PARTIE,NOUVELLE_PARTIE_SUITE,CHARGER_PARTIE,REGLES,CREDITS,QUITTER,PLATEAU
+} Fenetre; // creation d'un enum pour actualiser la fenetre affichee
 
 
 void fenetreMenu(); // creation de la fonction menu regroupant toutes les fenetres
 void sleepf(float seconds); // creation d'un sleep floatant pour corriger un bug de son
-void creerSauvegardeStructJoueur(char* sauvegarde,Joueur* j);
+void creerSauvegardeStructJoueur(char* sauvegarde, Joueur* j);
 void creerSauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p);
-void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde,Joueur* j);
+void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j);
 void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p);
 
 

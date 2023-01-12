@@ -4,6 +4,7 @@
 
 #include "plateau.h"
 
+
 void affichageConsol(){
     Cases plateau[NBCASE];
     Cases PlateauAfficher[LIGNE][COLONNE]={0};

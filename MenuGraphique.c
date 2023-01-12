@@ -1386,8 +1386,7 @@ void fenetreMenu(int* menu){
 }
 
 
-void sleepf(float seconds)
-{
+void sleepf(float seconds){
     int secs = floor(seconds);    // secondes
     int usecs = round((seconds - secs) * 1000000); // microsecondes
     //usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
@@ -1454,28 +1453,34 @@ void creerSauvegardeStructPlateau(FILE * fichier,char* sauvegarde, char** p){
     }
 }
 
+
+
 void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j){
-    fichier = fopen(sauvegarde,"r");
+    fichier = fopen("../joueur.txt","r");
     if (fichier == NULL){
         printf("erreur\n");
         exit(1);
     }
     if (fichier != NULL){
-        do {
-            fread(sauvegarde,j->x,1,fichier);
-            fread(sauvegarde,j->y,1,fichier);
-            fread(sauvegarde,*j->TresorRecup,1,fichier);
-            fread(sauvegarde,*j->TresorDeck,1,fichier);
-            fread(sauvegarde,*j->pseudo,1,fichier);
-        } while (fichier != EOF);
+        while (fread(j,sizeof(Joueur),1,fichier)){
+            fread(&j->x,sizeof(j->x),1,fichier);
+            fread(&j->y,sizeof(j->y),1,fichier);
+            fread(j->TresorRecup,sizeof(j->TresorRecup),1,fichier);
+            fread(j->TresorDeck,sizeof(j->TresorDeck),1,fichier);
+            fread(j->pseudo,sizeof(j->pseudo),1,fichier);
+        }
         fclose(fichier);
     }
 }
 
+
+
+
+
 void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p){
     int i=0,j=0;
     char tuiles;
-    fichier = fopen(sauvegarde,"r");
+    fichier = fopen("../plateau.txt","r");
     if (fichier == NULL){
         printf("erreur\n");
         exit(1);
