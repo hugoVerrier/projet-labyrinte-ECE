@@ -59,61 +59,78 @@ tableau Deplacement_Case(tableau T /* input*/){
     switch (input) {
         //Utilise l'input du clavier pour demander au joueur ou il veut deplacer sa case
         case 1:{
-            /* IL FAUT CHANGER L'INPUT AFIN D'ETRE ADAPTE A LA SAISIE CLAVIER
-             while (input != enter){
+            // A = up B = down C= right D=left
+             while (input !='\n'){
                  sens=0;
             while((CoorY>=0)&&(CoorY<=6)){
-            if(input KeyUP){
+            if(input=='A'){
             CoorY++;
             }
-            else if(input KeyDOWN){
+            else if(input=='B'){
                 CoorY--;
              }
-             else if((input KeyUP)&&(CoorY==0)){
-                CoorY==0;
+             else if((input=='A')&&(CoorY==0)){
+                CoorY=0;
              }
-             else if((input KeyDOWN)&&(CoorY==6)){
-                CoorY==6;
+             else if((input =='B')&&(CoorY==6)){
+                CoorY=6;
              }
-             if(input KeyLEFT){
+             if(input=='D'){
              sens=-1;
              }
-             else if(input KeyRIGHT){
+             else if(input =='C'){
              sens=1;
              }
              }
             }
             T = Deplacement_Case_X(sens, CoorY, T);
-            break;*/
+            //Déplace le joueur d'une partie du plateau à l'autre
+            if ((sens==1)&&(T.Matrice[CoorY][6].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[CoorY][0].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+            }
+            else if((sens==-1)&&(T.Matrice[CoorY][0].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[CoorY][6].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+            }
+            break;
         }
-        case 2:{
-            /* Meme Chose
-            while (input != enter){
+         case 2:{
+
+            while (input != '\n'){
                 sens=0;
                 while((CoorX>=0)&&(CoorX<=6)){
-                    if(input KeyRIGHT){
+                    if(input=='C'){
                         CoorX++;
                     }
-                    else if(input KeyLEFT){
+                    else if(input=='D'){
                         CoorX--;
                     }
-                    else if((input KeyLEFT)&&(CoorX==0)){
-                        CoorX==0;
+                    else if((input=='D')&&(CoorX==0)){
+                        CoorX=0;
                     }
-                    else if((input KeyRIGHT)&&(CoorX==6)){
-                        CoorX==6;
+                    else if((input=='C')&&(CoorX==6)){
+                        CoorX=6;
                     }
-                    if(input KeyUP){
+                    if(input=='A'){
                         sens=-1;
                     }
-                    else if(input KeyUP){
+                    else if(input=='B'){
                         sens=1;
                     }
                 }
             }
             T = Deplacement_Case_Y(sens, CoorX, T);
-            break;
-             */}
+            //Deplace le joueur d'une partie du plateau à l'autre
+            if ((sens==1)&&(T.Matrice[6][CoorX].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[0][CoorX].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+            }
+            else if((sens==-1)&&(T.Matrice[0][CoorX].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[6][CoorX].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+             }
+        break;}
         default:{
             printf("Veuillez insérer un mouvement valide");
             scanf("%d",&input);
