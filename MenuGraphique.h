@@ -13,10 +13,8 @@
 
 void fenetreMenu(); // creation de la fonction menu regroupant toutes les fenetres
 void sleepf(float seconds); // creation d'un sleep floatant pour corriger un bug de son
-void lireSauvegardeStructJoueur(FILE* fichier,char* sauvegarde, Joueur* j);
-void lireSauvegardeStructPlateau(FILE* fichier,char* sauvegarde, char** p);
-void creerSauvegardeJoueurPlateau();
-void lireSauvegarderJoueurPlateau(Joueur* j,tableau* t);
+void lireSauvegarderJoueurPlateau(Joueur* j,tableau* t); // charger une sauvegarde
+void creerSauvegardeJoueurPlateau(Joueur* j,tableau* t); // creer une sauvegarde
 
 #endif
 

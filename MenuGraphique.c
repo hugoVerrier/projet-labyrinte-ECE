@@ -1043,10 +1043,12 @@ void fenetreMenu(int* menu){
                     PlaySound(sonBoutton); // son boutton
                 }
                 nbS = 7;
-                switch (nbS) {
+                switch (nbS) { // switch nombre de sauvegarde
                     case 1:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
@@ -1055,10 +1057,12 @@ void fenetreMenu(int* menu){
                         }
                     }break;
                     case 2:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
                         Joueur* j2 =NULL;
                         tableau* t2 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1073,12 +1077,14 @@ void fenetreMenu(int* menu){
                         }
                     }break;
                     case 3:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
                         Joueur* j2 =NULL;
                         tableau* t2 =NULL;
                         Joueur* j3 =NULL;
                         tableau* t3 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1099,6 +1105,7 @@ void fenetreMenu(int* menu){
                         }
                     }break;
                     case 4:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
                         Joueur* j2 =NULL;
@@ -1107,6 +1114,7 @@ void fenetreMenu(int* menu){
                         tableau* t3 =NULL;
                         Joueur* j4 =NULL;
                         tableau* t4 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1133,6 +1141,7 @@ void fenetreMenu(int* menu){
                         }
                     }break;
                     case 5:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
                         Joueur* j2 =NULL;
@@ -1143,6 +1152,7 @@ void fenetreMenu(int* menu){
                         tableau* t4 =NULL;
                         Joueur* j5 =NULL;
                         tableau* t5 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1175,6 +1185,7 @@ void fenetreMenu(int* menu){
                         }
                     }break;
                     case 6:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
                         Joueur* j2 =NULL;
@@ -1187,6 +1198,7 @@ void fenetreMenu(int* menu){
                         tableau* t5 =NULL;
                         Joueur* j6 =NULL;
                         tableau* t6 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1225,6 +1237,7 @@ void fenetreMenu(int* menu){
                         }
                     }break;
                     case 7:{
+                        // initialisation variable
                         Joueur* j1 =NULL;
                         tableau* t1 =NULL;
                         Joueur* j2 =NULL;
@@ -1239,6 +1252,7 @@ void fenetreMenu(int* menu){
                         tableau* t6 =NULL;
                         Joueur* j7 =NULL;
                         tableau* t7 =NULL;
+                        // dessin sauvegarde
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
@@ -1281,7 +1295,7 @@ void fenetreMenu(int* menu){
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
-                    default:break;
+                    default:break; // fin du switch sauvegarde
 
                 }
 
@@ -1297,24 +1311,24 @@ void fenetreMenu(int* menu){
                 }
             }break;
             case CREDITS:{
-                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
-                DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
+                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE); // dessin image fond
+                DrawTextureEx(retourMenu,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE); // dessin bouton retour
 
-                DrawTextureEx(Eliot,(Vector2){0+GetScreenWidth()/8,GetScreenHeight()/22+boutonImage.height},0.0f,1.0f,WHITE);
-                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22,GetScreenHeight()/22},0.0f,1.0f,WHITE);
-                DrawTextEx(font,"Eliot Rineau",(Vector2){0+GetScreenWidth()/6,GetScreenHeight()/14},30,2,WHITE);
+                DrawTextureEx(Eliot,(Vector2){0+GetScreenWidth()/8,GetScreenHeight()/22+boutonImage.height},0.0f,1.0f,WHITE); // dessin image eliot
+                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22,GetScreenHeight()/22},0.0f,1.0f,WHITE); // dessin bouton
+                DrawTextEx(font,"Eliot Rineau",(Vector2){0+GetScreenWidth()/6,GetScreenHeight()/14},30,2,WHITE); // dessin texte
 
-                DrawTextureEx(Hugo,(Vector2){0+GetScreenWidth()/8+GetScreenWidth()/2,GetScreenHeight()/22+boutonImage.height},0.0f,1.0f,WHITE);
-                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22+GetScreenWidth()/2,GetScreenHeight()/22},0.0f,1.0f,WHITE);
-                DrawTextEx(font,"Hugo Verrier",(Vector2){0+GetScreenWidth()/6+GetScreenWidth()/2,0+GetScreenHeight()/14},30,2,WHITE);
+                DrawTextureEx(Hugo,(Vector2){0+GetScreenWidth()/8+GetScreenWidth()/2,GetScreenHeight()/22+boutonImage.height},0.0f,1.0f,WHITE); // dessin image hugo
+                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22+GetScreenWidth()/2,GetScreenHeight()/22},0.0f,1.0f,WHITE); // dessin bouton
+                DrawTextEx(font,"Hugo Verrier",(Vector2){0+GetScreenWidth()/6+GetScreenWidth()/2,0+GetScreenHeight()/14},30,2,WHITE); // dessin texte
 
-                DrawTextureEx(Henin,(Vector2){0+GetScreenWidth()/8,GetScreenHeight()/22+boutonImage.height+GetScreenHeight()/2},0.0f,1.0f,WHITE);
-                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22,GetScreenHeight()/2+GetScreenHeight()/22},0.0f,1.0f,WHITE);
-                DrawTextEx(font,"Henintsoa Ramakavelo",(Vector2){0+GetScreenWidth()/6-GetScreenWidth()/35,0+GetScreenHeight()/14+GetScreenHeight()/2},30,2,WHITE);
+                DrawTextureEx(Henin,(Vector2){0+GetScreenWidth()/8,GetScreenHeight()/22+boutonImage.height+GetScreenHeight()/2},0.0f,1.0f,WHITE); // dessin image henin
+                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22,GetScreenHeight()/2+GetScreenHeight()/22},0.0f,1.0f,WHITE); // dessin bouton
+                DrawTextEx(font,"Henintsoa Ramakavelo",(Vector2){0+GetScreenWidth()/6-GetScreenWidth()/35,0+GetScreenHeight()/14+GetScreenHeight()/2},30,2,WHITE); // dessin texte
 
-                DrawTextureEx(Xavier,(Vector2){0+GetScreenWidth()/8+GetScreenWidth()/2,GetScreenHeight()/22+boutonImage.height+GetScreenHeight()/2},0.0f,1.0f,WHITE);
-                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22+GetScreenWidth()/2,GetScreenHeight()/2+GetScreenHeight()/22},0.0f,1.0f,WHITE);
-                DrawTextEx(font,"Xavier Ogandaga Wora",(Vector2){0+GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/35,0+GetScreenHeight()/14+GetScreenHeight()/2},30,2,WHITE);
+                DrawTextureEx(Xavier,(Vector2){0+GetScreenWidth()/8+GetScreenWidth()/2,GetScreenHeight()/22+boutonImage.height+GetScreenHeight()/2},0.0f,1.0f,WHITE); // dessin image xavier
+                DrawTextureEx(boutonCredits,(Vector2){0+GetScreenWidth()/22+GetScreenWidth()/2,GetScreenHeight()/2+GetScreenHeight()/22},0.0f,1.0f,WHITE); // dessin bouton
+                DrawTextEx(font,"Xavier Ogandaga Wora",(Vector2){0+GetScreenWidth()/6+GetScreenWidth()/2-GetScreenWidth()/35,0+GetScreenHeight()/14+GetScreenHeight()/2},30,2,WHITE); // dessin texte
 
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))) // hitbox pour le boutton retour menu
                 {
@@ -1331,7 +1345,7 @@ void fenetreMenu(int* menu){
 }
 
 
-void sleepf(float seconds){
+void sleepf(float seconds){ // fonction sleep flottant
     int secs = floor(seconds);    // secondes
     int usecs = round((seconds - secs) * 1000000); // microsecondes
     //usleep(secs * 1000000 + usecs); // secondes et microsecondes pour le sleepf
@@ -1341,58 +1355,60 @@ void sleepf(float seconds){
 
 
 void lireSauvegarderJoueurPlateau(Joueur* j,tableau* t){
-    FILE* fichierJoueur = fopen("../Joueur.txt","r");
-    FILE* fichierTableau = fopen("../Tableau.txt","r");
-    char avancement;
-    if (fichierTableau != NULL){
+    FILE* fichierJoueur = fopen("../Joueur.txt","r"); //ouverture d'un fichier joueur en mode lecture
+    FILE* fichierTableau = fopen("../Tableau.txt","r"); //ouverture d'un fichier plateau en mode lecture
+    char avancement; // variable pour "materialiser" l'increment du fichier texte
+    if (fichierTableau != NULL) { // if amenant à une boucle
         for (int i = 0; i < LIGNE; ++i) {
             for (int j = 0; j < COLONNE; ++j) {
-                avancement = t->Matrice[LIGNE][COLONNE].rotation;
-                avancement = t->Matrice[LIGNE][COLONNE].type;
-                avancement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS;
-                avancement = t->Matrice[LIGNE][COLONNE].Tab;
-                fputc(avancement,fichierTableau);
+                { // parcourt les données du plateau
+                    avancement = t->Matrice[LIGNE][COLONNE].rotation; // charge rotation des cases
+                    avancement = t->Matrice[LIGNE][COLONNE].type; // charge type des cases
+                    avancement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS; // charge de toutes les donnes d'une case
+                    avancement = t->Matrice[LIGNE][COLONNE].Tab;// charge du tableau
+                    fputc(avancement, fichierTableau);
+                }
+                fputc("\n", fichierTableau); // retour a la ligne dans le fichier texte
             }
-            fputc("\n",fichierTableau);
+            fclose(fichierTableau); // fermeture du fichier du plateau
         }
-        fclose(fichierTableau);
+        for (int k = 0; k < j->nbJoueur; ++k) { // parcourt les donnees des joueurs (en fonction de leur nombre)
+            fprintf(fichierJoueur, "%d\n", j->x); // charge de la position du joueur selon le vecteur 2D : X
+            fprintf(fichierTableau, "%d\n", j->y); // charge de la position du joueur selon le vecteur 2D : Y
+            printf(fichierTableau, "%d\n", *j->pseudo); // charge du pseudo du joueur
+            fprintf(fichierTableau, "%d\n", *j->TresorDeck); // charge du tresor a recuperer par le joueur
+            fprintf(fichierTableau, "%d\n", *j->TresorRecup); // charge des tresors recuperes par le joueur
+        }
     }
-    for (int k = 0; k < j->nbJoueur; ++k) {
-        fprintf(fichierJoueur,"%d\n",j->x);
-        fprintf(fichierTableau,"%d\n",j->y);
-        printf(fichierTableau,"%d\n",*j->pseudo);
-        fprintf(fichierTableau,"%d\n",*j->TresorDeck);
-        fprintf(fichierTableau,"%d\n",*j->TresorRecup);
-    }
-    fclose(fichierJoueur);
+    fclose(fichierJoueur); // fermeture du fichier de joueur
 }
 
 
-void creerSauvegardeJoueurPlateau(Joueur* j,tableau* t){
-    FILE* fichierJoueur = fopen("../Joueur.txt","w");
-    FILE* fichierTableau = fopen("../Tableau.txt","w");
-    char avancement;
-    if (fichierTableau != NULL){
+void creerSauvegardeJoueurPlateau(Joueur* j,tableau* t){ // fonction pour creer une sauvegarde
+    FILE* fichierJoueur = fopen("../Joueur.txt","w"); // creation d'un fichier texte pour les données des joueurs
+    FILE* fichierTableau = fopen("../Tableau.txt","w"); // creation d'un fichier texte pour les données du plateau
+    char avancement; // variable pour "materialiser" l'increment du fichier texte
+    if (fichierTableau != NULL){ // if amenant à une boucle
         for (int i = 0; i < LIGNE; ++i) {
-            for (int j = 0; j < COLONNE; ++j) {
-                avancement = t->Matrice[LIGNE][COLONNE].rotation;
-                avancement = t->Matrice[LIGNE][COLONNE].type;
-                avancement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS;
-                avancement = t->Matrice[LIGNE][COLONNE].Tab;
-                fputc(avancement,fichierTableau);
+            for (int j = 0; j < COLONNE; ++j) { // parcourt les données du plateau
+                avancement = t->Matrice[LIGNE][COLONNE].rotation; // sauvegarde rotation des cases
+                avancement = t->Matrice[LIGNE][COLONNE].type; // sauvegarde type des cases
+                avancement = t->Matrice[LIGNE][COLONNE].IRXYFJDHBGTS; // sauvegarde de toutes les donnes d'une case
+                avancement = t->Matrice[LIGNE][COLONNE].Tab; // sauvegarde du tableau
+                fputc(avancement,fichierTableau); // ecriture sur le fichier texte des données
             }
-            fputc("\n",fichierTableau);
+            fputc("\n",fichierTableau); // retour a la ligne dans le fichier texte
         }
-        fclose(fichierTableau);
+        fclose(fichierTableau); // fermeture du fichier du plateau
     }
-    for (int k = 0; k < j->nbJoueur; ++k) {
-        fprintf(fichierJoueur,"%d\n",j->x);
-        fprintf(fichierTableau,"%d\n",j->y);
-        printf(fichierTableau,"%d\n",*j->pseudo);
-        fprintf(fichierTableau,"%d\n",*j->TresorDeck);
-        fprintf(fichierTableau,"%d\n",*j->TresorRecup);
+    for (int k = 0; k < j->nbJoueur; ++k) { // sauvegarde les donnees des joueurs (en fonction de leur nombre)
+        fprintf(fichierJoueur,"%d\n",j->x); // sauvegarde de la position du joueur selon le vecteur 2D : X
+        fprintf(fichierJoueur,"%d\n",j->y); // sauvegarde de la position du joueur selon le vecteur 2D : Y
+        printf(fichierJoueur,"%d\n",*j->pseudo); // sauvegarde du pseudo du joueur
+        fprintf(fichierJoueur,"%d\n",*j->TresorDeck); // sauvegarde du tresor a recuperer par le joueur
+        fprintf(fichierJoueur,"%d\n",*j->TresorRecup); // sauvegarde des tresors recuperes par le joueur
     }
-    fclose(fichierJoueur);
+    fclose(fichierJoueur); // fermeture du fichier de joueur
 }
 
 
