@@ -9,6 +9,7 @@
 
 // FONCTIONS MENU CREATION
 
+// Fonction de Création de Case à partir d'un menu
 Cases Menu_Case(){
     int choix;
     Cases K;
@@ -37,6 +38,7 @@ Cases Creation_Auto(int TypeK, int CoorX, int CoorY, Cases K){
     srand(time(NULL));
     K.IRXYFJDHBGTS[2]=CoorX;
     K.IRXYFJDHBGTS[3]=CoorY;
+    // Crée un randomiseur qui va donner une case aléatoire selon une rotation aléatoire mais un type donné
     Randomizer=rand();
     RotaK=Randomizer%5;
     if (RotaK==0){RotaK+=1;}
@@ -44,7 +46,7 @@ Cases Creation_Auto(int TypeK, int CoorX, int CoorY, Cases K){
     K=Init_Case(K, ID_temp);
     K=direction_Possible(K);
 }
-// Crée une case manuellement selon son type et sa rotation
+// Crée une case manuellement selon son type et sa rotation - potentiellement obsolète
 Cases Creation_Case(Cases K){
     int Auto, ID_Case, TypeK, RotaK;
     printf("Voulez vous initialiser la case : \n 0- Manuellement \n 1- Automatiquement");
@@ -58,7 +60,7 @@ Cases Creation_Case(Cases K){
             affiche_Case(K);
             break;
         }
-        /*initialise une case manuellement*/
+        /*initialise une case manuellement en donnant le type de la case puis sa rotation*/
         case 0:{
             printf("Insérer le Type : \n 1-I \n 2-L \n3-T\n");
             scanf("%d",&TypeK);
@@ -79,7 +81,7 @@ Cases Creation_Case(Cases K){
 
 /*initialise une case selon son id_ID, et rempli l'id I et sa rotation (utile pour l'affichage des cases sur le plateau)*/
 Cases Init_Case(Cases K,int ID_Case){
-
+//initie d'abord une case vide
     for (int i=0;i<3;i++){
         for (int j=0;j<3;j++){
             if ((i==1)&&(j==1)){
@@ -89,6 +91,7 @@ Cases Init_Case(Cases K,int ID_Case){
             }
         }
     }
+    // Modifie la Case vide et lui donne une formation prédéfini selon l'ID case en paramètre
     switch (ID_Case) {
         case 0:{ /* I-1*/
             K.Tab[0][1]=1;
@@ -167,6 +170,7 @@ Cases Init_Case(Cases K,int ID_Case){
             K.IRXYFJDHBGTS[1]=4;
             break;
         }
+            //permet d'initié une case vide si jamais
         case 10:{
             break;
         }
@@ -246,6 +250,7 @@ Cases Cases_Completion(Cases K){
     return K;
 }
 /*Cree un ID Case pour pouvoir initier une case selon les modèles disponible*/
+//La fonction a été modifié afin de pouvoir donné un ID création initié selon le type et la rotation
 int ID_Creation(int Auto, int TypeK,int RotaK){
     int ID_Crea;
     /*if (Auto==1){
@@ -318,6 +323,7 @@ int ID_Creation(int Auto, int TypeK,int RotaK){
 int nb_Mvt_Possible(tableau T, Joueur J){
     Cases K_D, K_G, K_H, K_B, K_Actu;
     int Dep;
+    //Determine d'abord les cases aux alentour du joueur
     K_D=T.Matrice[J.y][J.x+1];
     K_G=T.Matrice[J.y][J.x-1];
     K_B=T.Matrice[J.y+1][J.x];
@@ -337,11 +343,13 @@ int nb_Mvt_Possible(tableau T, Joueur J){
         Dep++;
     }
     return Dep;
+    //Le nombre de mouvement est différent de la possibilité de mouvement et permettra de détecter un cul de sac
 }
 // Determine si le mouvement est possible pour un joueur selon l'input
 int Dir_Actu_Poss(tableau T, Joueur J, int input){
     Cases K_D, K_G, K_H, K_B, K_Actu;
     int Dep;
+    //Cases aux alentours
     K_D=T.Matrice[J.y][J.x+1];
     K_G=T.Matrice[J.y][J.x-1];
     K_B=T.Matrice[J.y+1][J.x];
@@ -361,6 +369,7 @@ int Dir_Actu_Poss(tableau T, Joueur J, int input){
         Dep++;
     }
     return Dep;
+    //Ici la fonction rendra 0 ou 1 car elle permet de verifier le mouvement pour un input determiné soit une direction prédeterminée
 }
 // Permet au joueur de se déplacer jusqu'à ce que le joueur rentre dans un cul de sac
 tableau Deplacement_joueur(tableau T, Joueur J){
@@ -374,6 +383,7 @@ tableau Deplacement_joueur(tableau T, Joueur J){
         while((Dep_Prec>=1)&&(Dep_Actu!=1)){
             Dir_Poss= Dir_Actu_Poss(T,J,input);
             if(Dir_Poss==1){
+                //Modifie le tableau selon le mouvement du joueur
                 if(input=='A'){
                 T.Matrice[J.y-1][J.x].IRXYFJDHBGTS[5]=T.Matrice[J.y][J.x].IRXYFJDHBGTS[5];
                 T.Matrice[J.y][J.x].IRXYFJDHBGTS[5]=0;
@@ -389,7 +399,7 @@ tableau Deplacement_joueur(tableau T, Joueur J){
                     T.Matrice[J.y][J.x].IRXYFJDHBGTS[5]=0;}
                 Dep_Prec=Dep_Actu;
                 Dep_Actu= nb_Mvt_Possible(T,J);
-                // Actualise le joueur et le plateau si un tresor est présent et si il correspond à un des tresors cherche
+                // Actualise le joueur et le plateau si un tresor est présent et si il correspond à un des tresors cherche étant donné que les coordonées du joueur ne changent pas toutes seules
                 J= Actu_Joueur(T,J);
                 if(T.Matrice[J.y][J.x].IRXYFJDHBGTS[10]>0){
                     T= Actu_Trez_Tableau(T, J);
@@ -433,6 +443,7 @@ tableau Init_Tableau_Fixe(){
     Cases K_i;
     tableau T;
     printf("Case fixe generation..");
+    //Initie L'id afin que les joueurs ne soient pas malplacés et que le tableau soit initié vide
     for (i=0;i<7;i++){
         for (j=0;j<7;j++){
             K_i.IRXYFJDHBGTS[2]=i;
@@ -440,6 +451,7 @@ tableau Init_Tableau_Fixe(){
             K_i.IRXYFJDHBGTS[11]=0;
             K_i.IRXYFJDHBGTS[10]=0;
             K_i.IRXYFJDHBGTS[5]=0;
+     // initie chaque case fixe de manière prédéterminé en parcourant le tableau entier
     if((i==0)&&(j==0)){
         ID_Cree=3;
         K_i= Init_Case(K_i, ID_Cree);
@@ -534,7 +546,7 @@ T.Matrice[i][j]=K_i;
 }}
     return T;
 }
-/* Affiche un tableau T*/
+/* Affiche un tableau T - obsolete*/
 void affiche_Tableau(tableau T){
     for (int i = 0; i < 7; i++) {
         for (int j = 0; j < 7; j++){
@@ -550,13 +562,14 @@ void affiche_Tableau(tableau T){
     printf("\nCase restante:\n");
     affiche_Case(T.restante);
 }
-/* initialise un tableau vide et le rempli de case selon son itérateur (nb determiné de case de type K)*/
+/* initialise un tableau vide et le rempli de case selon son itérateur (nb determiné de case de type K) - obsolete*/
 tableau init_Tableau(){
     int Rand_Case, NBL, NBT, NBI, NBTot, Chargement, TypeK;
     tableau T;
     Cases K_i;
     srand(time(NULL));
-    T = Init_Tableau_Fixe();
+    T = Init_Tableau_Fixe()
+    // crée un nombre prédéterminé de case selon leur type et les randomise dans le plateau
     NBI=12;
     NBL=16;
     NBT=6;
@@ -588,6 +601,7 @@ tableau init_Tableau(){
             printf("Chargement tableau %d %", Chargement);
         }
     }
+    //Cherche le type de la case restante et la stock dans le tableau
     NBTot=(NBL+NBT+NBI);
     if(NBTot==1){
         printf("Initialisation Case restante");
@@ -621,7 +635,7 @@ tableau init_Tableau(){
 
 // FONCTIONS DEPLACEMENT DE CASES
 
-// Fonction de deplacement des cases sur une ligne donnée en fonction de son sens
+// Fonction de deplacement des cases sur une ligne donnée en fonction de son sens à partir d'une case de sauvegarde
 tableau Deplacement_Case_X(int sens, int CoorY, tableau T){
     int i;
     Cases K_Save;
@@ -648,7 +662,7 @@ tableau Deplacement_Case_X(int sens, int CoorY, tableau T){
     printf("Deplacement des Cases sur la ligne %d dans le sens %d", CoorY, sens);
     return T;
 }
-// Fonction de deplacement des cases sur une colonne donnée en fonction de son sens
+// Fonction de deplacement des cases sur une colonne donnée en fonction de son sens à partir d'une case de sauvegarde
 tableau Deplacement_Case_Y(int sens, int CoorX, tableau T){
     int i;
     Cases K_Save;
@@ -708,7 +722,7 @@ tableau Deplacement_Case(tableau T ){
              }
             }
             T = Deplacement_Case_X(sens, CoorY, T);
-            //Déplace le joueur d'une partie du plateau à l'autre
+            //Déplace le joueur d'une partie du plateau à l'autre si il est à l'extremité du plateau et est éjécté par le deplacemetn des cases
             if ((sens==1)&&(T.Matrice[CoorY][6].IRXYFJDHBGTS[5]>=1)){
                 T.Matrice[CoorY][0].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
                 T.restante.IRXYFJDHBGTS[5]=0;
@@ -770,18 +784,21 @@ tableau Plateau_RandTresor(tableau T){
     int rand_i, rand_j, i, j, nb_Trez=24, verif_trez;
     srand(time(NULL));
     while(nb_Trez>0) {
+        //Cree des coordonées aléatoire permettant d'inité les trésors de manière aléatoire
         rand_i = rand();
         rand_j = rand();
         i = rand_i % 7;
         j = rand_j % 7;
         // Assigne des trésors sur les cases mobiles et fixes différentes des spawns jusqu'à ce que plus de tresor soit disponible.
         if ((i % 2 != 0) || (j % 2 != 0)) {
+            //assigne des trésors sur les cases mobiles
             if(T.Matrice[i][j].IRXYFJDHBGTS[10]==0){
                 T.Matrice[i][j].IRXYFJDHBGTS[10]=nb_Trez;
                 nb_Trez--;
             }
         }
         else if((i%6!=0)&&(j%6!=0)){
+            //assigne des tresors sur les cases fixes différentes des spawns
             if(T.Matrice[i][j].IRXYFJDHBGTS[10]==0){
                 T.Matrice[i][j].IRXYFJDHBGTS[10]=nb_Trez;
                 nb_Trez--;
@@ -792,6 +809,7 @@ tableau Plateau_RandTresor(tableau T){
         rand_i=0;
         rand_j=0;
     }
+    //Vérifie qu'il y a bel et bien 24 tresors
     for (i=0;i<7;i++){
         for(j=0;j<7;j++){
             if(T.Matrice[i][j].IRXYFJDHBGTS[10]>0){
@@ -810,9 +828,11 @@ tableau Plateau_RandTresor(tableau T){
 // Recuperation de tresor sur une case et adapte la liste de tresor recupérer
 Joueur Recuperation_Trez(tableau T, Joueur Jul){
     int k=0;
-    while(Jul.TresorDeck[k]!=0){
+    //cherche la place dans son tableau de tresors récuperer la place du trésor trouvé
+    while(Jul.TresorRecup[k]!=0){
         k++;
     }
+    // ajoute le tresor trouvé au tresors récupérer
     for(int i=0;i<8;i++){
         if(Jul.TresorDeck[i]==T.Matrice[Jul.y][Jul.x].IRXYFJDHBGTS[10]){
             Jul.TresorRecup[k]=Jul.TresorDeck[i];
