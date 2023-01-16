@@ -1,7 +1,3 @@
-//
-// Created by Pas un taille crayon on 14/12/2022.
-//
-
 #ifndef CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H
 #define CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H
 
@@ -26,4 +22,4 @@ tableau init_Tableau();
 tableau Init_Tableau_Fixe();
 
 
-#endif //CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H
+#endif

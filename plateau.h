@@ -1,7 +1,3 @@
-//
-// Created by hugov on 03/01/2023.
-//
-
 #ifndef PROJET_LABYRINTE_ECE_PLATEAU_H
 #define PROJET_LABYRINTE_ECE_PLATEAU_H
 
@@ -26,4 +22,4 @@ Texture2D ChoixDeCases(Cases PlateauAfficher[LIGNE][COLONNE],int x,int y,Texture
 Texture2D ChoixDeCasesDehors(Cases PlateauAttend[2],int x,Texture2D I1,Texture2D I2,Texture2D L1,Texture2D L2,Texture2D L3,Texture2D L4,Texture2D T1,Texture2D T2,Texture2D T3,Texture2D T4);
 void AffichageRaylib();
 
-#endif //PROJET_LABYRINTE_ECE_PLATEAU_H
+#endif

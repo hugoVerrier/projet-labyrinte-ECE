@@ -1,7 +1,3 @@
-//
-// Created by Pas un taille crayon on 14/12/2022.
-//
-
 #include "VrmtVrmtTriste.h"
 #include <stdio.h>
 #include <stdlib.h>
