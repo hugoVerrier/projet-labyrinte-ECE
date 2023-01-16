@@ -1,0 +1,61 @@
+//Assigne des tresors aléatoirement sur le plateau
+tableau Plateau_RandTresor(tableau T){
+    int rand_i, rand_j, i, j, nb_Trez=24, verif_trez;
+    srand(time(NULL));
+    while(nb_Trez>0) {
+        rand_i = rand();
+        rand_j = rand();
+        i = rand_i % 7;
+        j = rand_j % 7;
+        // Assigne des trésors sur les cases mobiles et fixes différentes des spawns jusqu'à ce que plus de tresor soit disponible.
+        if ((i % 2 != 0) || (j % 2 != 0)) {
+            if(T.Matrice[i][j].IRXYFJDHBGTS[10]==0){
+                T.Matrice[i][j].IRXYFJDHBGTS[10]=nb_Trez;
+                nb_Trez--;
+            }
+        }
+        else if((i%6!=0)&&(j%6!=0)){
+            if(T.Matrice[i][j].IRXYFJDHBGTS[10]==0){
+                T.Matrice[i][j].IRXYFJDHBGTS[10]=nb_Trez;
+                nb_Trez--;
+            }
+        }
+        i=0;
+        j=0;
+        rand_i=0;
+        rand_j=0;
+    }
+    for (i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(T.Matrice[i][j].IRXYFJDHBGTS[10]>0){
+                verif_trez++;
+            }
+        }
+    }
+    if(verif_trez==24){
+        printf("Le compte est bon");
+    }
+    else{
+        printf("Il y a boule en trop : %d trez", verif_trez);
+    }
+    return T;
+}
+// Recuperation de tresor sur une case
+Joueur Recuperation_Trez(tableau T, Joueur Jul){
+    int k=0;
+    while(Jul.TresorDeck[k]!=0){
+        k++;
+    }
+    for(int i=0;i<8;i++){
+        if(Jul.TresorDeck[i]==T.Matrice[Jul.y][Jul.x].IRXYFJDHBGTS[10]){
+            Jul.TresorRecup[k]=Jul.TresorDeck[i];
+        }
+    }
+    return Jul;
+}
+
+
+// .h associé
+
+tableau Plateau_RandTresor(tableau T);
+Joueur Recuperation_Trez(tableau T, Joueur Jul);
