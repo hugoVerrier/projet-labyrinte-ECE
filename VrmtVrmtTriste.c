@@ -1,7 +1,13 @@
+//
+// Created by Pas un taille crayon on 14/12/2022.
+//
+
 #include "VrmtVrmtTriste.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+// FONCTIONS MENU CREATION
 
 Cases Menu_Case(){
     int choix;
@@ -37,9 +43,8 @@ Cases Creation_Auto(int TypeK, int CoorX, int CoorY, Cases K){
     ID_temp = ID_Creation(1, TypeK, RotaK);
     K=Init_Case(K, ID_temp);
     K=direction_Possible(K);
-    return K;
 }
-
+// Crée une case manuellement selon son type et sa rotation
 Cases Creation_Case(Cases K){
     int Auto, ID_Case, TypeK, RotaK;
     printf("Voulez vous initialiser la case : \n 0- Manuellement \n 1- Automatiquement");
@@ -69,6 +74,8 @@ Cases Creation_Case(Cases K){
 
     return K;
 }
+
+// FONCTIONS DE CREATION DE CASE
 
 /*initialise une case selon son id_ID, et rempli l'id I et sa rotation (utile pour l'affichage des cases sur le plateau)*/
 Cases Init_Case(Cases K,int ID_Case){
@@ -304,38 +311,122 @@ int ID_Creation(int Auto, int TypeK,int RotaK){
     printf("Creation de l'ID de la case...\n");
     return ID_Crea;
 }
-/*Determine si un deplacement joueur est possible entre deux case rend Dep=1  si oui sinon Dep=0*/
-int Mvt_Possible(Cases K1, Cases K2){
-    int DiffX, DiffY, X1, X2, Y1, Y2, Dep;
-    X1=K1.IRXYFJDHBGTS[2];
-    X2=K2.IRXYFJDHBGTS[2];
-    Y1=K1.IRXYFJDHBGTS[3];
-    Y2=K2.IRXYFJDHBGTS[3];
-    DiffX=X1-X2;
-    DiffY=Y1-Y2;
-    if ((DiffX==0)&&(DiffY==1)) {
-        Dep = ((K1.IRXYFJDHBGTS[7]==1)&&(K2.IRXYFJDHBGTS[8]==1))? 1:0;
-    }
-    if ((DiffX==0)&&(DiffY==-1)) {
-        Dep = ((K1.IRXYFJDHBGTS[8]==1)&&(K2.IRXYFJDHBGTS[7]==1))? 1:0;
-    }
-    if ((DiffX==1)&&(DiffY==0)) {
-        Dep = ((K1.IRXYFJDHBGTS[6]==1)&&(K2.IRXYFJDHBGTS[9]==1))? 1:0;
-    }
-    if ((DiffX==-1)&&(DiffY==0)) {
-        Dep = ((K1.IRXYFJDHBGTS[9]==1)&&(K2.IRXYFJDHBGTS[6]==1))? 1:0;
-    }
-    else {
-        Dep = 0;
-        Mvt_Impossible();
-    }
 
+// FONCTIONS DEPLACEMENT JOUEUR ET ACTUALISATION TABLEAU / JOUEUR
+
+// Determine le nombre de deplacement possible pour un joueur dans ses alentours
+int nb_Mvt_Possible(tableau T, Joueur J){
+    Cases K_D, K_G, K_H, K_B, K_Actu;
+    int Dep;
+    K_D=T.Matrice[J.y][J.x+1];
+    K_G=T.Matrice[J.y][J.x-1];
+    K_B=T.Matrice[J.y+1][J.x];
+    K_H=T.Matrice[J.y-1][J.x];
+    K_Actu=T.Matrice[J.y][J.x];
+    // Rend le nombre de deplacement possible dans les alentours de la case actuelle
+    if ((K_Actu.IRXYFJDHBGTS[6]==1)&&(K_D.IRXYFJDHBGTS[9]==1)){
+        Dep++;
+    }
+    else if ((K_Actu.IRXYFJDHBGTS[9]==1)&&(K_G.IRXYFJDHBGTS[6]==1)){
+        Dep++;
+    }
+    else if ((K_Actu.IRXYFJDHBGTS[7]==1)&&(K_H.IRXYFJDHBGTS[8]==1)){
+        Dep++;
+    }
+    else if ((K_Actu.IRXYFJDHBGTS[8]==1)&&(K_B.IRXYFJDHBGTS[7]==1)){
+        Dep++;
+    }
     return Dep;
 }
-/* Print que le mouvement est impossible*/
-void Mvt_Impossible(){
-    printf("Le mouvement est impossible");
+// Determine si le mouvement est possible pour un joueur selon l'input
+int Dir_Actu_Poss(tableau T, Joueur J, int input){
+    Cases K_D, K_G, K_H, K_B, K_Actu;
+    int Dep;
+    K_D=T.Matrice[J.y][J.x+1];
+    K_G=T.Matrice[J.y][J.x-1];
+    K_B=T.Matrice[J.y+1][J.x];
+    K_H=T.Matrice[J.y-1][J.x];
+    K_Actu=T.Matrice[J.y][J.x];
+    // Prend l'input et compare les directions pour vérifier l'egibilité du mouvement
+    if((input=='A')&&(K_Actu.IRXYFJDHBGTS[7]==1)&&(K_H.IRXYFJDHBGTS[8]==1)){
+        Dep++;
+    }
+    else if((input=='B')&&(K_Actu.IRXYFJDHBGTS[8]==1)&&(K_B.IRXYFJDHBGTS[7]==1)){
+        Dep++;
+    }
+    else if((input=='C')&&(K_Actu.IRXYFJDHBGTS[6]==1)&&(K_D.IRXYFJDHBGTS[9]==1)){
+        Dep++;
+    }
+    else if((input=='D')&&(K_Actu.IRXYFJDHBGTS[9]==1)&&(K_G.IRXYFJDHBGTS[6]==1)){
+        Dep++;
+    }
+    return Dep;
 }
+// Permet au joueur de se déplacer jusqu'à ce que le joueur rentre dans un cul de sac
+tableau Deplacement_joueur(tableau T, Joueur J){
+    int Dep_Prec=4, Dep_Actu, Dir_Poss;
+    int input=getchar();
+    Dep_Actu= nb_Mvt_Possible(T, J);
+    // Deplacement jusqu'a la fin du tour determiné par la touche entrer ou un cul de sac
+    //Theoriquement le cul de sac est determiné par le nombre de deplacement precedent et de la case actuelle, si la case à un seul deplacement possible c'est que le joueur est dans un cul de sac
+    //Afin que le joueur ne soit pas bloquer dès le début le 1er deplacement precedent est initialiser a 4
+    while(input!='\n'){
+        while((Dep_Prec>=1)&&(Dep_Actu!=1)){
+            Dir_Poss= Dir_Actu_Poss(T,J,input);
+            if(Dir_Poss==1){
+                if(input=='A'){
+                T.Matrice[J.y-1][J.x].IRXYFJDHBGTS[5]=T.Matrice[J.y][J.x].IRXYFJDHBGTS[5];
+                T.Matrice[J.y][J.x].IRXYFJDHBGTS[5]=0;
+                }
+                else if(input=='B'){
+                    T.Matrice[J.y+1][J.x].IRXYFJDHBGTS[5]=T.Matrice[J.y][J.x].IRXYFJDHBGTS[5];
+                    T.Matrice[J.y][J.x].IRXYFJDHBGTS[5]=0;}
+                else if(input=='C'){
+                    T.Matrice[J.y][J.x+1].IRXYFJDHBGTS[5]=T.Matrice[J.y][J.x].IRXYFJDHBGTS[5];
+                    T.Matrice[J.y][J.x].IRXYFJDHBGTS[5]=0;}
+                else if(input=='D'){
+                    T.Matrice[J.y][J.x-1].IRXYFJDHBGTS[5]=T.Matrice[J.y][J.x].IRXYFJDHBGTS[5];
+                    T.Matrice[J.y][J.x].IRXYFJDHBGTS[5]=0;}
+                Dep_Prec=Dep_Actu;
+                Dep_Actu= nb_Mvt_Possible(T,J);
+                // Actualise le joueur et le plateau si un tresor est présent et si il correspond à un des tresors cherche
+                J= Actu_Joueur(T,J);
+                if(T.Matrice[J.y][J.x].IRXYFJDHBGTS[10]>0){
+                    T= Actu_Trez_Tableau(T, J);
+                }
+            }
+        }
+    }
+    return T;
+}
+// Actualise les coordonnées d'un joueur( et son deck de trésor )?
+Joueur Actu_Joueur(tableau T, Joueur J){
+    int i, j;
+    for (i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(T.Matrice[i][j].IRXYFJDHBGTS[5]==J.nbJoueur){
+                J.x=j;
+                J.y=i;
+            }
+        }
+    }
+    if(T.Matrice[J.y][J.x].IRXYFJDHBGTS[10]>0) {
+        J = Recuperation_Trez(T, J);
+    }
+    return J;
+}
+// Actualise le tableau pour faire disparaitre les trésors recupérer
+tableau Actu_Trez_Tableau(tableau T, Joueur J){
+    for(int i=0;i<8;i++){
+        if(J.TresorDeck[i]==T.Matrice[J.y][J.x].IRXYFJDHBGTS[10]){
+            T.Matrice[J.y][J.x].IRXYFJDHBGTS[10]=0;
+        }
+    }
+    return T;
+}
+
+// FONCTIONS INITIALISATION TABLEAU
+
 /*initialisation d'un tableau vide avec uniquement les cases fixes et complète son ID sans joueurs ni tresor*/
 tableau Init_Tableau_Fixe(){
     int ID_Cree, i, j;
@@ -494,7 +585,7 @@ tableau init_Tableau(){
                 T.Matrice[i][j]=K_i;
             }
             Chargement=(((Chargement+1)/49)*100);
-            printf("Chargement tableau %d", Chargement);
+            printf("Chargement tableau %d %", Chargement);
         }
     }
     NBTot=(NBL+NBT+NBI);
@@ -528,3 +619,204 @@ tableau init_Tableau(){
     return T;
 }
 
+// FONCTIONS DEPLACEMENT DE CASES
+
+// Fonction de deplacement des cases sur une ligne donnée en fonction de son sens
+tableau Deplacement_Case_X(int sens, int CoorY, tableau T){
+    int i;
+    Cases K_Save;
+    switch (sens) {
+        case 1:{
+            K_Save=T.Matrice[CoorY][6];
+            for (i=0;i<6;i++){
+                T.Matrice[CoorY][i+1]=T.Matrice[CoorY][i];
+            }
+            T.Matrice[CoorY][0]=T.restante;
+            T.restante=K_Save;
+            break;
+        }
+        case -1:{
+            K_Save=T.Matrice[CoorY][0];
+            for (i=0;i<6;i++){
+                T.Matrice[CoorY][i]=T.Matrice[CoorY][i+1];
+            }
+            T.Matrice[CoorY][6]=T.restante;
+            T.restante=K_Save;
+            break;
+        }
+    }
+    printf("Deplacement des Cases sur la ligne %d dans le sens %d", CoorY, sens);
+    return T;
+}
+// Fonction de deplacement des cases sur une colonne donnée en fonction de son sens
+tableau Deplacement_Case_Y(int sens, int CoorX, tableau T){
+    int i;
+    Cases K_Save;
+    switch (sens) {
+        case 1:{
+            K_Save=T.Matrice[6][CoorX];
+            for (i=0;i<6;i++){
+                T.Matrice[i+1][CoorX]=T.Matrice[i][CoorX];
+            }
+            T.Matrice[0][CoorX]=T.restante;
+            T.restante=K_Save;
+            break;
+        }
+        case -1:{
+            K_Save=T.Matrice[0][CoorX];
+            for (i=0;i<6;i++){
+                T.Matrice[i][CoorX]=T.Matrice[i+1][CoorX];
+            }
+            T.Matrice[6][CoorX]=T.restante;
+            T.restante=K_Save;
+            break;
+        }
+    }
+    printf("Deplacement des Cases sur la colonne %d dans le sens %d", CoorX, sens);
+    return T;
+}
+// Utilise les 2 fonctions précédente pour que le joueur puisse choisir l'insertion de la case restante à sa guise dans tous les sens possible
+tableau Deplacement_Case(tableau T ){
+    int CoorX=0, CoorY=0, sens;
+    printf("Comment voulez vous insérer la case restante? 1- Horizontalement 2- Verticalement :\n");
+    int input=getchar();
+    switch (input) {
+        //Utilise l'input du clavier pour demander au joueur ou il veut deplacer sa case
+        case 1:{
+            // A = up B = down C= right D=left
+             while (input !='\n'){
+                 sens=0;
+            while((CoorY>=0)&&(CoorY<=6)){
+            if(input=='A'){
+            CoorY++;
+            }
+            else if(input=='B'){
+                CoorY--;
+             }
+             else if((input=='A')&&(CoorY==0)){
+                CoorY=0;
+             }
+             else if((input =='B')&&(CoorY==6)){
+                CoorY=6;
+             }
+             if(input=='D'){
+             sens=-1;
+             }
+             else if(input =='C'){
+             sens=1;
+             }
+             }
+            }
+            T = Deplacement_Case_X(sens, CoorY, T);
+            //Déplace le joueur d'une partie du plateau à l'autre
+            if ((sens==1)&&(T.Matrice[CoorY][6].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[CoorY][0].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+            }
+            else if((sens==-1)&&(T.Matrice[CoorY][0].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[CoorY][6].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+            }
+            break;
+        }
+        case 2:{
+
+            while (input != '\n'){
+                sens=0;
+                while((CoorX>=0)&&(CoorX<=6)){
+                    if(input=='C'){
+                        CoorX++;
+                    }
+                    else if(input=='D'){
+                        CoorX--;
+                    }
+                    else if((input=='D')&&(CoorX==0)){
+                        CoorX=0;
+                    }
+                    else if((input=='C')&&(CoorX==6)){
+                        CoorX=6;
+                    }
+                    if(input=='A'){
+                        sens=-1;
+                    }
+                    else if(input=='B'){
+                        sens=1;
+                    }
+                }
+            }
+            T = Deplacement_Case_Y(sens, CoorX, T);
+            //Deplace le joueur d'une partie du plateau à l'autre
+            if ((sens==1)&&(T.Matrice[6][CoorX].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[0][CoorX].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+            }
+            else if((sens==-1)&&(T.Matrice[0][CoorX].IRXYFJDHBGTS[5]>=1)){
+                T.Matrice[6][CoorX].IRXYFJDHBGTS[5] = T.restante.IRXYFJDHBGTS[5];
+                T.restante.IRXYFJDHBGTS[5]=0;
+             }
+        break;}
+        default:{
+            printf("Veuillez insérer un mouvement valide");
+            scanf("%d",&input);
+        }
+    }
+    return T;
+}
+
+// FONCTIONS TRESORS
+
+//Assigne des tresors aléatoirement sur le plateau
+tableau Plateau_RandTresor(tableau T){
+    int rand_i, rand_j, i, j, nb_Trez=24, verif_trez;
+    srand(time(NULL));
+    while(nb_Trez>0) {
+        rand_i = rand();
+        rand_j = rand();
+        i = rand_i % 7;
+        j = rand_j % 7;
+        // Assigne des trésors sur les cases mobiles et fixes différentes des spawns jusqu'à ce que plus de tresor soit disponible.
+        if ((i % 2 != 0) || (j % 2 != 0)) {
+            if(T.Matrice[i][j].IRXYFJDHBGTS[10]==0){
+                T.Matrice[i][j].IRXYFJDHBGTS[10]=nb_Trez;
+                nb_Trez--;
+            }
+        }
+        else if((i%6!=0)&&(j%6!=0)){
+            if(T.Matrice[i][j].IRXYFJDHBGTS[10]==0){
+                T.Matrice[i][j].IRXYFJDHBGTS[10]=nb_Trez;
+                nb_Trez--;
+            }
+        }
+        i=0;
+        j=0;
+        rand_i=0;
+        rand_j=0;
+    }
+    for (i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(T.Matrice[i][j].IRXYFJDHBGTS[10]>0){
+                verif_trez++;
+            }
+        }
+    }
+    if(verif_trez==24){
+        printf("Le compte est bon");
+    }
+    else{
+        printf("Il y a boule en trop : %d trez", verif_trez);
+    }
+    return T;
+}
+// Recuperation de tresor sur une case et adapte la liste de tresor recupérer
+Joueur Recuperation_Trez(tableau T, Joueur Jul){
+    int k=0;
+    while(Jul.TresorDeck[k]!=0){
+        k++;
+    }
+    for(int i=0;i<8;i++){
+        if(Jul.TresorDeck[i]==T.Matrice[Jul.y][Jul.x].IRXYFJDHBGTS[10]){
+            Jul.TresorRecup[k]=Jul.TresorDeck[i];
+        }
+    }
+    return Jul;
+}
