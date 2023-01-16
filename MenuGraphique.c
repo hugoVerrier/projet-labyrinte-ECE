@@ -1057,7 +1057,7 @@ void fenetreMenu(){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
@@ -1071,11 +1071,11 @@ void fenetreMenu(){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
@@ -1092,15 +1092,15 @@ void fenetreMenu(){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+2*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
@@ -1120,19 +1120,19 @@ void fenetreMenu(){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+3*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
@@ -1155,19 +1155,19 @@ void fenetreMenu(){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+4*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);                            FenetreActuelle = PLATEAU;
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);                            FenetreActuelle = PLATEAU;
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);                            FenetreActuelle = PLATEAU;
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);                            FenetreActuelle = PLATEAU;
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);                            FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde5);                            FenetreActuelle = PLATEAU;
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde5);                            FenetreActuelle = PLATEAU;
                         }
                     }break;
                     case 6:{
@@ -1192,27 +1192,27 @@ void fenetreMenu(){
                         DrawLine(GetScreenWidth()/6+GetScreenWidth()/24,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6,GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+5*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde5);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde5);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde6);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde6);
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
@@ -1240,31 +1240,31 @@ void fenetreMenu(){
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+5*GetScreenHeight()/12},30.0,2.0,BLACK);
                         DrawTextEx(font,"Sauvegarde :",(Vector2){GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()/40,GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/40+6*GetScreenHeight()/12},30.0,2.0,BLACK);
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde1);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde2);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+2*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde3);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+3*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde4);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+4*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde5);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde5);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+5*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde6);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde6);
                             FenetreActuelle = PLATEAU;
                         }
                         if ((positionSouris.x >= GetScreenWidth()/6+GetScreenWidth()/24) &&(positionSouris.x <= GetScreenWidth()/6+GetScreenWidth()/24+GetScreenWidth()-2.5*GetScreenWidth()/6) && (positionSouris.y >= GetScreenHeight()/6+GetScreenHeight()/15+6*GetScreenHeight()/12) && (positionSouris.y <= GetScreenHeight()/6+GetScreenHeight()/15+7*GetScreenHeight()/12) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))){
-                            creerSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde7);
+                            lireSauvegardePartie(&dp,&joueur[dp.nbJoueur],&tb,sauvegarde7);
                             FenetreActuelle = PLATEAU;
                         }
                     }break;
@@ -1330,21 +1330,21 @@ void sleepf(float seconds){ // fonction sleep flottant
 
 
 void creerSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], tableau* tb,FILE* fichierNom){ // fonction pour creer une sauvegarde
-     fichierNom = fopen("Joueurs.txt","w+"); // ouverture d'un fichier texte en mode ecriture
+     fichierNom = fopen("jeu.txt","w"); // ouverture d'un fichier texte en mode ecriture
     if  (fichierNom == NULL){    // si fichier texte NULL alors erreur
         printf("Erreur chargement joueurs");
         exit(1);
     }
     for (int i = 0; i < dp->nbJoueur; ++i) {    // tant que toutes les donnes des joueurs n'ont pas ete sauvegardees alors incrementation pour atteindre le nombre de joueurs
-        fprintf(fichierNom,"pseudo : %d",*joueur[i]->pseudo); // stockage pseudo
+        fprintf(fichierNom,"pseudo : %s",joueur[i]->pseudo); // stockage pseudo
         fprintf(fichierNom,"x : %d",joueur[i]->x); // stockage vecteur position en x du joueur
         fprintf(fichierNom,"y : %d",joueur[i]->y); // stockage vecteur position en y du joueur
-        fprintf(fichierNom, "couleur : %d",*joueur[i]->couleur); // stockage couleur du joueur
+        fprintf(fichierNom, "couleur : %s",joueur[i]->couleur); // stockage couleur du joueur
         fprintf(fichierNom, "tresor a trouver : %d",*joueur[i]->TresorDeck); // stockage du tresor qu'il doit rechercher
         fprintf(fichierNom, "tresor(s) recupere(s) : %d",*joueur[i]->TresorRecup); // stockage de ses tresors recuperes
     }
     fclose(fichierNom); // fermeture du fichier de sauvegarde joueur
-    fichierNom = fopen("Tableau.txt","a+"); // ajout dans le fichier texte
+    fichierNom = fopen("jeu.txt","a"); // ajout dans le fichier texte
     if (fichierNom == NULL){ // si fichier texte NULL alors erreur
         printf("Erreur chargement plateau");
         exit(1);
@@ -1382,6 +1382,86 @@ void creerSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], tabl
     fprintf(fichierNom, "\n");
     fprintf(fichierNom, "rotation: %d\n", tb->restante.rotation);
     fprintf(fichierNom, "type: %d\n", tb->restante.type);
+    fclose(fichierNom); // fermeture du fichier de sauvegarde plateau
+    int* nbs = NULL; // pointeur sauvegarde
+    if (dp->nbSauvegarde == 0){
+        dp->nbSauvegarde = 1; // numero de la sauvegarde
+        *nbs = 1; // nom de la sauvegarde parametre
+    }else if (dp->nbSauvegarde == 1){
+        dp->nbSauvegarde = 2; // numero de la sauvegarde
+        *nbs = 2; // nom de la sauvegarde parametre
+    }else if (dp->nbSauvegarde == 2){
+        dp->nbSauvegarde = 3; // numero de la sauvegarde
+        *nbs = 3; // nom de la sauvegarde parametre
+    }else if (dp->nbSauvegarde == 3){
+        dp->nbSauvegarde = 4; // numero de la sauvegarde
+        *nbs = 4; // nom de la sauvegarde parametre
+    }else if (dp->nbSauvegarde == 4){
+        dp->nbSauvegarde = 5; // numero de la sauvegarde
+        *nbs = 5; // nom de la sauvegarde parametre
+    }else if (dp->nbSauvegarde == 5){
+        dp->nbSauvegarde = 6; // numero de la sauvegarde
+        *nbs = 6; // nom de la sauvegarde parametre
+    }else if (dp->nbSauvegarde == 6){
+        dp->nbSauvegarde = 7; // numero de la sauvegarde
+        *nbs = 7; // nom de la sauvegarde parametre
+    }else printf("Erreur trop de sauvegarde");
+}
+
+
+void lireSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], tableau* tb,FILE* fichierNom){ // fonction pour lire une sauvegarde
+    fichierNom = fopen("jeu.txt","r"); // ouverture d'un fichier texte en mode lecture
+    if  (fichierNom == NULL){    // si fichier texte NULL alors erreur
+        printf("Erreur chargement joueurs");
+        exit(1);
+    }
+    for (int i = 0; i < dp->nbJoueur; ++i) {    // tant que toutes les donnes des joueurs n'ont pas ete lues alors incrementation pour atteindre le nombre de joueurs
+        fscanf(fichierNom,"pseudo : %s",joueur[i]->pseudo); // lecture pseudo
+        fread(&joueur[i]->x,sizeof (int),1,fichierNom);// lecture vecteur position en x du joueur
+        fread(&joueur[i]->y,sizeof (int),1,fichierNom);// lecture vecteur position en y du joueur
+        fscanf(fichierNom, "couleur : %s",joueur[i]->couleur); // lecture couleur du joueur
+        fread(joueur[i]->TresorDeck,sizeof (int),1,fichierNom); // lecture du tresor qu'il doit rechercher
+        fread(joueur[i]->TresorRecup,sizeof (int),1,fichierNom); // lecture de ses tresors recuperes
+    }
+    fclose(fichierNom); // fermeture du fichier de sauvegarde joueur
+    fichierNom = fopen("jeu.txt","a+"); // suite lecture dans le fichier texte
+    if (fichierNom == NULL){ // si fichier texte NULL alors erreur
+        printf("Erreur chargement plateau");
+        exit(1);
+    }
+    for (int i = 0; i < 7; i++) { // debut de la boucle ligne
+        for (int j = 0; j < 7; j++) { // debut de la boucle colonne
+            fprintf(fichierNom, "Matrice[%d][%d]\n", i, j); // sauvegarde des donnees de la matrice
+            for (int k = 0; k < 3; k++) {
+                for (int l = 0; l < 3; l++) {
+                    fread(&tb->Matrice[i][j].Tab[k][l],sizeof (int),1,fichierNom);
+                }
+                fprintf(fichierNom, "\n");
+            }
+            fscanf(fichierNom, "IRXYFJDHBGTS: ");
+            for (int k = 0; k < 12; k++) {
+                fread(&tb->Matrice[i][j].IRXYFJDHBGTS[k],sizeof (int),1,fichierNom);
+            }
+            fscanf(fichierNom, "\n");
+            fread(&tb->Matrice[i][j].rotation,sizeof (int),1,fichierNom);
+            fread(&tb->Matrice[i][j].type,sizeof (int),1,fichierNom);
+        }
+    }
+
+    fscanf(fichierNom, "restante\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            fread(&tb->restante.Tab[i][j],sizeof (int),1,fichierNom);
+        }
+        fscanf(fichierNom, "\n");
+    }
+    fscanf(fichierNom, "IRXYFJDHBGTS: ");
+    for (int i = 0; i < 12; i++) {
+        fread(&tb->restante.IRXYFJDHBGTS[i],sizeof (int),1,fichierNom);
+    }
+    fscanf(fichierNom, "\n");
+    fread(&tb->restante.rotation,sizeof (int),1,fichierNom);
+    fread(&tb->restante.type,sizeof (int),1,fichierNom);
     fclose(fichierNom); // fermeture du fichier de sauvegarde plateau
     dp->nbSauvegarde++; // mise a jour du nombre de sauvegarde
 }
