@@ -4,14 +4,14 @@
 void fenetreMenu(int* menu){
 
     // initialisation de la fenetre
-    InitWindow(GetScreenWidth(),GetScreenHeight(),"Menu");
-    ToggleFullscreen();
-    Fenetre FenetreActuelle = MENU;
-    Joueur j;
-    tableau t;
-    int compteurFPS=0;
-    int re = 0;
-    int nbS = 0;
+    InitWindow(GetScreenWidth(),GetScreenHeight(),"Menu"); // nom de la fenetre
+    ToggleFullscreen(); // plein ecran
+    Fenetre FenetreActuelle = MENU; // fenetre par defaut sur le menu
+    Joueur j; // structure joueur
+    int compteurFPS=0; // compteur fps actualisation
+    int re = 0; // regle enfant variable pour le switch
+    int nbS = 0; // nombre sauvegarde variable pour le switch
+    // initialisation variable zone de texte
     int compteurLettrePremierParam=0;
     int compteurLettreDeuxiemeParam=0;
     int compteurLettrePremiereCouleur=0;
@@ -22,6 +22,7 @@ void fenetreMenu(int* menu){
     int compteurLettreZT2 = 0;
     int compteurLettreZT3 = 0;
     int compteurLettreZT4 = 0;
+    // initialisation chaine de caractere
     char premierParam[CHAR_OUI_NON + 1] = "\0";
     char deuxiemeParam[CHAR_CHOIXNBJOUEURS + 1] = "\0";
     char premiereCouleur[CHAR_CHOIX_COULEUR_PION + 1] = "\0";
@@ -91,32 +92,31 @@ void fenetreMenu(int* menu){
     Texture2D Xavier = LoadTextureFromImage(XavierImage);//passage en texture image credit
     UnloadImage(XavierImage);//suppression image crédit
 
-    InitAudioDevice();
-    Music music = LoadMusicStream("../SonMenu/son menu.mp3");
-    //float jouerMusique = 0.0f;
-    //bool pause = false;
+    InitAudioDevice(); // initialisation peripherique audio
+    Music music = LoadMusicStream("../SonMenu/son menu.mp3"); // chargement musique
 
-    Sound sonBoutton = LoadSound("../SonMenu/CliqueBoutton.wav");
-    Sound sonPoseTuile = LoadSound("../SonMenu/sonPoseTuiles.wav");
+
+    Sound sonBoutton = LoadSound("../SonMenu/CliqueBoutton.wav"); // chargement son bouton
 
     int fin = 0; // fin inutile juste histoire de pas fermer la fenetre
 
 
     SetTargetFPS(60);
     while (!fin ){
-        UpdateMusicStream(music);//mettre a jour la musique
-        Vector2 positionSouris;// vecteur(x,y) position souris
-        positionSouris = GetMousePosition();//renomme la fonction
-        Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };//dimension zone bouton
-        Rectangle TexteBoutonNJ = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+10*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 };//dimension zone bouton
-        Rectangle TexteBoutonCC1 = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };//dimension zone bouton
-        Rectangle TexteBoutonCC2 = { GetScreenWidth()/6+GetScreenWidth()/40+GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };//dimension zone zone texte bouton
-        Rectangle TexteBoutonCC3 = { GetScreenWidth()/6+GetScreenWidth()/40+2*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
-        Rectangle TexteBoutonCC4 = { GetScreenWidth()/6+GetScreenWidth()/40+3*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 };
-        Rectangle ZoneTexte1 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
-        Rectangle ZoneTexte2 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
-        Rectangle ZoneTexte3 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
-        Rectangle ZoneTexte4 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16};
+        UpdateMusicStream(music); //mettre a jour la musique
+        Vector2 positionSouris; // vecteur(x,y) position souris
+        positionSouris = GetMousePosition(); // attribution de la structure 2D avec l'input de la souris
+        Rectangle TexteBoutonRE = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+2.5*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 }; //dimension zone texte regle enfant
+        Rectangle TexteBoutonNJ = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+10*GetScreenHeight()/40, GetScreenHeight()/8, GetScreenHeight()/8 }; //dimension zone texte nombre joueur
+        Rectangle TexteBoutonCC1 = { GetScreenWidth()/6+GetScreenWidth()/40, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 }; //dimension zone texte couleur choix 1
+        Rectangle TexteBoutonCC2 = { GetScreenWidth()/6+GetScreenWidth()/40+GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 }; //dimension zone texte couleur choix 2
+        Rectangle TexteBoutonCC3 = { GetScreenWidth()/6+GetScreenWidth()/40+2*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 }; //dimension zone texte couleur choix 3
+        Rectangle TexteBoutonCC4 = { GetScreenWidth()/6+GetScreenWidth()/40+3*GetScreenWidth()/8, GetScreenHeight()/6+18*GetScreenHeight()/40, GetScreenHeight()/7, GetScreenHeight()/8 }; //dimension zone texte couleur choix 4
+        Rectangle ZoneTexte1 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+2.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16}; //dimension zone texte pseudo 1
+        Rectangle ZoneTexte2 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+7.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16}; //dimension zone texte pseudo 2
+        Rectangle ZoneTexte3 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+12.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16}; //dimension zone texte pseudo 3
+        Rectangle ZoneTexte4 = {GetScreenWidth()-2*GetScreenWidth()/6-GetScreenWidth()/40,GetScreenHeight()/6+17.5*GetScreenHeight()/40,GetScreenWidth()/6,GetScreenHeight()/16}; //dimension zone texte seudo 4
+        // initialisation variable des zones de texte
         bool sourisSurTexteRE = false;
         bool sourisSurTexteNJ = false;
         bool sourisSurTexteCC1 = false;
@@ -129,25 +129,25 @@ void fenetreMenu(int* menu){
         bool sourisSurZT4 = false;
         bool regleEnfant = false;
         int* nombreJoueur = NULL;
-        bool* jaune1 = false;
-        bool* bleu1 = false;
-        bool* rouge1 = false;
-        bool* vert1 = false;
-        bool* jaune2 = false;
-        bool* bleu2 = false;
-        bool* rouge2 = false;
-        bool* vert2 = false;
-        bool* jaune3 = false;
-        bool* bleu3 = false;
-        bool* rouge3 = false;
-        bool* vert3 = false;
-        bool* jaune4 = false;
-        bool* bleu4 = false;
-        bool* rouge4 = false;
-        bool* vert4 = false;
+        //bool* jaune1 = false;
+        //bool* bleu1 = false;
+        //bool* rouge1 = false;
+        //bool* vert1 = false;
+        //bool* jaune2 = false;
+        //bool* bleu2 = false;
+        //bool* rouge2 = false;
+        //bool* vert2 = false;
+        //bool* jaune3 = false;
+        //bool* bleu3 = false;
+        //bool* rouge3 = false;
+        //bool* vert3 = false;
+        //bool* jaune4 = false;
+        //bool* bleu4 = false;
+        //bool* rouge4 = false;
+        //bool* vert4 = false;
 
 
-
+        // verification souris en zone de texte
         if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonRE)) sourisSurTexteRE = true;
         else sourisSurTexteRE = false;
         if (CheckCollisionPointRec(GetMousePosition(), TexteBoutonNJ)) sourisSurTexteNJ = true;
@@ -253,33 +253,33 @@ void fenetreMenu(int* menu){
 
 
 
-
-        if (sourisSurZT1)
+        /// zone de texte pour pseudo
+        if (sourisSurZT1) // si souris sur zone de texte alors :
         {
-            SetMouseCursor(MOUSE_CURSOR_IBEAM);
-            int key = GetCharPressed();
-            while (key > 0){
-                if ((key >= 32) && (key <= 125) && (compteurLettreZT1 < CHAR_PSEUDO))
+            SetMouseCursor(MOUSE_CURSOR_IBEAM); // si dans zone de texte curseur en mode ecriture de texte
+            int key = GetCharPressed(); // initialisation variable prenant l'input du clavier
+            while (key > 0){ // tant que variable clavier superieur a 0 alors
+                if ((key >= 32) && (key <= 125) && (compteurLettreZT1 < CHAR_PSEUDO)) // et que variable clavier borne sur table ascii + plus petite que limite autorisee alors
                 {
-                    zt1[compteurLettreZT1] = (char)key;
-                    zt1[compteurLettreZT1+1] = '\0';
-                    compteurLettreZT1++;
+                    zt1[compteurLettreZT1] = (char)key; // enregistrement des input dans chaine de caractere
+                    zt1[compteurLettreZT1+1] = '\0'; // valeur limite de la chaine de caractere definie par \0
+                    compteurLettreZT1++; // ajout avec increment de 1 dans la chaine de caractere pour le compteur
                 }
-                key = GetCharPressed();
+                key = GetCharPressed(); // variable pour l'input
             }
-            if (IsKeyPressed(KEY_BACKSPACE))
+            if (IsKeyPressed(KEY_BACKSPACE)) // si touche effacer alors :
             {
-                compteurLettreZT1--;
-                if (compteurLettreZT1 < 0) compteurLettreZT1 = 0;
-                zt1[compteurLettreZT1] = '\0';
+                compteurLettreZT1--; // compteur retire par increment de 1 dans la chaine de caractere pour le compteur
+                if (compteurLettreZT1 < 0) compteurLettreZT1 = 0; // si chaine de caractere plus petit que zero dans le compteur alors compteur est nul
+                zt1[compteurLettreZT1] = '\0'; // si compteur nul alors chaine de caractere definie par \0 : vide
             }
         }
-        else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
+        else SetMouseCursor(MOUSE_CURSOR_DEFAULT); // si pas dans zone de texte curseur par default
 
-        if (sourisSurZT1) compteurFPS++;
-        else compteurFPS = 0;
+        if (sourisSurZT1) compteurFPS++; // actualisation de la zone de texte si curseur dans la zone de texte
+        else compteurFPS = 0; // si pas dans zone de texte elle n'est pas actualisee
 
-
+        /// zone de texte pour pseudo
         if (sourisSurZT2)
         {
             SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -305,7 +305,7 @@ void fenetreMenu(int* menu){
         if (sourisSurZT2) compteurFPS++;
         else compteurFPS = 0;
 
-
+        /// zone de texte pour pseudo
         if (sourisSurZT3)
         {
             SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -331,7 +331,7 @@ void fenetreMenu(int* menu){
         if (sourisSurZT3) compteurFPS++;
         else compteurFPS = 0;
 
-
+        /// zone de texte pour pseudo
         if (sourisSurZT4)
         {
             SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -375,55 +375,55 @@ void fenetreMenu(int* menu){
         }
 
 
-        if (FenetreActuelle == MENU){
-            PlayMusicStream(music);
+        if (FenetreActuelle == MENU){ // si jeu se lance alors musique menu (le jeu se lance sur le menu par defaut)
+            PlayMusicStream(music); // musique du menu
         }
 
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
+        BeginDrawing(); // debut du dessin
+        ClearBackground(RAYWHITE); // fond blanc
 
-        switch (FenetreActuelle) {
+        switch (FenetreActuelle) { // switch du enum du menu
 
-            case MENU:{
-                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
-                DrawTextureEx(quitter,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
-                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8},0.0f,1.25f,WHITE);
-                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+GetScreenWidth()/8},0.0f,1.25f,WHITE);
-                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+2*GetScreenWidth()/8},0.0f,1.25f,WHITE);
-                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+3*GetScreenWidth()/8},0.0f,1.25f,WHITE);
-                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/6.5,0+GetScreenHeight()/40},0.0f,1.5f,WHITE);
-                DrawTextEx(font,"KNOSSOS",(Vector2){GetScreenWidth()/2-GetScreenWidth()/30,0+GetScreenHeight()/20},60,0,BLACK);
-                DrawTextEx(font,"Nouvelle partie",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+GetScreenHeight()/32},40,0,BLACK);
-                DrawTextEx(font,"Charger partie",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
-                DrawTextEx(font,"Afficher regle",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+2*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
-                DrawTextEx(font,"Credits",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/50),GetScreenHeight()/8+3*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK);
+            case MENU:{ // si menu
+                DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE); // dessin fond
+                DrawTextureEx(quitter,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE); // dessin bouton quitter
+                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8},0.0f,1.25f,WHITE);  // dessin bouton du menu
+                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+GetScreenWidth()/8},0.0f,1.25f,WHITE); // dessin bouton du menu
+                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+2*GetScreenWidth()/8},0.0f,1.25f,WHITE); // dessin bouton du menu
+                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/8,GetScreenHeight()/8+3*GetScreenWidth()/8},0.0f,1.25f,WHITE); // dessin bouton du menu
+                DrawTextureEx(bouton,(Vector2){(GetScreenWidth()/2)-GetScreenWidth()/6.5,0+GetScreenHeight()/40},0.0f,1.5f,WHITE); // dessin rectangle du menu texte
+                DrawTextEx(font,"KNOSSOS",(Vector2){GetScreenWidth()/2-GetScreenWidth()/30,0+GetScreenHeight()/20},60,0,BLACK); // dessin du texte nom du jeu
+                DrawTextEx(font,"Nouvelle partie",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+GetScreenHeight()/32},40,0,BLACK); // dessin du texte
+                DrawTextEx(font,"Charger partie",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK); // dessin du texte
+                DrawTextEx(font,"Afficher regle",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/20),GetScreenHeight()/8+2*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK); // dessin du texte
+                DrawTextEx(font,"Credits",(Vector2){(GetScreenWidth()/2-GetScreenWidth()/50),GetScreenHeight()/8+3*GetScreenWidth()/8+GetScreenHeight()/32},40,0,BLACK); // dessin du texte
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
                 {
-                    FenetreActuelle = QUITTER;
-                    PlaySound(sonBoutton);
+                    FenetreActuelle = QUITTER; // si bouton quitter
+                    PlaySound(sonBoutton); // jouer son bouton
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8) && (positionSouris.y <= GetScreenHeight()/8+boutonImage.height) ){
-                    FenetreActuelle = NOUVELLE_PARTIE;
-                    PlaySound(sonBoutton);
-                    sleepf(0.216);
-                    StopSound(sonBoutton);
+                    FenetreActuelle = NOUVELLE_PARTIE; // si bouton nouvelle partie
+                    PlaySound(sonBoutton); // jouer son bouton
+                    sleepf(0.216); // pause duree son pour actualiser affichage
+                    StopSound(sonBoutton); // son d'arrêt bouton
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+GetScreenWidth()/8+boutonImage.height) ){
-                    FenetreActuelle = CHARGER_PARTIE;
-                    PlaySound(sonBoutton);
-                    sleepf(0.216);
-                    StopSound(sonBoutton);
+                    FenetreActuelle = CHARGER_PARTIE; // si bouton charger partie
+                    PlaySound(sonBoutton); // jouer son bouton
+                    sleepf(0.216); // pause duree son pour actualiser affichage
+                    StopSound(sonBoutton); // son d'arrêt bouton
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+2*GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+2*GetScreenWidth()/8+boutonImage.height) ){
-                    FenetreActuelle = REGLES;
-                    PlaySound(sonBoutton);
+                    FenetreActuelle = REGLES; // si bouton regle
+                    PlaySound(sonBoutton); // jouer son bouton
                 }
                 else if ( (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) && (positionSouris.x >= (GetScreenWidth()/2)-GetScreenWidth()/8) && (positionSouris.x <= (GetScreenWidth()/2)-GetScreenWidth()/8+boutonImage.width) && (positionSouris.y >= GetScreenHeight()/8+3*GetScreenWidth()/8) && (positionSouris.y <= GetScreenHeight()/8+3*GetScreenWidth()/8+boutonImage.height) ){
-                    FenetreActuelle = CREDITS;
-                    PlaySound(sonBoutton);
+                    FenetreActuelle = CREDITS; // si bouton credits
+                    PlaySound(sonBoutton); // jouer son bouton
                 }
             }break;
-            case QUITTER:{
+            case QUITTER:{ // si bouton quitter menu
                 fin = 1;
                 UnloadFont(font);
                 UnloadTexture(fond);
@@ -437,7 +437,7 @@ void fenetreMenu(int* menu){
                 UnloadTexture(Xavier);
                 StopMusicStream(music);
             }break;
-            case NOUVELLE_PARTIE:{
+            case NOUVELLE_PARTIE:{ // si bouton nouvelle partie
                 switch (re) {
                     case 1:{
                         DrawTextureEx(fond,(Vector2){0,0},0.0f,1.0f,WHITE);
@@ -472,8 +472,8 @@ void fenetreMenu(int* menu){
 
 
 
-                        switch (j.nbJoueur) {
-                            case 1:{
+                        switch (j.nbJoueur) { // switch nombre de joueur
+                            case 1:{ // si 2 joueurs
                                 if (sourisSurTexteCC1){
                                     DrawRectangle(TexteBoutonCC1.x,TexteBoutonCC1.y,TexteBoutonCC1.width,TexteBoutonCC1.height,WHITE);
                                 }
@@ -522,7 +522,7 @@ void fenetreMenu(int* menu){
                                     //*vert1 = true;
                                     //couleurPion1(vert1);
                                 }
-                                ///DEUXIEME
+                                ///PREMIERE ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC2)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -564,7 +564,7 @@ void fenetreMenu(int* menu){
                                     //couleurPion2(vert2);
                                 }
                             }break;
-                            case 2:{
+                            case 2:{ // si 3 joueurs
                                 if (sourisSurTexteCC1){
                                     DrawRectangle(TexteBoutonCC1.x,TexteBoutonCC1.y,TexteBoutonCC1.width,TexteBoutonCC1.height,WHITE);
                                 }
@@ -634,7 +634,7 @@ void fenetreMenu(int* menu){
                                     //*vert1 = true;
                                     //couleurPion1(vert1);
                                 }
-                                ///DEUXIEME
+                                ///DEUXIEME ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC2)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -675,7 +675,7 @@ void fenetreMenu(int* menu){
                                     //*vert2 = true;
                                     //couleurPion2(vert2);
                                 }
-                                ///TROISIEME
+                                ///TROISIEME ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC3)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -717,7 +717,7 @@ void fenetreMenu(int* menu){
                                     //couleurPion3(vert3);
                                 }
                             }break;
-                            case 3:{
+                            case 3:{ // si 4 joueurs
                                 if (sourisSurTexteCC1){
                                     DrawRectangle(TexteBoutonCC1.x,TexteBoutonCC1.y,TexteBoutonCC1.width,TexteBoutonCC1.height,WHITE);
                                 }
@@ -735,6 +735,7 @@ void fenetreMenu(int* menu){
                                 }
                                 else DrawRectangle(TexteBoutonCC4.x,TexteBoutonCC4.y,TexteBoutonCC4.width,TexteBoutonCC4.height,BROWN);
                             }
+                                ///PREMIERE ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC1)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -774,7 +775,7 @@ void fenetreMenu(int* menu){
                                     //*vert1 = true;
                                     //couleurPion1(vert1);
                                 }
-                                ///DEUXIEME
+                                ///DEUXIEME ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC2)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -815,7 +816,7 @@ void fenetreMenu(int* menu){
                                     //*vert2 = true;
                                     //couleurPion2(vert2);
                                 }
-                                ///TROISIEME
+                                ///TROISIEME ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC3)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -856,7 +857,7 @@ void fenetreMenu(int* menu){
                                     //*vert3 = true;
                                     //couleurPion3(vert3);
                                 }
-                                ///QUATRIEME
+                                ///QUATRIEME ZONE DE TEXTE COULEUR
                                 if (sourisSurTexteCC4)
                                 {
                                     SetMouseCursor(MOUSE_CURSOR_IBEAM);
@@ -913,7 +914,7 @@ void fenetreMenu(int* menu){
                             PlaySound(sonBoutton); // son bouton
                         }
                     }
-                    default:break;
+                    default:break; // fin du switch regle enfant
                 }
 
                 if (IsKeyPressed(KEY_ESCAPE) ||  (positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))) // hitbox pour le boutton retour menu
@@ -1411,7 +1412,7 @@ void creerSauvegardeJoueurPlateau(Joueur* j,tableau* t){ // fonction pour creer 
     fclose(fichierJoueur); // fermeture du fichier de joueur
 }
 
-
+//     Sound sonPoseTuile = LoadSound("../SonMenu/sonPoseTuiles.wav");
 //commit
 
 
