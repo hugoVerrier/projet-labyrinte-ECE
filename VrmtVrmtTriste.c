@@ -820,3 +820,42 @@ Joueur Recuperation_Trez(tableau T, Joueur Jul){
     }
     return Jul;
 }
+
+// FONCTIONS TOUR PAR TOUR
+
+tableau Tour_par_Tour(tableau T, Joueur J1, Joueur J2, Joueur J3, Joueur J4, int nb_Joueur) {
+    int input = getchar();
+    int num_J=0;
+    while (input !=/* esc*/) {
+        //Prend le nombre de joueurs et met les joueurs dans une boucle (avec la touche Esc en sortie) dans lequel le joueur déplace une case puis se déplace jusqu'au cul de sac
+        num_J=(num_J%nb_Joueur)+1;
+        switch (num_J) {
+            case 1: {
+                printf("%s C'est a toi de jouer", J1.pseudo);
+                T= Deplacement_Case(T);
+                T= Deplacement_joueur(T,J1);
+                break;
+            }
+            case 2: {
+                printf("%s C'est a toi de jouer", J2.pseudo);
+                T= Deplacement_Case(T);
+                T= Deplacement_joueur(T,J2);
+                break;
+            }
+            case 3: {
+                printf("%s C'est a toi de jouer", J3.pseudo);
+                T= Deplacement_Case(T);
+                T= Deplacement_joueur(T,J3);
+                break;
+            }
+            case 4: {
+                printf("%s C'est a toi de jouer", J4.pseudo);
+                T= Deplacement_Case(T);
+                T= Deplacement_joueur(T,J4);
+                break;
+            }
+    }
+        num_J++;
+}
+    return T;
+}
