@@ -1358,7 +1358,7 @@ void creerSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], tabl
                 }
                 fprintf(fichierNom, "\n");
             }
-            fprintf(fichierNom, "IRXYFJDHBGTS: ");
+            fprintf(fichierNom, "IRXYFJDHBGTS: "); // Sauvegarde de l'ID back end des cases :  ID - Rotation - X - Y - Fixe - Joueur - Droite - Haut - Bas - Gauche - Tresor - Spawn
             for (int k = 0; k < 12; k++) {
                 fprintf(fichierNom, "%d ", tb->Matrice[i][j].IRXYFJDHBGTS[k]);
             }
@@ -1434,13 +1434,13 @@ void lireSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], table
             fprintf(fichierNom, "Matrice[%d][%d]\n", i, j); // sauvegarde des donnees de la matrice
             for (int k = 0; k < 3; k++) {
                 for (int l = 0; l < 3; l++) {
-                    fread(&tb->Matrice[i][j].Tab[k][l],sizeof (int),1,fichierNom);
+                    fread(&tb->Matrice[i][j].Tab[k][l],sizeof (int),1,fichierNom); //Lis le tableau case par case et lis la matrice de ces dernières
                 }
                 fprintf(fichierNom, "\n");
             }
-            fscanf(fichierNom, "IRXYFJDHBGTS: ");
+            fscanf(fichierNom, "IRXYFJDHBGTS: "); //Sauvegarde L'id de chaque case avec : ID - Rotation - X - Y - Fixe - Joueur - Droite - Haut - Bas - Gauche - Tresor - Spawn
             for (int k = 0; k < 12; k++) {
-                fread(&tb->Matrice[i][j].IRXYFJDHBGTS[k],sizeof (int),1,fichierNom);
+                fread(&tb->Matrice[i][j].IRXYFJDHBGTS[k],sizeof (int),1,fichierNom); // Lecture de l'ID back-end
             }
             fscanf(fichierNom, "\n");
             fread(&tb->Matrice[i][j].rotation,sizeof (int),1,fichierNom);
@@ -1451,13 +1451,13 @@ void lireSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], table
     fscanf(fichierNom, "restante\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fread(&tb->restante.Tab[i][j],sizeof (int),1,fichierNom);
+            fread(&tb->restante.Tab[i][j],sizeof (int),1,fichierNom); //Lis la matrice de la case restante (case de deplacement)
         }
         fscanf(fichierNom, "\n");
     }
     fscanf(fichierNom, "IRXYFJDHBGTS: ");
     for (int i = 0; i < 12; i++) {
-        fread(&tb->restante.IRXYFJDHBGTS[i],sizeof (int),1,fichierNom);
+        fread(&tb->restante.IRXYFJDHBGTS[i],sizeof (int),1,fichierNom); // Lis l'ID de la case restante
     }
     fscanf(fichierNom, "\n");
     fread(&tb->restante.rotation,sizeof (int),1,fichierNom);

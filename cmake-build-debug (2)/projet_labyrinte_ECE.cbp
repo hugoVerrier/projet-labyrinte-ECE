@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="projet_labyrinte_ECE"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\raylib\;CMake Files\raylib\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="projet_labyrinte_ECE">
+				<Option output="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/projet_labyrinte_ECE.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/."/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 projet_labyrinte_ECE"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="projet_labyrinte_ECE/fast">
+				<Option output="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/projet_labyrinte_ECE.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/."/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 projet_labyrinte_ECE/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package">
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 package"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package_source">
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 package_source"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raylib">
+				<Option output="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/libraylib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/."/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 raylib"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="raylib/fast">
+				<Option output="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/libraylib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/."/>
+					<Add directory="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 raylib/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/cmake-build-debug/raylib/raylib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/MenuGraphique.c">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/MenuGraphique.h">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/VrmtVrmtTriste.c">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/VrmtVrmtTriste.h">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/main.c">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/plateau.c">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/plateau.h">
+			<Option target="projet_labyrinte_ECE"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/raylib.h">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/raymath.h">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rcore.c">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rlgl.h">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rmodels.c">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rshapes.c">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rtext.c">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/rtextures.c">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/utils.c">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/utils.h">
+			<Option target="raylib"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\raylib\"/>
+		</Unit>
+		<Unit filename="C:/Users/hugov/CLionProjects/projet-labyrinte-ECE/raylib/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\raylib\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

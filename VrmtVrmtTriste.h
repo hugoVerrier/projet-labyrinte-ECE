@@ -49,4 +49,7 @@ Joueur Recuperation_Trez(tableau T, Joueur Jul);
 // Fonction d'actualisation
 Joueur Actu_Joueur(tableau T, Joueur J);
 tableau Actu_Trez_Tableau(tableau T, Joueur J);
+
+//Fonction de tour par tour
+tableau Tour_par_Tour(tableau T, Joueur J1, Joueur J2, Joueur J3, Joueur J4, int nb_Joueur);
 #endif //CA_ME_REND_TRISTE_VRMTVRMTTRISTE_H

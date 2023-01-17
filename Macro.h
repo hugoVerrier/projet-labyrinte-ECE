@@ -11,6 +11,7 @@
 #define LIGNE 7
 #define NBCASE 34
 #define DIMENSION 10
+#define DIMENSIONP 15
 
 
 #endif

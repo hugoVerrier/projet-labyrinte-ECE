@@ -10,7 +10,7 @@
 #include <string.h> // pour les chaines de caracters utilisees pour les zones de textes en graphique
 #include <stdlib.h> // fonction exit
 #include <unistd.h> // pour la gestion du temps
-#include "raylib.h" // pour utiliser l'interface graphique
+#include <raylib/src/raylib.h> // pour utiliser l'interface graphique
 #include <time.h> // pour le temps basique
 
 
