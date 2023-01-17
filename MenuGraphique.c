@@ -1465,3 +1465,5 @@ void lireSauvegardePartie(DonneesPartie* dp, Joueur* joueur[dp->nbJoueur], table
     fclose(fichierNom); // fermeture du fichier de sauvegarde plateau
     dp->nbSauvegarde++; // mise a jour du nombre de sauvegarde
 }
+
+//commit
