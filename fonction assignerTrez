@@ -1,0 +1,12 @@
+int assignerTrez(int Trez, int nb_Trez, int nb_joueur, int R, int joueurActu,int *joueurTrez){
+    while (nb_Trez<0||nb_Trez>=24);// tant que le nombre de tresors est compris entre 1 et 24
+    srand (time(NULL));// generateur de nombre aleatoire
+    for(int i=1; i<=nb_joueur;i++)//Parcours les joueurs
+    {
+        R=rand();// renomme Rand()
+        joueurActu=i;// Attribut un indice a joueurActu
+        Trez=R%nb_Trez;// prend un tresor aleatoirement
+        joueurTrez[joueurActu]=Trez;// attribut un tresors au joueur actu par adresse
+
+    }
+    return 0;
