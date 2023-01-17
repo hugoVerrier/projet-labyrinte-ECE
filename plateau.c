@@ -6,7 +6,7 @@
 #include "plateau.h"
 #include "MenuGraphique.h"
 
-
+// sert a afficher dans la consol, a les initier et leur attribuer une valeurs
 void affichageConsol(Cases plateau[NBCASE],Cases PlateauAfficher[LIGNE][COLONNE],Cases PlateauAttend[2]){
     RemplirPlateauLFixe(PlateauAfficher);
     RemplirPlateauTFixe(PlateauAfficher);
@@ -16,6 +16,7 @@ void affichageConsol(Cases plateau[NBCASE],Cases PlateauAfficher[LIGNE][COLONNE]
     AfficchageConsolPlateau(PlateauAfficher,PlateauAttend);
 }
 
+// Comnine les deux tableau utlisé pour n'en faire qu'un et l'afficher
 void RemplirTabCaseAfficher(Cases plateau[NBCASE],Cases PlateauAfficher[LIGNE][COLONNE],Cases PlateauAttend[2]){
     for (int i = 0; i < LIGNE; ++i) {
         for (int j = 0; j < COLONNE; ++j) {
@@ -33,6 +34,7 @@ void RemplirTabCaseAfficher(Cases plateau[NBCASE],Cases PlateauAfficher[LIGNE][C
     plateau[33].type=0;
 }
 
+//Remplis un tableau des differentes cases mobile
 void RemplirTabCase(Cases* plateau){
     //remplis les 12 I
     for (int i = 0; i < 12; ++i) {
@@ -52,6 +54,7 @@ void RemplirTabCase(Cases* plateau){
     MelangeTab(plateau);
 }
 
+//Melange le tableau entrer en parametre
 void MelangeTab(Cases* plateau) {
     for (int i = NBCASE - 1; i > 0; i--) {
         int j = rand() % (i + 1);
@@ -61,6 +64,7 @@ void MelangeTab(Cases* plateau) {
     }
 }
 
+//Rempli un tableau de Case L qui ne bougeront pas
 void RemplirPlateauLFixe(Cases PlateauAfficher[LIGNE][COLONNE]){
     Cases L1,L2,L3,L4;
     L1.rotation=0;
@@ -77,6 +81,7 @@ void RemplirPlateauLFixe(Cases PlateauAfficher[LIGNE][COLONNE]){
     PlateauAfficher[6][6]=L3;
 }
 
+// Remplis un tableau de case T qui ne vont pas bouger
 void RemplirPlateauTFixe(Cases PlateauAfficher[LIGNE][COLONNE]){
     Cases T1,T2,T3,T4;
     T1.rotation=0;
@@ -101,6 +106,7 @@ void RemplirPlateauTFixe(Cases PlateauAfficher[LIGNE][COLONNE]){
     PlateauAfficher[4][4]=T3;
 }
 
+//Affiche un pleatu de valeurs consol permettant de nous aider sur certaines partis durant les essaie
 void AfficchageConsolPlateau(Cases PlateauAfficher[LIGNE][COLONNE],Cases PlateauAttend[2]){
     for (int i = 0; i < LIGNE; ++i) {
         for (int j = 0; j < COLONNE; ++j) {
@@ -111,6 +117,7 @@ void AfficchageConsolPlateau(Cases PlateauAfficher[LIGNE][COLONNE],Cases Plateau
     printf("\n\n %d.%d",PlateauAttend[0].type,PlateauAttend[0].rotation);
 }
 
+//Permet de choissir la cases que l'ont afficher selon x et y que l'ont decide et retourne une Texture
 Texture2D ChoixDeCases(Cases PlateauAfficher[LIGNE][COLONNE],int x,int y,Texture2D I1,Texture2D I2,Texture2D L1,Texture2D L2,Texture2D L3,Texture2D L4,Texture2D T1,Texture2D T2,Texture2D T3,Texture2D T4){
     switch (PlateauAfficher[x][y].type) {
         case 1 :
@@ -144,6 +151,7 @@ Texture2D ChoixDeCases(Cases PlateauAfficher[LIGNE][COLONNE],int x,int y,Texture
     }
 }
 
+//Permet de faire un choix sur l'image renvoyer a la cases exterieur du plateau et retourne la case de dehors
 Texture2D ChoixDeCasesDehors(Cases PlateauAttend[2],int x,Texture2D I1,Texture2D I2,Texture2D L1,Texture2D L2,Texture2D L3,Texture2D L4,Texture2D T1,Texture2D T2,Texture2D T3,Texture2D T4){
     if(PlateauAttend[0].type==1){
         PlateauAttend[0].rotation = PlateauAttend[0].rotation%2;
@@ -183,7 +191,8 @@ Texture2D ChoixDeCasesDehors(Cases PlateauAttend[2],int x,Texture2D I1,Texture2D
     }
 }
 
-Texture2D ChoixPoins(Joueur J, char Jaune[6], char Bleu[6],char Rouge[6], char Vert[6],Texture2D PionsJaune,Texture2D PionsVert,Texture2D PionsRouge, Texture2D PionsBleu){
+//Permet de choissir les pions selon le texte entrer au debut dans le menu
+Texture2D ChoixPions(Joueur J, char Jaune[6], char Bleu[6],char Rouge[6], char Vert[6],Texture2D PionsJaune,Texture2D PionsVert,Texture2D PionsRouge, Texture2D PionsBleu){
     if(strcmp(J.couleur,Jaune)){
         J.pions=PionsJaune;
         J.couleurT=0;
@@ -202,6 +211,7 @@ Texture2D ChoixPoins(Joueur J, char Jaune[6], char Bleu[6],char Rouge[6], char V
     }
 }
 
+//Plateau des tresor qui se rempli de manière aléatoire
 Texture2D PlateauTresor(Cases PlateauAfficher[LIGNE][COLONNE]){
     int nbtresor=24,a,b,veriftresor=0;
     for (int i = 0; i < 7; ++i) {
@@ -219,11 +229,14 @@ Texture2D PlateauTresor(Cases PlateauAfficher[LIGNE][COLONNE]){
             }
         }
         else if((a%7!=0)&&(b%7!=0)){
-            if(PlateauAfficher[a][b].tresor==0){
-                PlateauAfficher[a][b].tresor=nbtresor;
-                nbtresor--;
+            if( (a!=6)&&(b!=6)){
+                if(PlateauAfficher[a][b].tresor==0){
+                    PlateauAfficher[a][b].tresor=nbtresor;
+                    nbtresor--;
+                }
             }
         }
+
     }
     for (int i = 0; i < 7; ++i) {
         for (int j = 0; j < 7; ++j) {
@@ -234,6 +247,7 @@ Texture2D PlateauTresor(Cases PlateauAfficher[LIGNE][COLONNE]){
     }
 }
 
+//Permet d'afficher le tresor voulu selon la valeur de x et y
 Texture2D ChoixTresor(Cases PlateauAfficher[LIGNE][COLONNE],int x ,int y,Texture2D AileHarpie,Texture2D ArcArtemis,Texture2D BoitePandore,Texture2D BotteHermes,Texture2D Casqueachille,Texture2D Centaure, Texture2D Cerbere, Texture2D ChevalDeTroie, Texture2D ChouetteAthena,Texture2D CorneMinotaure, Texture2D CoupeDyonisos,Texture2D EpeeAres, Texture2D FilArianne, Texture2D FlammeHades, Texture2D FleurAphrodite, Texture2D FoudreZeus, Texture2D HarpeApollon, Texture2D MarteauEphaistos, Texture2D OeilCyclope, Texture2D OeilMoires, Texture2D Pegase, Texture2D TeteGorgonne, Texture2D ToisonOr, Texture2D TridentPoseidon, Texture2D FondVide){
     switch (PlateauAfficher[x][y].tresor) {
         case 0 : {return FondVide;
@@ -291,6 +305,7 @@ Texture2D ChoixTresor(Cases PlateauAfficher[LIGNE][COLONNE],int x ,int y,Texture
     }
 }
 
+// Permet d afficher la cases exterieur equipe d'un tresor si besoin
 Texture2D ChoixTresorDehors(Cases PlateauAttend[2],int x ,Texture2D AileHarpie,Texture2D ArcArtemis,Texture2D BoitePandore,Texture2D BotteHermes,Texture2D Casqueachille,Texture2D Centaure, Texture2D Cerbere, Texture2D ChevalDeTroie, Texture2D ChouetteAthena,Texture2D CorneMinotaure, Texture2D CoupeDyonisos,Texture2D EpeeAres, Texture2D FilArianne, Texture2D FlammeHades, Texture2D FleurAphrodite, Texture2D FoudreZeus, Texture2D HarpeApollon, Texture2D MarteauEphaistos, Texture2D OeilCyclope, Texture2D OeilMoires, Texture2D Pegase, Texture2D TeteGorgonne, Texture2D ToisonOr, Texture2D TridentPoseidon, Texture2D FondVide){
     switch (PlateauAttend[x].tresor) {
         case 0 : {return FondVide;
@@ -349,7 +364,10 @@ Texture2D ChoixTresorDehors(Cases PlateauAttend[2],int x ,Texture2D AileHarpie,T
 }
 
 
+
+// Fonction principal qui affiche le pleatu de jeu et ses fonction
 void AffichageRaylib(int nbJ){
+    // Initialisation
     Cases plateau[NBCASE];
     Cases PlateauAfficher[LIGNE][COLONNE]={0};
     Cases PlateauAttend[2]={0};
@@ -360,7 +378,7 @@ void AffichageRaylib(int nbJ){
     ToggleFullscreen();
     Fenetre FenetreActuelle = PLATEAU;
 
-
+    //chargement des images
     Image fondImage = LoadImage("../ImagesMenu/fond.png");
     ImageResize(&fondImage,GetScreenWidth(),GetScreenHeight());
     Texture2D fond = LoadTextureFromImage(fondImage);
@@ -588,15 +606,14 @@ void AffichageRaylib(int nbJ){
         DrawTextureEx(quitter,(Vector2){GetScreenWidth()-GetScreenWidth()/16,GetScreenHeight()/32},0.0f,1.0f,WHITE);
         Joueur J,J2,J3,J4;
 
-
-
+        // Doit afficher selon le nombre de joueur differente cases, avec leur pions et la couleur qui correscpont
         if(nbJ==2){
             J.x = 0;
             J.y=0;
             J2.x = 6;
             J2.y=6;
-            ChoixPoins(J,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
-            ChoixPoins(J2,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J2,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
         }
         else if(nbJ==3){
             J.x = 0;
@@ -605,82 +622,26 @@ void AffichageRaylib(int nbJ){
             J2.y=6;
             J3.x=6;
             J3.y=0;
-            ChoixPoins(J,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
-            ChoixPoins(J2,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
-            ChoixPoins(J3,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J2,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J3,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
         }
         else if(nbJ==4){
-
-            J.x = 0;
+            J.x=0;
             J.y=0;
-            J2.x = 6;
+            J2.x=6;
             J2.y=6;
             J3.x=6;
             J3.y=0;
             J4.x=0;
             J4.y=6;
-            ChoixPoins(J,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
-            ChoixPoins(J2,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
-            ChoixPoins(J3,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
-            ChoixPoins(J4,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J2,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J3,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
+//            ChoixPoins(J4,Jaune,Bleu,Rouge,Vert,PionsJaune,PionsVert,PionsRouge,PionsBleu);
         }
 
-        //      Afichage cases des joueur
-        switch (nbJ) {
-            case 2 :
-//                if(J.couleurT==0){
-//                    DrawRectangle(1750,900,200,150,YELLOW);
-//                    DrawTextureEx(J.pions,(Vector2){1750,200},0.0f,1.0f,YELLOW);
-//                }else if(J.couleurT==1){
-//                    DrawRectangle(1750,900,200,150,BLUE);
-//                    DrawTextureEx(J.pions,(Vector2){1750,200},0.0f,1.0f,BLUE);
-//                }else if(J.couleurT==2){
-//                    DrawRectangle(1750,900,200,150,RED);
-//                    DrawTextureEx(J.pions,(Vector2){1750,200},0.0f,1.0f,RED);
-//                }else if(J.couleurT==3){
-//                    DrawRectangle(1750,900,200,150,GREEN);
-//                    DrawTextureEx(J.pions,(Vector2){1750,200},0.0f,1.0f,GREEN);
-//                }
-//                else{DrawRectangle(1750,900,200,150,WHITE);
-//                    DrawTextureEx(J.pions,(Vector2){1750,200},0.0f,1.0f,WHITE);}
-//
-//                if(J2.couleurT==0){
-//                    DrawRectangle(1750,900,200,150,YELLOW);
-//                    DrawTextureEx(J2.pions,(Vector2){1750,200},0.0f,1.0f,YELLOW);
-//                }else if(J2.couleurT==1){
-//                    DrawRectangle(1750,900,200,150,BLUE);
-//                    DrawTextureEx(J2.pions,(Vector2){1750,200},0.0f,1.0f,BLUE);
-//                }else if(J2.couleurT==2){
-//                    DrawRectangle(1750,900,200,150,RED);
-//                    DrawTextureEx(J2.pions,(Vector2){1750,200},0.0f,1.0f,RED);
-//                }else if(J2.couleurT==3){
-//                    DrawRectangle(1750,900,200,150,GREEN);
-//                    DrawTextureEx(J2.pions,(Vector2){1750,200},0.0f,1.0f,GREEN);
-//                }
-//                else{DrawRectangle(1750,900,200,150,WHITE);
-//                    DrawTextureEx(J2.pions,(Vector2){1750,200},0.0f,1.0f,WHITE);}
-                DrawRectangle(1750,900,200,150,YELLOW);
-                DrawRectangle(1750,200,200,150,YELLOW);
-                break;
-
-            case 3 :
-                DrawRectangle(1750,200,200,150,YELLOW);
-                DrawRectangle(1750,550,200,150,YELLOW);
-                DrawRectangle(1750,900,200,150,YELLOW);
-                break;
-
-            case 4 :
-                DrawRectangle(1750,200,200,150,YELLOW);
-                DrawRectangle(1750,400,200,150,YELLOW);
-                DrawRectangle(1750,600,200,150,YELLOW);
-                DrawRectangle(1750,800,200,150,YELLOW);
-
-            default:
-                DrawRectangle(1750,900,200,150,YELLOW);
-                DrawRectangle(1750,200,200,150,YELLOW);
-                break;
-        }
-
+        //boutton de rotation de la case exterieur
         if(((   (positionSouris.x>=GetScreenHeight()/7) &&
                 (positionSouris.x<=GetScreenHeight()/7+GetScreenWidth()/16)) &&
             ((positionSouris.y>=GetScreenWidth()/8+2.5*I1.height) &&
@@ -693,7 +654,7 @@ void AffichageRaylib(int nbJ){
         }
 
 
-        //fleche de droite première ligne
+        //bouton fleche de droite première ligne
         if( ((((positionSouris.x>=GetScreenWidth()/3+7*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+7*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+I1.width) &&
@@ -717,7 +678,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche de droite deuxieme ligne
+        //bouton fleche de droite deuxieme ligne
         if( ((((positionSouris.x>=GetScreenWidth()/3+7*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+7*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+3*I1.width) &&
@@ -741,7 +702,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche de droite troisieme ligne
+        //bouton fleche de droite troisieme ligne
         if( ((((positionSouris.x>=GetScreenWidth()/3+7*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+7*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+5*I1.width) &&
@@ -765,7 +726,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche de gauche première ligne
+        //bouton fleche de gauche première ligne
         if( ((((positionSouris.x>=GetScreenWidth()/3-I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3-I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+I1.width) &&
@@ -789,7 +750,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche de gauche deuxieme ligne
+        //bouton fleche de gauche deuxieme ligne
         if( ((((positionSouris.x>=GetScreenWidth()/3-I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3-I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+3*I1.width) &&
@@ -813,7 +774,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche de gauche troisieme ligne
+        //bouton fleche de gauche troisieme ligne
         if( ((((positionSouris.x>=GetScreenWidth()/3-I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3-I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+5*I1.width) &&
@@ -837,7 +798,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche du bas premire colone
+        //bouton fleche du bas premire colone
         if( ((((positionSouris.x>=GetScreenWidth()/3+I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8-I1.width) &&
@@ -862,7 +823,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche du bas deuxieme colonne
+        //bouton fleche du bas deuxieme colonne
         if( ((((positionSouris.x>=GetScreenWidth()/3+3*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+3*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8-I1.width) &&
@@ -887,7 +848,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche du bas troisieme colonne
+        //bouton fleche du bas troisieme colonne
         if( ((((positionSouris.x>=GetScreenWidth()/3+5*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+5*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8-I1.width) &&
@@ -912,7 +873,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche du haut premiere colonne
+        //bouton fleche du haut premiere colonne
         if( ((((positionSouris.x>=GetScreenWidth()/3+I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+7*I1.width) &&
@@ -937,7 +898,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche du haut deuxieme colonne
+        //bouton fleche du haut deuxieme colonne
         if( ((((positionSouris.x>=GetScreenWidth()/3+3*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+3*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+7*I1.width) &&
@@ -962,7 +923,7 @@ void AffichageRaylib(int nbJ){
             EndDrawing();
         }
 
-        //fleche du haut troisieme colonne
+        //bouton fleche du haut troisieme colonne
         if( ((((positionSouris.x>=GetScreenWidth()/3+5*I1.width) &&
                (positionSouris.x<=GetScreenWidth()/3+5*I1.width+flecheD.width)) &&
               ((positionSouris.y>=GetScreenHeight()/8+7*I1.width) &&
@@ -1120,7 +1081,1110 @@ void AffichageRaylib(int nbJ){
         DrawTextureEx(flecheD,(Vector2){GetScreenWidth()/3+8*I1.width,GetScreenHeight()/8+4*I1.width},180.0f,1.0f,WHITE); // fleche de droite deuxieme ligne
         DrawTextureEx(flecheD,(Vector2){GetScreenWidth()/3+8*I1.width,GetScreenHeight()/8+6*I1.width},180.0f,1.0f,WHITE); // fleche de droite troisième ligne
 
+        //Affichage des pions des Joueurs selon leur position
+        switch (J.x) {
+            case 0 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 1 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 2 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 3 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 4 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 5 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 6 :
+                switch (J.y) {
+                    case 0 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsBleu, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+        }
+        switch (J2.x) {
+            case 0 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 1 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 2 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 3 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 4 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 5 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 6 :
+                switch (J2.y) {
+                    case 0 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsJaune, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+        }
+        switch (J3.x) {
+            case 0 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 1 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 2 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 3 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 4 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 5 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 6 :
+                switch (J3.y) {
+                    case 0 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsRouge, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                             GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+        }
+        switch (J4.x) {
+            case 0 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 1 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 1.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 2 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 2.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 3 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 3.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 4 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 4.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 5 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 5.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 0.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+            case 6 :
+                switch (J4.y) {
+                    case 0 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 0.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 1 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 1.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 2 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 2.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 3 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 3.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 4 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 4.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 5 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 5.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                    case 6 :
+                        DrawTextureEx(PionsVert, (Vector2) {GetScreenWidth() / 3 + 6.25 * I1.width,
+                                                            GetScreenHeight() / 8 + 6.25 * I1.width}, 0.0f, 0.5f,
+                                      WHITE);
+                        break;
+                }
+                break;
+        }
 
+
+        // Permet de quitter le jeu
         if (IsKeyPressed(KEY_ESCAPE) || ((positionSouris.x >= GetScreenWidth()-GetScreenWidth()/16) && (positionSouris.x <= GetScreenWidth()-GetScreenWidth()/16 + quitterImage.width) && (positionSouris.y >= GetScreenHeight()/32) && (positionSouris.y <= GetScreenHeight()/32 +quitterImage.height) && (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))) {
             fin = true;
             //PlaySound(sonBoutton);
@@ -1133,12 +2197,10 @@ void AffichageRaylib(int nbJ){
 }
 
 
-
-//void AfficherJoueur(Joueur* J){
-//    switch(J->x){
-//        case 1 : switch (J->y){
-//            case 1 :
-//        }
-//    }
-//
-//}
+// Avec un peu plus de temps nous aurions pue implementer des codes fait en consol dans le graphique
+// Les déplcament par exemple on était en consol il ne fallait que les mettre dans la partie graphique
+// Deplus nous aurions fait de meme avec le système de tout qui a été mis
+// Cela nous aurait permsi de finir sur la recupartion de tresor qui a aussi été faites avec la
+// Distribution des tresor au joueur mais qui n'avais pas encore été implementé
+// Deplus nous aurions ajouté tout les données de cette pages au savegarde
+// A cause des probleme de la bibliothèque graphique nous avons pris beaucoup de retard.

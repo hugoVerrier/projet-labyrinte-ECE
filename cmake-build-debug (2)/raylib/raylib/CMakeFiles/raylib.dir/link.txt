@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libraylib.a CMakeFiles/raylib.dir/rcore.c.obj CMakeFiles/raylib.dir/rmodels.c.obj CMakeFiles/raylib.dir/rshapes.c.obj CMakeFiles/raylib.dir/rtext.c.obj CMakeFiles/raylib.dir/rtextures.c.obj CMakeFiles/raylib.dir/utils.c.obj
+C:\MinGW\bin\ranlib.exe libraylib.a
