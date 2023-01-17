@@ -568,7 +568,7 @@ tableau init_Tableau(){
     tableau T;
     Cases K_i;
     srand(time(NULL));
-    T = Init_Tableau_Fixe()
+    T = Init_Tableau_Fixe();
     // crée un nombre prédéterminé de case selon leur type et les randomise dans le plateau
     NBI=12;
     NBL=16;
@@ -846,7 +846,7 @@ Joueur Recuperation_Trez(tableau T, Joueur Jul){
 tableau Tour_par_Tour(tableau T, Joueur J1, Joueur J2, Joueur J3, Joueur J4, int nb_Joueur) {
     int input = getchar();
     int num_J=0;
-    while (input !=/* esc*/) {
+    while (input !=/* esc*/num_J) {
         //Prend le nombre de joueurs et met les joueurs dans une boucle (avec la touche Esc en sortie) dans lequel le joueur déplace une case puis se déplace jusqu'au cul de sac
         num_J=(num_J%nb_Joueur)+1;
         switch (num_J) {
